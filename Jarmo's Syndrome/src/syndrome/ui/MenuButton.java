@@ -1,0 +1,26 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package syndrome.ui;
+
+import javafx.scene.control.Button;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
+
+/**
+ *
+ * @author Janne Koskinen
+ */
+public class MenuButton extends Button {
+    
+    public MenuButton(String text, String color) {
+        super.setText(text);
+        super.setTextFill(Paint.valueOf(color));
+        super.setFont(Font.font("8BIT WONDER", 15));
+        super.setMaxSize(500, 500);
+        super.getStylesheets().add(getClass().getResource("/resources/css/general_button.css").toExternalForm());
+    }
+    
+}
