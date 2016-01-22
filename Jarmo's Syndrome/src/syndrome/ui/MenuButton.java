@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package syndrome.ui;
 
 import javafx.scene.control.Button;
@@ -11,7 +6,7 @@ import javafx.scene.text.Font;
 
 /**
  *
- * @author Janne Koskinen
+ * @author Axel Wallin
  */
 public class MenuButton extends Button {
     
