@@ -4,7 +4,7 @@ import syndrome.GameSettings;
 
 /**
  *
- * @author Janne Koskinen
+ * @author Axel Wallin
  */
 public class SyndromeFactory {
     

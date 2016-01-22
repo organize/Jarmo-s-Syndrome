@@ -4,7 +4,7 @@ import javafx.scene.control.Control;
 
 /**
  *
- * @author Janne Koskinen
+ * @author Axel Wallin
  */
 public class Toolbox {
     
