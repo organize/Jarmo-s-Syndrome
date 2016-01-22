@@ -1,7 +1,7 @@
 #Aihe
 
 Jarmon syndroomassa pelaaja on virus ja objektiivi on levitä (tai levittää, en tiedä vielä) mahdollisimman paljon.
-Valkosolut ovat pahin vihollisesi. Solujen suojakerrokset vaihtelevat, joten pelaajan tulee tehdä päätöksia reaaliajassa ja muokata virustaan tartuttaakseen <b>kaikki</b>
+Valkosolut ovat pahin vihollisesi. Solujen suojakerrokset vaihtelevat, joten pelaajan tulee tehdä päätöksia reaaliajassa ja muokata virustaan tartuttaakseen <b>kaikki</b>! Itse mekaniikat ovat toistaiseksi auki, mutta peli on ehdottomasti progressiivinen, hahmo siis kehittyy (ei tarinallisesti) ja tasot vaikeutuvat. Pelaajalla on mahdollisuus löytää hyödyllisiä 'tavaroita' pelatessaan ja käyttää niitä helpottamaan elämäänsä vaikeissa tasoissa. 
 
 #Käyttäjät
 
