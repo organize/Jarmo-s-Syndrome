@@ -8,6 +8,7 @@ Ideoita:
 * Mutaatiot, virusten nopea tapa muuttua
 * Lääkkeet, jotka estävät pääsyn mm. virukselle elintärkeisiin proteiini-ja-happorakenteisiin.
 * Virukselle ominainen taso, joka pelin myötä progressiivinen. Tuo mukanaan tehokkaampia tapoja levitä.
+* ... all for now
 
 Toistaiseksi epävarmaa mitkä näistä ideoista päätyvät itse peliin.
 
