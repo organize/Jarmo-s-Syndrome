@@ -34,9 +34,19 @@
 				<version>3.3</version>
 			</plugin>
 			<plugin>
-				<groupId>org.pitest</groupId>
+				<groupId>syndrome</groupId>
 				<artifactId>pitest-maven</artifactId>
 				<version>1.1.8</version>
+				<configuration>
+					<targetClasses>
+						<param>syndrome.tools.*</param>
+						<param>syndrome.logic.map.*</param>
+					</targetClasses>
+					<targetTests>
+						<param>syndrome.tools.*</param>
+						<param>syndrome.logic.map.*</param>
+					</targetTests>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
