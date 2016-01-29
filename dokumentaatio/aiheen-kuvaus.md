@@ -19,7 +19,9 @@ Toistaiseksi epävarmaa mitkä näistä ideoista päätyvät itse peliin.
   * Ohjaa virusta
   * Valitsee pelin vaikeustason
   * Valitsee, miten mutatoi virustaan pelin kehittyessä
-  * 
+   * Mutaatioketjuja useampia, pelaajan valinta määrittää, miten peli etenee
+  * Vaikuttaa pelaamisellaan tulevaisuuteensa
+   * esim. tuhoamalla T-soluja tasossa n johtaa vähempään määrään T-soluja tasossa n+1.
 
 #Määrittelyvaiheen luokkakaavio
 
