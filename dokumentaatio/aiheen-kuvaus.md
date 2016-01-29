@@ -15,7 +15,11 @@ Toistaiseksi epävarmaa mitkä näistä ideoista päätyvät itse peliin.
 
 #Käyttäjät
 
-Pelaaja on ainoa käyttäjä tässä projektissa.
+<b>Pelaaja</b>
+  * Ohjaa virusta
+  * Valitsee pelin vaikeustason
+  * Valitsee, miten mutatoi virustaan pelin kehittyessä
+  * 
 
 #Määrittelyvaiheen luokkakaavio
 
