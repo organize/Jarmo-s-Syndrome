@@ -16,3 +16,7 @@ Toistaiseksi epävarmaa mitkä näistä ideoista päätyvät itse peliin.
 #Käyttäjät
 
 Pelaaja on ainoa käyttäjä tässä projektissa.
+
+#Määrittelyvaiheen luokkakaavio
+
+![Alt text](classDiagram.png)
