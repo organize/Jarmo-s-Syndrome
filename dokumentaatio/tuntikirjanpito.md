@@ -22,3 +22,6 @@
 	
 	Tunnit: 3
 	Kohde: Lisäsin näppäimistön kuuntelun, muovasin ajastimia, pelaajaa, hiirtä ja liikkumista. Paljon testikoodia.
+	
+<h4>Kokonaistunnit</h4>
+	13.5
