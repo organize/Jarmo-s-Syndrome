@@ -1,4 +1,4 @@
-<h2>20.01.2016</h2>
+<h4>20.01.2016</h4>
 
 	Tunnit: 2.5
 	Kohde: Projektin aloitus, ideoiden muovaileminen.
