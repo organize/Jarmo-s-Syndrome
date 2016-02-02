@@ -1,12 +1,8 @@
-package syndrome.tools;
+package syndrome.other;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.scene.media.AudioClip;
 
 /**
@@ -26,11 +22,12 @@ public class AudioManager {
             throw new NullPointerException("filename cannot be null");
         }
         try {
-            String path = getClass().getResource("/resources/audio/music/" + filename + ".mp3").toExternalForm();
-            AudioClip clip = new AudioClip(path);
+            URL resource = getClass().getResource("/resources/audio/music/" + filename + ".mp3");
+            AudioClip clip = new AudioClip(resource.toExternalForm());
             clip.setVolume(0.10);
             cache.put(identifier, clip);
         } catch(NullPointerException exception) {
+            exception.printStackTrace();
             throw new AssertionError("file " + filename + ".mp3 not found");
         }
     }

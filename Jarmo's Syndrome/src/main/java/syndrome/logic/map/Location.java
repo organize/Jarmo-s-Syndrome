@@ -33,6 +33,11 @@ public class Location {
         return new Location(middleX, middleY);
     }
     
+    public void transform(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+    
     @Override
     public String toString() {
         return "[" + x + ", " + y + "]";

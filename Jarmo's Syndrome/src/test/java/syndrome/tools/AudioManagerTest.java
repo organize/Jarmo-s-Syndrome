@@ -1,5 +1,6 @@
 package syndrome.tools;
 
+import syndrome.other.AudioManager;
 import java.io.FileNotFoundException;
 import static org.junit.Assert.assertEquals;
 

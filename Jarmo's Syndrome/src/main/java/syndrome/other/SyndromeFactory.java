@@ -1,6 +1,8 @@
-package syndrome.tools;
+package syndrome.other;
 
 import syndrome.GameSettings;
+import syndrome.logic.World;
+import syndrome.ui.GUIManager;
 
 /**
  *
@@ -11,6 +13,8 @@ public class SyndromeFactory {
     private static Toolbox toolbox;
     private static AudioManager audioManager;
     private static GameSettings settings;
+    private static GUIManager guiManager;
+    private static World world;
     
     public static Toolbox getToolbox() {
         if(toolbox == null) {
@@ -31,6 +35,20 @@ public class SyndromeFactory {
             settings = new GameSettings();
         }
         return settings;
+    }
+
+    public static GUIManager getGUIManager() {
+         if(guiManager == null) {
+            guiManager = new GUIManager();
+        }
+        return guiManager;
+    }
+    
+    public static World getWorld() {
+         if(world == null) {
+            world = new World();
+        }
+        return world;
     }
     
 }

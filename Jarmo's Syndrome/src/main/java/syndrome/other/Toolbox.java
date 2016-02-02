@@ -1,4 +1,4 @@
-package syndrome.tools;
+package syndrome.other;
 
 import javafx.scene.control.Control;
 
