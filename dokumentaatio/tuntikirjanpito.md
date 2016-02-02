@@ -6,7 +6,7 @@
 22.01.2016
 	
 	Tunnit: 3
-	Kohde: Mavenin sek� PITin integrointi, lis�suunnittelua ja koodailua.
+	Kohde: Mavenin sekä PITin integrointi, lisäsuunnittelua ja koodailua.
 	
 25.01.2016
 	
@@ -16,4 +16,9 @@
 29.01.2016
 	
 	Tunnit: 3
-	Kohde: PITin generointi, m��rittelyvaiheen luokkakaavioiden laatiminen.
+	Kohde: PITin generointi, määrittelyvaiheen luokkakaavioiden laatiminen.
+	
+02.02.2016
+	
+	Tunnit: 3
+	Kohde: Lisäsin näppäimistön kuuntelun, muovasin ajastimia, pelaajaa, hiirtä ja liikkumista. Paljon testikoodia.
