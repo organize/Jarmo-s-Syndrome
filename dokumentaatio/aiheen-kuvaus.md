@@ -15,4 +15,16 @@ Toistaiseksi epävarmaa mitkä näistä ideoista päätyvät itse peliin.
 
 #Käyttäjät
 
-Pelaaja on ainoa käyttäjä tässä projektissa.
+<b>Pelaaja</b>
+  * Ohjaa virusta
+  * Valitsee pelin vaikeustason
+  * Valitsee, miten mutatoi virustaan pelin kehittyessä
+   * Mutaatioketjuja useampia, pelaajan valinta määrittää, miten peli etenee
+  * Vaikuttaa pelaamisellaan tulevaisuuteensa
+   * esim. tuhoamalla T-soluja tasossa n johtaa vähempään määrään T-soluja tasossa n+1.
+  * Käyttää pelipisteitään satunnaismutaatioiden ja muiden harvinaisten tapahtumien todennäköisyyksien korottamiseen.
+  * Määrittää peliasetukset
+
+#Määrittelyvaiheen luokkakaavio
+
+![Alt text](classDiagram.png)
