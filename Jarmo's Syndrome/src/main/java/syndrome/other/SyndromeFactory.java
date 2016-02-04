@@ -4,10 +4,6 @@ import syndrome.GameSettings;
 import syndrome.logic.World;
 import syndrome.ui.GUIManager;
 
-/**
- *
- * @author Axel Wallin
- */
 public class SyndromeFactory {
     
     private static Toolbox toolbox;

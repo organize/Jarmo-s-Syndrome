@@ -3,12 +3,7 @@ package syndrome;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import syndrome.other.SyndromeFactory;
-import syndrome.ui.GUIManager;
 
-/**
- * 
- * @author Axel Wallin
- */
 public class Syndrome extends Application {
     
     @Override

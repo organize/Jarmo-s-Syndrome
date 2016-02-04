@@ -1,5 +1,7 @@
-package syndrome.other;
+package syndrome.other.input;
 
+import java.awt.MouseInfo;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.event.EventHandler;
@@ -7,11 +9,9 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import syndrome.logic.entity.Direction;
 import syndrome.logic.entity.Player;
+import syndrome.logic.map.Location;
+import syndrome.other.SyndromeFactory;
 
-/**
- *
- * @author Axel Wallin
- */
 public class KeyboardInput implements EventHandler<KeyEvent> {
     
     private final List<KeyCode> held;
@@ -55,11 +55,6 @@ public class KeyboardInput implements EventHandler<KeyEvent> {
         KeyCode code = event.getCode();
         if(code.equals(KeyCode.ESCAPE)) {
             SyndromeFactory.getSettings().togglePause();
-            /*if (paused) {
-                getRoot().setCursor(Cursor.DEFAULT);
-            } else {
-                getRoot().setCursor(Cursor.NONE);
-            }*/
         }
         if(code.isLetterKey() && valid.contains(code)) {
             handleMovement(event.getCode());
@@ -90,5 +85,4 @@ public class KeyboardInput implements EventHandler<KeyEvent> {
             }
         }   
     }
-
 }

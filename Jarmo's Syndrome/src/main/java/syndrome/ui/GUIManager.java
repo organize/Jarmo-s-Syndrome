@@ -4,10 +4,6 @@ import javafx.stage.Stage;
 import syndrome.ui.impl.GameScreen;
 import syndrome.ui.impl.MainMenu;
 
-/**
- *
- * @author Axel Wallin
- */
 public class GUIManager {
     
     private SyndromeGUI mainMenu;
@@ -17,10 +13,12 @@ public class GUIManager {
     public GUIManager() {
         this.mainMenu = new MainMenu();
         this.gameScreen = new GameScreen();
-        Stage stage = new Stage();
-        stage.setResizable(false);
-        stage.setTitle("Jarmo's Syndrome");
-        this.stage = stage;
+        
+        Stage root = new Stage();
+        root.setResizable(false);
+        root.setTitle("Jarmo's Syndrome");
+        
+        this.stage = root;
     }
     
     public void drawMainMenu() {
@@ -34,7 +32,6 @@ public class GUIManager {
     
     public void drawGameScreen() {
         gameScreen.build(stage);
-        
         gameScreen.show();
     }
 

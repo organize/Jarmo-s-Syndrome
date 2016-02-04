@@ -2,10 +2,6 @@ package syndrome.ui;
 
 import javafx.stage.Stage;
 
-/**
- *
- * @author Axel Wallin
- */
 public interface SyndromeGUI {
     
     public void build(Stage stage);

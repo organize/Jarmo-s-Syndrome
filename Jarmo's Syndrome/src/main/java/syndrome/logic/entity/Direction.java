@@ -2,10 +2,6 @@ package syndrome.logic.entity;
 
 import javafx.scene.input.KeyCode;
 
-/**
- *
- * @author Axel Wallin
- */
 public enum Direction {
     
     NONE(null),

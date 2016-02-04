@@ -16,6 +16,10 @@ public abstract class Entity {
     
     public abstract Location getLocation();
     public abstract void setLocation(double x, double y);
+    
+    public abstract double getRotation();
+    public abstract void setRotation(double degrees);
+    
     public abstract EntityType getType();
     public abstract void tick();
     

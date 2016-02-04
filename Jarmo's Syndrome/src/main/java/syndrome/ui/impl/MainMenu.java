@@ -17,10 +17,6 @@ import syndrome.other.SyndromeFactory;
 import syndrome.ui.MenuButton;
 import syndrome.ui.SyndromeGUI;
 
-/**
- *
- * @author Axel Wallin
- */
 public class MainMenu implements SyndromeGUI {
     
     private Stage stage;

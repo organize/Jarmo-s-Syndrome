@@ -5,10 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 import javafx.scene.media.AudioClip;
 
-/**
- *
- * @author Axel Wallin
- */
 public class AudioManager {
     
     private final Map<String, AudioClip> cache;
@@ -27,7 +23,6 @@ public class AudioManager {
             clip.setVolume(0.10);
             cache.put(identifier, clip);
         } catch(NullPointerException exception) {
-            exception.printStackTrace();
             throw new AssertionError("file " + filename + ".mp3 not found");
         }
     }

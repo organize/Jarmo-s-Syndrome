@@ -8,17 +8,15 @@ import syndrome.logic.entity.NPC;
 import syndrome.logic.entity.Player;
 import syndrome.other.SyndromeFactory;
 
-/**
- *
- * @author Axel Wallin
- */
 public class SyndromeTimer extends AnimationTimer {
     
     private boolean paused;
     private Rectangle rect;
+    private long lastUpdate;
     
     public SyndromeTimer(Rectangle rect) {
         this.rect = rect;
+        this.lastUpdate = 0;
     }
 
     @Override
@@ -34,7 +32,10 @@ public class SyndromeTimer extends AnimationTimer {
             
             rect.setX(player.getLocation().getX());
             rect.setY(player.getLocation().getY());
+            
+            rect.setRotate(player.getRotation());
         }
+        this.lastUpdate = now;
     }
     
     public void setPaused(boolean bool) {

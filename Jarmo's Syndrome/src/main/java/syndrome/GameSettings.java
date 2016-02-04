@@ -2,10 +2,6 @@ package syndrome;
 
 import java.awt.Dimension;
 
-/**
- *
- * @author Axel Wallin
- */
 public class GameSettings {
     
     private Dimension resolution;
