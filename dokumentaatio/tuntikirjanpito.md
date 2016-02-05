@@ -23,5 +23,11 @@
 	Tunnit: 3
 	Kohde: Lisäsin näppäimistön kuuntelun, muovasin ajastimia, pelaajaa, hiirtä ja liikkumista. Paljon testikoodia.
 	
+<h4>04.02.2016 - 05.02.2016</h4>
+	
+	Tunnit: 6
+	Kohde: PIT-testien parantelua, testien kirjoittelua, bugien korjailua sekä muuta mukavaa
+	
+	
 <h4>Kokonaistunnit</h4>
-	13.5
+	19.5
