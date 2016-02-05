@@ -38,12 +38,22 @@
 				<artifactId>pitest-maven</artifactId>
 				<version>1.1.8</version>
 				<configuration>
+					<excludes> 
+                        <exclude>syndrome.other.input.MouseInput</exclude> 
+						<exclude>syndrome.other.input.KeyboardInput</exclude>
+                    </excludes> 
+					<excludedClasses>
+						<param>syndrome.other.input.MouseInput</param>
+						<param>syndrome.other.input.KeyboardInput</param>
+					</excludedClasses>
 					<targetClasses>
+						<param>syndrome.GameSettings</param>
 						<param>syndrome.tools.*</param>
 						<param>syndrome.logic.map.*</param>
 						<param>syndrome.logic.entity.*</param>
 					</targetClasses>
 					<targetTests>
+						<param>syndrome.GameSettingsTest</param>
 						<param>syndrome.tools.*</param>
 						<param>syndrome.logic.map.*</param>
 						<param>syndrome.logic.entity.*</param>

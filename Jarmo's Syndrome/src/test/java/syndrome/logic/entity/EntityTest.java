@@ -3,6 +3,7 @@ package syndrome.logic.entity;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
 
 public class EntityTest {
@@ -26,6 +27,17 @@ public class EntityTest {
         assertTrue(npc.getLocation().equals(location));
     }
 
+    @Test
+    public void testEntityRotation() {
+       Player player = new Player();
+       player.setRotation(30);
+       assertTrue(player.getRotation() == 30);
+       
+       NPC npc = new NPC();
+       npc.setRotation(10.0019);
+       assertTrue(npc.getRotation() == 10.0019);
+       assertFalse(npc.getRotation() == 10);
+    }
     
     @Test
     public void testCollisionBox() {
@@ -41,6 +53,40 @@ public class EntityTest {
         assertTrue(player.collidesWith(testNpc));
         testNpc.setLocation(304, 304);
         assertTrue(player.collidesWith(testNpc));
+        assertFalse(testNpc.collidesWith(player));
+    }
+    
+    @Test
+    public void testBounds() {
+        Player player = new Player();
+        Location playerLoc = player.getLocation();
+        Location[] actual = player.getBounds();
+        assertTrue(actual.length == 4);
+        assertTrue(actual[0].equals(playerLoc));
         
+        Location right = new Location(playerLoc.getX() + 8,
+            playerLoc.getY());
+        assertTrue(actual[1].equals(right));
+        
+        Location lowerLeft = new Location(playerLoc.getX(), 
+                playerLoc.getY() + 8);
+        assertTrue(actual[2].equals(lowerLeft));
+        
+        Location lowerRight = new Location(playerLoc.getX() + 8, 	
+                playerLoc.getY() + 8);
+        assertTrue(actual[3].equals(lowerRight));
+    }
+    
+    @Test
+    public void testMove() {
+        Player player = new Player();
+        final Location initial = player.getLocation();
+        player.tick();
+        assertTrue(initial.equals(player.getLocation()));
+        
+        Location expected = new Location(initial.getX(), initial.getY() - 2);
+        player.setDirection(Direction.NORTH);
+        player.tick();
+        assertTrue(expected.equals(player.getLocation()));
     }
 }

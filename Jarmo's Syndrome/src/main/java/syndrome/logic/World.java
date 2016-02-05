@@ -41,7 +41,7 @@ public class World {
         activeProjectiles.add(proj);
     }
     
-    public void remvoveProjectile(Projectile proj) {
+    public void removeProjectile(Projectile proj) {
         activeProjectiles.remove(proj);
     }
     
@@ -49,7 +49,7 @@ public class World {
         activeNPCs.add(npc);
     }
     
-    public void remvoveNPC(NPC npc) {
+    public void removeNPC(NPC npc) {
         activeNPCs.remove(npc);
     }
     

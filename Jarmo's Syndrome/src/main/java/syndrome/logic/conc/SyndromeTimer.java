@@ -41,5 +41,12 @@ public class SyndromeTimer extends AnimationTimer {
     public void setPaused(boolean bool) {
         this.paused = bool;
     }
+    
+    public boolean isPaused() {
+        return paused;
+    }
 
+    public Rectangle getRectangle() {
+        return rect;
+    }
 }

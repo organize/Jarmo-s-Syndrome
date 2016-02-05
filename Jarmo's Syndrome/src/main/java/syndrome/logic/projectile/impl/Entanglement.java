@@ -4,6 +4,7 @@ import java.util.Random;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
@@ -24,18 +25,7 @@ public class Entanglement implements Projectile {
         this.keyFrame = constructKeyFrame();
         this.deltaX = 0;
         this.deltaY = 0;
-        
-        /* tempcode */
-        int randX = new Random().nextInt(1000);
-        int randY = new Random().nextInt(700);
-        this.object = new Circle(randX, randY, new Random().nextInt(10) + 1);
-        
-        /* tempcode */
-        if(new Random().nextInt(2) == 1) {
-            this.object.setFill(Paint.valueOf("yellow"));
-        } else {
-            this.object.setFill(Paint.valueOf("white"));
-        }
+        this.object = new Circle(15, 15, 5);
     }
 
     @Override
@@ -48,8 +38,10 @@ public class Entanglement implements Projectile {
     @Override
     public void destroy() {
         timeline.stop();
-        SyndromeFactory.getWorld()
-            .getGamePane().getChildren().remove(object);
+        Pane pane = SyndromeFactory.getWorld().getGamePane();
+        if(!pane.getChildren().isEmpty()) {
+            pane.getChildren().remove(object);
+        }
     }
     
     @Override
@@ -64,25 +56,30 @@ public class Entanglement implements Projectile {
             Circle obj = (Circle) object;
             Random random = new Random();
             double delta = random.nextInt(3) + 0.2;
-            if(destination.getX() > obj.getCenterX()) {
-                deltaX = delta;
+            if(destination.getX() != obj.getCenterX()
+                    && destination.getY() != obj.getCenterY()) {
+                if(destination.getX() > obj.getCenterX()) {
+                    deltaX = delta;
+                }
+                if(destination.getX() < obj.getCenterX()) {
+                    deltaX = -delta;
+                }
+                if(destination.getY() > obj.getCenterY()) {
+                    deltaY = delta;
+                }
+                if(destination.getY() < obj.getCenterY()) {
+                    deltaY = -delta;
+                }
+                obj.setCenterX(obj.getCenterX() + deltaX);
+                obj.setCenterY(obj.getCenterY() + deltaY);
             }
-            if(destination.getX() < obj.getCenterX()) {
-                deltaX = -delta;
-            }
-            if(destination.getY() > obj.getCenterY()) {
-                deltaY = delta;
-            }
-            if(destination.getY() < obj.getCenterY()) {
-                deltaY = -delta;
-            }
-            obj.setCenterX(obj.getCenterX() + deltaX);
-            obj.setCenterY(obj.getCenterY() + deltaY);
-            
             timeline.setOnFinished((ActionEvent subHandler) -> {
                 this.destroy();
             });
         });
     }
 
+    public Timeline getTimeline() {
+        return timeline;
+    }
 }

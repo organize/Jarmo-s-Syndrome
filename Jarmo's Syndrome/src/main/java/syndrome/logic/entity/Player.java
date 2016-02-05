@@ -52,13 +52,13 @@ public class Player extends Entity {
     
     @Override
     public Location[] getBounds() {
-        Location[] bounds = new Location[3];
+        Location[] bounds = new Location[4];
         bounds[0] = location;
         bounds[1] = new Location(location.getX() + 8, 
                 location.getY());
         bounds[2] = new Location(location.getX(), 
                 location.getY() + 8);
-        bounds[2] = new Location(location.getX() + 8, 
+        bounds[3] = new Location(location.getX() + 8, 
                 location.getY() + 8);
         return bounds;
     }
