@@ -1,15 +1,12 @@
 package syndrome.other.input;
 
-import java.awt.MouseInfo;
-import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import syndrome.logic.entity.Direction;
+import syndrome.logic.map.Direction;
 import syndrome.logic.entity.Player;
-import syndrome.logic.map.Location;
 import syndrome.other.SyndromeFactory;
 
 public class KeyboardInput implements EventHandler<KeyEvent> {

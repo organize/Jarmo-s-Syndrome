@@ -67,5 +67,9 @@ public class World {
         this.timer = new SyndromeTimer(rect);
         timer.start();
     }
+    
+    public AnimationTimer getTimer() {
+        return timer;
+    }
 
 }

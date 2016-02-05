@@ -1,5 +1,6 @@
 package syndrome.logic.entity;
 
+import syndrome.logic.map.Direction;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import syndrome.logic.map.Location;
@@ -38,9 +39,26 @@ public class Player extends Entity {
         }
         updateRotation();
     }
-    
+
+    @Override
+    public void setRotation(double degrees) {
+        this.rotation = degrees;
+    }
+
+    @Override
+    public double getRotation() {
+        return rotation;
+    }
+     
     public void setDirection(Direction direction) {
         this.direction = direction;
+    }
+    
+    private void updateRotation() {
+        Point point = MouseInfo.getPointerInfo().getLocation();
+        Location mouseLoc = new Location(point.getX(), point.getY());
+        double angleDegrees = SyndromeFactory.getToolbox().calculateRotation(mouseLoc);
+        setRotation(angleDegrees);
     }
             
     private void handleMovement() {
@@ -70,22 +88,5 @@ public class Player extends Entity {
                 setLocation(location.getX() - 2, location.getY() + 2);
                 break;
         }
-    }
-    
-    private void updateRotation() {
-        Point point = MouseInfo.getPointerInfo().getLocation();
-        Location mouseLoc = new Location(point.getX(), point.getY());
-        double angleDegrees = SyndromeFactory.getToolbox().calculateRotation(mouseLoc);
-        this.setRotation(angleDegrees);
-    }
-
-    @Override
-    public void setRotation(double degrees) {
-        this.rotation = degrees;
-    }
-
-    @Override
-    public double getRotation() {
-        return rotation;
     }
 }

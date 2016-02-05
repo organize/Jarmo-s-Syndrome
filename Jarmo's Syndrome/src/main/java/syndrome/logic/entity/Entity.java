@@ -22,11 +22,5 @@ public abstract class Entity {
     
     public abstract EntityType getType();
     public abstract void tick();
-    
-    public enum EntityType {
-        NPC,
-        PLAYER,
-        OTHER;
-    }
-
+   
 }

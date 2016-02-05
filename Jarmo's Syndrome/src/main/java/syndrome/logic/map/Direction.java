@@ -1,4 +1,4 @@
-package syndrome.logic.entity;
+package syndrome.logic.map;
 
 import javafx.scene.input.KeyCode;
 
