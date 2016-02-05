@@ -41,10 +41,12 @@
 					<targetClasses>
 						<param>syndrome.tools.*</param>
 						<param>syndrome.logic.map.*</param>
+						<param>syndrome.logic.entity.*</param>
 					</targetClasses>
 					<targetTests>
 						<param>syndrome.tools.*</param>
 						<param>syndrome.logic.map.*</param>
+						<param>syndrome.logic.entity.*</param>
 					</targetTests>
 				</configuration>
 			</plugin>

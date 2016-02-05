@@ -49,6 +49,38 @@ public class Player extends Entity {
     public double getRotation() {
         return rotation;
     }
+    
+    @Override
+    public Location[] getBounds() {
+        Location[] bounds = new Location[3];
+        bounds[0] = location;
+        bounds[1] = new Location(location.getX() + 8, 
+                location.getY());
+        bounds[2] = new Location(location.getX(), 
+                location.getY() + 8);
+        bounds[2] = new Location(location.getX() + 8, 
+                location.getY() + 8);
+        return bounds;
+    }
+    
+    @Override
+    public boolean collidesWith(Entity other) {
+        java.awt.Rectangle bounds = new java.awt.Rectangle(
+                (int) other.getBounds()[0].getX(),
+                (int) other.getBounds()[0].getY(),
+                other.getSize(), other.getSize());
+        
+        java.awt.Rectangle ownBounds = new java.awt.Rectangle(
+                (int) this.getBounds()[0].getX(),
+                (int) this.getBounds()[0].getY(),
+                this.getSize(), this.getSize());
+        return ownBounds.contains(bounds);
+    }
+    
+    @Override
+    public int getSize() {
+        return 8;
+    }
      
     public void setDirection(Direction direction) {
         this.direction = direction;

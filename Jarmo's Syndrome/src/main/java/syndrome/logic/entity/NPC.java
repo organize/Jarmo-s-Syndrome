@@ -3,9 +3,12 @@ package syndrome.logic.entity;
 import syndrome.logic.map.Location;
 
 public class NPC extends Entity {
+    
+    private double rotation;
 
     public NPC() {
         super();
+        this.rotation = 0.0d;
     }
 
     @Override
@@ -30,12 +33,35 @@ public class NPC extends Entity {
 
     @Override
     public void setRotation(double degrees) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.rotation = degrees;
     }
 
     @Override
     public double getRotation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return rotation;
+    }
+    
+    @Override
+    public Location[] getBounds() {
+        Location[] bounds = new Location[3];
+        bounds[0] = location;
+        bounds[1] = new Location(location.getX() + 4, 
+                location.getY());
+        bounds[2] = new Location(location.getX(), 
+                location.getY() + 4);
+        bounds[2] = new Location(location.getX() + 4, 
+                location.getY() + 4);
+        return bounds;
+    }
+
+    @Override
+    public boolean collidesWith(Entity other) {
+        return false;
+    }
+    
+    @Override
+    public int getSize() {
+        return 4;
     }
 
 }

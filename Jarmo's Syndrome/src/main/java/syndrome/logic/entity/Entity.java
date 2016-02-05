@@ -22,5 +22,11 @@ public abstract class Entity {
     
     public abstract EntityType getType();
     public abstract void tick();
+    
+    public abstract Location[] getBounds();
+    
+    public abstract boolean collidesWith(Entity other);
+    
+    public abstract int getSize();
    
 }
