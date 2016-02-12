@@ -4,6 +4,13 @@ import syndrome.GameSettings;
 import syndrome.logic.World;
 import syndrome.ui.GUIManager;
 
+/**
+ * The factory class for all one-instance only-classes.
+ * Makes sure there will never exist more than one instance
+ * of certain critical classes.
+ * 
+ * @author Axel Wallin
+ */
 public class SyndromeFactory {
     
     private static Toolbox toolbox;

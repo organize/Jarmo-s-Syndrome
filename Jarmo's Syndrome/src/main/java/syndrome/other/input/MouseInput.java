@@ -7,6 +7,12 @@ import syndrome.logic.projectile.Projectile;
 import syndrome.logic.projectile.impl.Entanglement;
 import syndrome.other.SyndromeFactory;
 
+/**
+ * A class that listens to mouse input when bound to a <b>Node</b>.
+ * 
+ * @note {method names are descriptive, skip doc for now?}
+ * @author Axel Wallin
+ */
 public class MouseInput implements EventHandler<MouseEvent> {
 
     @Override

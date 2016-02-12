@@ -9,6 +9,12 @@ import syndrome.logic.map.Direction;
 import syndrome.logic.entity.Player;
 import syndrome.other.SyndromeFactory;
 
+/**
+ * A class that listens to keyboard input when bound to a <b>Node</b>.
+ * 
+ * @note {method names are descriptive, skip doc for now?}
+ * @author Axel Wallin
+ */
 public class KeyboardInput implements EventHandler<KeyEvent> {
     
     private final List<KeyCode> held;
