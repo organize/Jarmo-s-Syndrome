@@ -17,10 +17,13 @@ public class Player extends Entity {
     private Direction direction;
     private double rotation;
     
+    private int points;
+    
     public Player() {
         super(new Location(300, 300));
         this.rotation = 0.0D;
         this.direction = Direction.NONE;
+        this.points = 0;
     }
 
     @Override
