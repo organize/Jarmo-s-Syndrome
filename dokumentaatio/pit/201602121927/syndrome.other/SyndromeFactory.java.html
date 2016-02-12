@@ -147,7 +147,7 @@ body{
 
 
 <tr>
-<td class='uncovered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_7'/>
 7
 </td>
@@ -157,7 +157,7 @@ body{
 <span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>public class SyndromeFactory {</span></pre></td></tr>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
 
 
 <tr>
@@ -171,7 +171,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    </span></pre></td></tr>
+<td class=''><pre><span  class=''> * The factory class for all one-instance only-classes.</span></pre></td></tr>
 
 
 <tr>
@@ -185,7 +185,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private static Toolbox toolbox;</span></pre></td></tr>
+<td class=''><pre><span  class=''> * Makes sure there will never exist more than one instance</span></pre></td></tr>
 
 
 <tr>
@@ -199,7 +199,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private static AudioManager audioManager;</span></pre></td></tr>
+<td class=''><pre><span  class=''> * of certain critical classes.</span></pre></td></tr>
 
 
 <tr>
@@ -213,7 +213,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private static GameSettings settings;</span></pre></td></tr>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
 
 
 <tr>
@@ -227,7 +227,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private static GUIManager guiManager;</span></pre></td></tr>
+<td class=''><pre><span  class=''> * @author Axel Wallin</span></pre></td></tr>
 
 
 <tr>
@@ -241,11 +241,11 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private static World world;</span></pre></td></tr>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='uncovered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_14'/>
 14
 </td>
@@ -255,7 +255,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    </span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>public class SyndromeFactory {</span></pre></td></tr>
 
 
 <tr>
@@ -269,28 +269,25 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public static Toolbox getToolbox() {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_16'/>
 16
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_16'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_16'></a>
 <span>
-
-1. getToolbox : negated conditional &rarr; KILLED<br/>
-
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        if(toolbox == null) {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    private static Toolbox toolbox;</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_17'/>
 17
 </td>
@@ -300,7 +297,7 @@ body{
 <span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>            toolbox = new Toolbox();</span></pre></td></tr>
+<td class=''><pre><span  class=''>    private static AudioManager audioManager;</span></pre></td></tr>
 
 
 <tr>
@@ -314,24 +311,21 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+<td class=''><pre><span  class=''>    private static GameSettings settings;</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_19'/>
 19
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_19'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_19'></a>
 <span>
-
-1. getToolbox : mutated return of Object value for syndrome/other/SyndromeFactory::getToolbox to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
-
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return toolbox;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    private static GUIManager guiManager;</span></pre></td></tr>
 
 
 <tr>
@@ -345,7 +339,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class=''><pre><span  class=''>    private static World world;</span></pre></td></tr>
 
 
 <tr>
@@ -373,28 +367,28 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public static AudioManager getAudioManager() {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public static Toolbox getToolbox() {</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_23'/>
 23
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_23'>1</a>
 <span>
 
-1. getAudioManager : negated conditional &rarr; NO_COVERAGE<br/>
+1. getToolbox : negated conditional &rarr; KILLED<br/>
 
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        if(audioManager == null) {</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        if(toolbox == null) {</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_24'/>
 24
 </td>
@@ -404,7 +398,7 @@ body{
 <span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>            audioManager = new AudioManager();</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            toolbox = new Toolbox();</span></pre></td></tr>
 
 
 <tr>
@@ -422,20 +416,20 @@ body{
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_26'/>
 26
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_26'>1</a>
 <span>
 
-1. getAudioManager : mutated return of Object value for syndrome/other/SyndromeFactory::getAudioManager to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+1. getToolbox : mutated return of Object value for syndrome/other/SyndromeFactory::getToolbox to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
 
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        return audioManager;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return toolbox;</span></pre></td></tr>
 
 
 <tr>
@@ -477,7 +471,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public static GameSettings getSettings() {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public static AudioManager getAudioManager() {</span></pre></td></tr>
 
 
 <tr>
@@ -490,11 +484,11 @@ body{
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_30'>1</a>
 <span>
 
-1. getSettings : negated conditional &rarr; NO_COVERAGE<br/>
+1. getAudioManager : negated conditional &rarr; NO_COVERAGE<br/>
 
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        if(settings == null) {</span></pre></td></tr>
+<td class='uncovered'><pre><span  class='survived'>        if(audioManager == null) {</span></pre></td></tr>
 
 
 <tr>
@@ -508,7 +502,7 @@ body{
 <span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>            settings = new GameSettings();</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>            audioManager = new AudioManager();</span></pre></td></tr>
 
 
 <tr>
@@ -535,11 +529,11 @@ body{
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_33'>1</a>
 <span>
 
-1. getSettings : mutated return of Object value for syndrome/other/SyndromeFactory::getSettings to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+1. getAudioManager : mutated return of Object value for syndrome/other/SyndromeFactory::getAudioManager to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
 
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        return settings;</span></pre></td></tr>
+<td class='uncovered'><pre><span  class='survived'>        return audioManager;</span></pre></td></tr>
 
 
 <tr>
@@ -567,7 +561,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
 
 
 <tr>
@@ -581,7 +575,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public static GUIManager getGUIManager() {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public static GameSettings getSettings() {</span></pre></td></tr>
 
 
 <tr>
@@ -594,11 +588,11 @@ body{
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_37'>1</a>
 <span>
 
-1. getGUIManager : negated conditional &rarr; NO_COVERAGE<br/>
+1. getSettings : negated conditional &rarr; NO_COVERAGE<br/>
 
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>         if(guiManager == null) {</span></pre></td></tr>
+<td class='uncovered'><pre><span  class='survived'>        if(settings == null) {</span></pre></td></tr>
 
 
 <tr>
@@ -612,7 +606,7 @@ body{
 <span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>            guiManager = new GUIManager();</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>            settings = new GameSettings();</span></pre></td></tr>
 
 
 <tr>
@@ -639,11 +633,11 @@ body{
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_40'>1</a>
 <span>
 
-1. getGUIManager : mutated return of Object value for syndrome/other/SyndromeFactory::getGUIManager to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+1. getSettings : mutated return of Object value for syndrome/other/SyndromeFactory::getSettings to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
 
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        return guiManager;</span></pre></td></tr>
+<td class='uncovered'><pre><span  class='survived'>        return settings;</span></pre></td></tr>
 
 
 <tr>
@@ -671,7 +665,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    </span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -685,28 +679,28 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public static World getWorld() {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public static GUIManager getGUIManager() {</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='uncovered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_44'/>
 44
 </td>
-<td class='killed'>
+<td class='survived'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_44'>1</a>
 <span>
 
-1. getWorld : negated conditional &rarr; KILLED<br/>
+1. getGUIManager : negated conditional &rarr; NO_COVERAGE<br/>
 
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>         if(world == null) {</span></pre></td></tr>
+<td class='uncovered'><pre><span  class='survived'>        if(guiManager == null) {</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='uncovered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_45'/>
 45
 </td>
@@ -716,7 +710,7 @@ body{
 <span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>            world = new World();</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>            guiManager = new GUIManager();</span></pre></td></tr>
 
 
 <tr>
@@ -734,20 +728,20 @@ body{
 
 
 <tr>
-<td class='covered'>
+<td class='uncovered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_47'/>
 47
 </td>
-<td class='killed'>
+<td class='survived'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_47'>1</a>
 <span>
 
-1. getWorld : mutated return of Object value for syndrome/other/SyndromeFactory::getWorld to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+1. getGUIManager : mutated return of Object value for syndrome/other/SyndromeFactory::getGUIManager to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
 
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return world;</span></pre></td></tr>
+<td class='uncovered'><pre><span  class='survived'>        return guiManager;</span></pre></td></tr>
 
 
 <tr>
@@ -789,6 +783,110 @@ body{
 <span>
 </span>
 </td>
+<td class=''><pre><span  class=''>    public static World getWorld() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_51'/>
+51
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_51'>1</a>
+<span>
+
+1. getWorld : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if(world == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_52'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            world = new World();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_54'/>
+54
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_54'>1</a>
+<span>
+
+1. getWorld : mutated return of Object value for syndrome/other/SyndromeFactory::getWorld to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return world;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_55'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_56'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@ba17be6_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_57'></a>
+<span>
+</span>
+</td>
 <td class=''><pre><span  class=''>}</span></pre></td></tr>
 
 
@@ -797,35 +895,13 @@ body{
 
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@ba17be6_16'>16</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_16'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getToolbox<br/><b>Killed by : </b>syndrome.logic.entity.EntityTest.testMove(syndrome.logic.entity.EntityTest)</span></span> negated conditional &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@ba17be6_19'>19</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_19'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getToolbox<br/><b>Killed by : </b>syndrome.logic.entity.EntityTest.testMove(syndrome.logic.entity.EntityTest)</span></span> mutated return of Object value for syndrome/other/SyndromeFactory::getToolbox to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
 <td><a href='#org.pitest.mutationtest.report.html.SourceFile@ba17be6_23'>23</a></td> 
 <td></td>
 <td>
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_23'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAudioManager<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getToolbox<br/><b>Killed by : </b>syndrome.logic.entity.EntityTest.testMove(syndrome.logic.entity.EntityTest)</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -836,7 +912,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_26'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAudioManager<br/><b>Killed by : </b>none</span></span> mutated return of Object value for syndrome/other/SyndromeFactory::getAudioManager to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getToolbox<br/><b>Killed by : </b>syndrome.logic.entity.EntityTest.testMove(syndrome.logic.entity.EntityTest)</span></span> mutated return of Object value for syndrome/other/SyndromeFactory::getToolbox to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -847,7 +923,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_30'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSettings<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAudioManager<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
 </td>
 </tr>
 
@@ -858,7 +934,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_33'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSettings<br/><b>Killed by : </b>none</span></span> mutated return of Object value for syndrome/other/SyndromeFactory::getSettings to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAudioManager<br/><b>Killed by : </b>none</span></span> mutated return of Object value for syndrome/other/SyndromeFactory::getAudioManager to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
 </td>
 </tr>
 
@@ -869,7 +945,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_37'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getGUIManager<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSettings<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
 </td>
 </tr>
 
@@ -880,7 +956,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_40'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getGUIManager<br/><b>Killed by : </b>none</span></span> mutated return of Object value for syndrome/other/SyndromeFactory::getGUIManager to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSettings<br/><b>Killed by : </b>none</span></span> mutated return of Object value for syndrome/other/SyndromeFactory::getSettings to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
 </td>
 </tr>
 
@@ -891,7 +967,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_44'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getWorld<br/><b>Killed by : </b>syndrome.logic.projectile.impl.EntanglementTest.testTimelineAttributes(syndrome.logic.projectile.impl.EntanglementTest)</span></span> negated conditional &rarr; KILLED</p> 
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getGUIManager<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
 </td>
 </tr>
 
@@ -902,7 +978,29 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_47'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getWorld<br/><b>Killed by : </b>syndrome.logic.entity.EntityTest.testMove(syndrome.logic.entity.EntityTest)</span></span> mutated return of Object value for syndrome/other/SyndromeFactory::getWorld to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getGUIManager<br/><b>Killed by : </b>none</span></span> mutated return of Object value for syndrome/other/SyndromeFactory::getGUIManager to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@ba17be6_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_51'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getWorld<br/><b>Killed by : </b>syndrome.logic.projectile.impl.EntanglementTest.testTimelineAttributes(syndrome.logic.projectile.impl.EntanglementTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@ba17be6_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@ba17be6_54'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getWorld<br/><b>Killed by : </b>syndrome.logic.projectile.impl.EntanglementTest.testTimelineAttributes(syndrome.logic.projectile.impl.EntanglementTest)</span></span> mutated return of Object value for syndrome/other/SyndromeFactory::getWorld to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -930,7 +1028,7 @@ body{
 
 <h2>Tests examined</h2>
 <ul>
-<li>syndrome.logic.projectile.impl.EntanglementTest.testTimelineAttributes(syndrome.logic.projectile.impl.EntanglementTest) (9 ms)</li><li>syndrome.logic.conc.SyndromeTimerTest.testTick(syndrome.logic.conc.SyndromeTimerTest) (114 ms)</li><li>syndrome.logic.entity.EntityTest.testMove(syndrome.logic.entity.EntityTest) (4 ms)</li>
+<li>syndrome.logic.projectile.impl.EntanglementTest.testTimelineAttributes(syndrome.logic.projectile.impl.EntanglementTest) (0 ms)</li><li>syndrome.logic.conc.SyndromeTimerTest.testTick(syndrome.logic.conc.SyndromeTimerTest) (78 ms)</li><li>syndrome.logic.entity.EntityTest.testMove(syndrome.logic.entity.EntityTest) (0 ms)</li>
 </ul>
 
 <br/>

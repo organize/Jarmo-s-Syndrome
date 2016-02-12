@@ -189,7 +189,7 @@ body{
 
 
 <tr>
-<td class='uncovered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_10'/>
 10
 </td>
@@ -199,7 +199,7 @@ body{
 <span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>public class MouseInput implements EventHandler&#60;MouseEvent&#62; {</span></pre></td></tr>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
 
 
 <tr>
@@ -213,7 +213,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class=''><pre><span  class=''> * A class that listens to mouse input when bound to a &#60;b&#62;Node&#60;/b&#62;.</span></pre></td></tr>
 
 
 <tr>
@@ -227,7 +227,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
 
 
 <tr>
@@ -241,45 +241,39 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public void handle(MouseEvent event) {</span></pre></td></tr>
-
-
-<tr>
-<td class='uncovered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_14'/>
-14
-</td>
-<td class='survived'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_14'>1</a>
-<span>
-
-1. handle : negated conditional &rarr; NO_COVERAGE<br/>
-
-</span>
-</td>
-<td class='uncovered'><pre><span  class='survived'>        if(event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {</span></pre></td></tr>
-
-
-<tr>
-<td class='uncovered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_15'/>
-15
-</td>
-<td class='survived'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_15'>1</a>
-<span>
-
-1. handle : removed call to syndrome/other/input/MouseInput::handleMouseClick &rarr; NO_COVERAGE<br/>
-
-</span>
-</td>
-<td class='uncovered'><pre><span  class='survived'>            handleMouseClick(event);</span></pre></td></tr>
+<td class=''><pre><span  class=''> * @note {method names are descriptive, skip doc for now?}</span></pre></td></tr>
 
 
 <tr>
 <td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @author Axel Wallin</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_16'/>
 16
 </td>
@@ -289,11 +283,11 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>public class MouseInput implements EventHandler&#60;MouseEvent&#62; {</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_17'/>
 17
 </td>
@@ -303,7 +297,7 @@ body{
 <span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -317,7 +311,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    </span></pre></td></tr>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
 
 
 <tr>
@@ -331,7 +325,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private void handleMouseClick(MouseEvent event) {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public void handle(MouseEvent event) {</span></pre></td></tr>
 
 
 <tr>
@@ -339,13 +333,16 @@ body{
 <a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_20'/>
 20
 </td>
-<td class=''>
+<td class='survived'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_20'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_20'>1</a>
 <span>
+
+1. handle : negated conditional &rarr; NO_COVERAGE<br/>
+
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>        Pane gamePane = SyndromeFactory.getWorld().getGamePane();</span></pre></td></tr>
+<td class='uncovered'><pre><span  class='survived'>        if(event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {</span></pre></td></tr>
 
 
 <tr>
@@ -353,17 +350,20 @@ body{
 <a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_21'/>
 21
 </td>
-<td class=''>
+<td class='survived'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_21'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_21'>1</a>
 <span>
+
+1. handle : removed call to syndrome/other/input/MouseInput::handleMouseClick &rarr; NO_COVERAGE<br/>
+
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>        Projectile entanglement = new Entanglement();</span></pre></td></tr>
+<td class='uncovered'><pre><span  class='survived'>            handleMouseClick(event);</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_22'/>
 22
 </td>
@@ -373,7 +373,7 @@ body{
 <span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>        gamePane.getChildren().add(entanglement.getObject());</span></pre></td></tr>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
 
 
 <tr>
@@ -381,20 +381,17 @@ body{
 <a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_23'/>
 23
 </td>
-<td class='survived'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_23'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_23'></a>
 <span>
-
-1. handleMouseClick : removed call to syndrome/logic/projectile/Projectile::fire &rarr; NO_COVERAGE<br/>
-
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        entanglement.fire();</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_24'/>
 24
 </td>
@@ -404,7 +401,7 @@ body{
 <span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
 
 
 <tr>
@@ -418,17 +415,104 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class=''><pre><span  class=''>    private void handleMouseClick(MouseEvent event) {</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='uncovered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_26'/>
 26
 </td>
 <td class=''>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_26'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        Pane gamePane = SyndromeFactory.getWorld().getGamePane();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_27'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        Projectile entanglement = new Entanglement();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_28'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        gamePane.getChildren().add(entanglement.getObject());</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_29'/>
+29
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_29'>1</a>
+<span>
+
+1. handleMouseClick : removed call to syndrome/logic/projectile/Projectile::fire &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        entanglement.fire();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_30'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@673c4f6e_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_32'></a>
 <span>
 </span>
 </td>
@@ -440,33 +524,33 @@ body{
 
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@673c4f6e_14'>14</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@673c4f6e_20'>20</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_14'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_20'/> 
 
 <p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@673c4f6e_15'>15</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@673c4f6e_21'>21</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_15'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_21'/> 
 
 <p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>none</span></span> removed call to syndrome/other/input/MouseInput::handleMouseClick &rarr; NO_COVERAGE</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@673c4f6e_23'>23</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@673c4f6e_29'>29</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_23'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@673c4f6e_29'/> 
 
 <p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handleMouseClick<br/><b>Killed by : </b>none</span></span> removed call to syndrome/logic/projectile/Projectile::fire &rarr; NO_COVERAGE</p> 
 </td>

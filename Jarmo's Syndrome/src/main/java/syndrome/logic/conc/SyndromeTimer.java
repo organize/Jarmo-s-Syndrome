@@ -9,7 +9,7 @@ import syndrome.logic.entity.Player;
 import syndrome.other.SyndromeFactory;
 
 /**
- * Represents a timer,
+ * Represents a periodic timer,
  * <b>this.handle</b> is called 60 times per second
  * after a call to start this timer has been issued.
  * 

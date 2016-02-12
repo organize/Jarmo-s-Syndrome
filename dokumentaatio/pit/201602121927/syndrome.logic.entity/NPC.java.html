@@ -129,7 +129,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>public class NPC extends Entity {</span></pre></td></tr>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
 
 
 <tr>
@@ -143,7 +143,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    </span></pre></td></tr>
+<td class=''><pre><span  class=''> * A class that represents a non-player character in the game world.</span></pre></td></tr>
 
 
 <tr>
@@ -157,7 +157,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private double rotation;</span></pre></td></tr>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
 
 
 <tr>
@@ -171,7 +171,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class=''><pre><span  class=''> * @see {@Entity} for documentation.</span></pre></td></tr>
 
 
 <tr>
@@ -185,11 +185,11 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public NPC() {</span></pre></td></tr>
+<td class=''><pre><span  class=''> * @author Axel Wallin</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_10'/>
 10
 </td>
@@ -199,11 +199,11 @@ body{
 <span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        super();</span></pre></td></tr>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_11'/>
 11
 </td>
@@ -213,11 +213,11 @@ body{
 <span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        this.rotation = 0.0d;</span></pre></td></tr>
+<td class=''><pre><span  class=''>public class NPC extends Entity {</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_12'/>
 12
 </td>
@@ -227,7 +227,7 @@ body{
 <span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
 
 
 <tr>
@@ -241,7 +241,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class=''><pre><span  class=''>    private double rotation;</span></pre></td></tr>
 
 
 <tr>
@@ -255,7 +255,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -269,7 +269,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public Location getLocation() {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public NPC() {</span></pre></td></tr>
 
 
 <tr>
@@ -277,20 +277,17 @@ body{
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_16'/>
 16
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_16'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_16'></a>
 <span>
-
-1. getLocation : mutated return of Object value for syndrome/logic/entity/NPC::getLocation to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
-
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return location;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        super();</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_17'/>
 17
 </td>
@@ -300,11 +297,11 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        this.rotation = 0.0d;</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_18'/>
 18
 </td>
@@ -314,7 +311,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -328,7 +325,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -342,24 +339,21 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public void setLocation(double x, double y) {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_21'/>
 21
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_21'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_21'></a>
 <span>
-
-1. setLocation : removed call to syndrome/logic/map/Location::transform &rarr; KILLED<br/>
-
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        location.transform(x, y);</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public Location getLocation() {</span></pre></td></tr>
 
 
 <tr>
@@ -367,13 +361,16 @@ body{
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_22'/>
 22
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_22'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_22'>1</a>
 <span>
+
+1. getLocation : mutated return of Object value for syndrome/logic/entity/NPC::getLocation to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
 </span>
 </td>
-<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return location;</span></pre></td></tr>
 
 
 <tr>
@@ -387,7 +384,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -401,7 +398,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -415,42 +412,42 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public EntityType getType() {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setLocation(double x, double y) {</span></pre></td></tr>
 
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_26'/>
-26
-</td>
-<td class='killed'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_26'>1</a>
-<span>
-
-1. getType : mutated return of Object value for syndrome/logic/entity/NPC::getType to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
-
-</span>
-</td>
-<td class='covered'><pre><span  class='killed'>        return EntityType.NPC;</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_27'/>
 27
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_27'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_27'>1</a>
 <span>
+
+1. setLocation : removed call to syndrome/logic/map/Location::transform &rarr; KILLED<br/>
+
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        location.transform(x, y);</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_28'/>
 28
 </td>
@@ -460,7 +457,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -474,7 +471,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -488,7 +485,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public void tick() {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
 
 
 <tr>
@@ -502,21 +499,24 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>        </span></pre></td></tr>
+<td class=''><pre><span  class=''>    public EntityType getType() {</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_32'/>
 32
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_32'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_32'>1</a>
 <span>
+
+1. getType : mutated return of Object value for syndrome/logic/entity/NPC::getType to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return EntityType.NPC;</span></pre></td></tr>
 
 
 <tr>
@@ -530,7 +530,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -544,7 +544,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -558,11 +558,11 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public void setRotation(double degrees) {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_36'/>
 36
 </td>
@@ -572,11 +572,11 @@ body{
 <span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        this.rotation = degrees;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public void tick() {</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_37'/>
 37
 </td>
@@ -586,11 +586,11 @@ body{
 <span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='uncovered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_38'/>
 38
 </td>
@@ -600,7 +600,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -614,7 +614,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -628,28 +628,25 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public double getRotation() {</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_41'/>
-41
-</td>
-<td class='killed'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_41'>1</a>
-<span>
-
-1. getRotation : replaced return of double value with -(x + 1) for syndrome/logic/entity/NPC::getRotation &rarr; KILLED<br/>
-
-</span>
-</td>
-<td class='covered'><pre><span  class='killed'>        return rotation;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
 
 
 <tr>
 <td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setRotation(double degrees) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_42'/>
 42
 </td>
@@ -659,11 +656,11 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        this.rotation = degrees;</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_43'/>
 43
 </td>
@@ -673,7 +670,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    </span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -687,7 +684,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -701,11 +698,11 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public Location[] getBounds() {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_46'/>
 46
 </td>
@@ -715,7 +712,7 @@ body{
 <span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        Location[] bounds = new Location[4];</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public double getRotation() {</span></pre></td></tr>
 
 
 <tr>
@@ -723,9 +720,96 @@ body{
 <a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_47'/>
 47
 </td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_47'>1</a>
+<span>
+
+1. getRotation : replaced return of double value with -(x + 1) for syndrome/logic/entity/NPC::getRotation &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return rotation;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_48'/>
+48
+</td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_47'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_50'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Location[] getBounds() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_52'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Location[] bounds = new Location[4];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_53'></a>
 <span>
 </span>
 </td>
@@ -734,12 +818,12 @@ body{
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_48'/>
-48
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_54'/>
+54
 </td>
 <td class='survived'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_48'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_54'>1</a>
 <span>
 
 1. getBounds : Replaced double addition with subtraction &rarr; SURVIVED<br/>
@@ -751,12 +835,12 @@ body{
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_49'/>
-49
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_55'/>
+55
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_49'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_55'></a>
 <span>
 </span>
 </td>
@@ -765,12 +849,12 @@ body{
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_50'/>
-50
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_56'/>
+56
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_50'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_56'></a>
 <span>
 </span>
 </td>
@@ -779,12 +863,12 @@ body{
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_51'/>
-51
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_57'/>
+57
 </td>
 <td class='survived'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_51'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_57'>1</a>
 <span>
 
 1. getBounds : Replaced double addition with subtraction &rarr; SURVIVED<br/>
@@ -796,12 +880,12 @@ body{
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_52'/>
-52
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_58'/>
+58
 </td>
 <td class='survived'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_52'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_58'>1</a>
 <span>
 
 1. getBounds : Replaced double addition with subtraction &rarr; SURVIVED<br/>
@@ -813,12 +897,12 @@ body{
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_53'/>
-53
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_59'/>
+59
 </td>
 <td class='survived'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_53'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_59'>1</a>
 <span>
 
 1. getBounds : Replaced double addition with subtraction &rarr; SURVIVED<br/>
@@ -830,12 +914,12 @@ body{
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_54'/>
-54
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_60'/>
+60
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_54'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_60'>1</a>
 <span>
 
 1. getBounds : mutated return of Object value for syndrome/logic/entity/NPC::getBounds to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
@@ -843,93 +927,6 @@ body{
 </span>
 </td>
 <td class='covered'><pre><span  class='killed'>        return bounds;</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_55'/>
-55
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_55'></a>
-<span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_56'/>
-56
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_56'></a>
-<span>
-</span>
-</td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_57'/>
-57
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_57'></a>
-<span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_58'/>
-58
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_58'></a>
-<span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    public boolean collidesWith(Entity other) {</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_59'/>
-59
-</td>
-<td class='killed'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_59'>1</a>
-<span>
-
-1. collidesWith : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
-
-</span>
-</td>
-<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_60'/>
-60
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_60'></a>
-<span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -943,7 +940,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    </span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -957,7 +954,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -971,38 +968,38 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public int getSize() {</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_64'/>
-64
-</td>
-<td class='killed'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_64'>1</a>
-<span>
-
-1. getSize : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
-
-</span>
-</td>
-<td class='covered'><pre><span  class='killed'>        return 4;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
 
 
 <tr>
 <td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_65'/>
-65
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_64'/>
+64
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_65'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_64'></a>
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public boolean collidesWith(Entity other) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_65'>1</a>
+<span>
+
+1. collidesWith : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
 
 
 <tr>
@@ -1016,7 +1013,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -1030,6 +1027,93 @@ body{
 <span>
 </span>
 </td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_68'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_69'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getSize() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_70'>1</a>
+<span>
+
+1. getSize : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return 4;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_71'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_72'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f044c58_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_73'></a>
+<span>
+</span>
+</td>
 <td class=''><pre><span  class=''>}</span></pre></td></tr>
 
 
@@ -1038,90 +1122,46 @@ body{
 
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_16'>16</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_22'>22</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_16'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_22'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getLocation<br/><b>Killed by : </b>syndrome.logic.entity.EntityTest.testSetPosition(syndrome.logic.entity.EntityTest)</span></span> mutated return of Object value for syndrome/logic/entity/NPC::getLocation to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_21'>21</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_27'>27</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_21'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_27'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setLocation<br/><b>Killed by : </b>syndrome.logic.entity.EntityTest.testSetPosition(syndrome.logic.entity.EntityTest)</span></span> removed call to syndrome/logic/map/Location::transform &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setLocation<br/><b>Killed by : </b>syndrome.logic.entity.EntityTest.testCollisionBox(syndrome.logic.entity.EntityTest)</span></span> removed call to syndrome/logic/map/Location::transform &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_26'>26</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_32'>32</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_26'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_32'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getType<br/><b>Killed by : </b>syndrome.logic.entity.EntityTest.testTypes(syndrome.logic.entity.EntityTest)</span></span> mutated return of Object value for syndrome/logic/entity/NPC::getType to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_41'>41</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_47'>47</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_41'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_47'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getRotation<br/><b>Killed by : </b>syndrome.logic.entity.EntityTest.testEntityRotation(syndrome.logic.entity.EntityTest)</span></span> replaced return of double value with -(x + 1) for syndrome/logic/entity/NPC::getRotation &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_48'>48</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_48'/> 
-
-<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBounds<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; SURVIVED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_51'>51</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_51'/> 
-
-<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBounds<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; SURVIVED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_52'>52</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_52'/> 
-
-<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBounds<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; SURVIVED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_53'>53</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_53'/> 
-
-<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBounds<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; SURVIVED</p> 
 </td>
 </tr>
 
@@ -1132,7 +1172,29 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_54'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBounds<br/><b>Killed by : </b>syndrome.logic.entity.EntityTest.testCollisionBox(syndrome.logic.entity.EntityTest)</span></span> mutated return of Object value for syndrome/logic/entity/NPC::getBounds to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBounds<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_57'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBounds<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_58'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBounds<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; SURVIVED</p> 
 </td>
 </tr>
 
@@ -1143,16 +1205,38 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_59'/> 
 
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBounds<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_60'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBounds<br/><b>Killed by : </b>syndrome.logic.entity.EntityTest.testCollisionBox(syndrome.logic.entity.EntityTest)</span></span> mutated return of Object value for syndrome/logic/entity/NPC::getBounds to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_65'/> 
+
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collidesWith<br/><b>Killed by : </b>syndrome.logic.entity.EntityTest.testCollisionBox(syndrome.logic.entity.EntityTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_64'>64</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f044c58_70'>70</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_64'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f044c58_70'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSize<br/><b>Killed by : </b>syndrome.logic.entity.EntityTest.testCollisionBox(syndrome.logic.entity.EntityTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
 </td>
@@ -1182,7 +1266,7 @@ body{
 
 <h2>Tests examined</h2>
 <ul>
-<li>syndrome.logic.entity.EntityTest.testCollisionBox(syndrome.logic.entity.EntityTest) (3 ms)</li><li>syndrome.logic.entity.EntityTest.testTypes(syndrome.logic.entity.EntityTest) (4 ms)</li><li>syndrome.logic.entity.EntityTest.testSetPosition(syndrome.logic.entity.EntityTest) (1 ms)</li><li>syndrome.logic.entity.EntityTest.testEntityRotation(syndrome.logic.entity.EntityTest) (1 ms)</li>
+<li>syndrome.logic.entity.EntityTest.testCollisionBox(syndrome.logic.entity.EntityTest) (0 ms)</li><li>syndrome.logic.entity.EntityTest.testTypes(syndrome.logic.entity.EntityTest) (15 ms)</li><li>syndrome.logic.entity.EntityTest.testSetPosition(syndrome.logic.entity.EntityTest) (0 ms)</li><li>syndrome.logic.entity.EntityTest.testEntityRotation(syndrome.logic.entity.EntityTest) (0 ms)</li>
 </ul>
 
 <br/>
