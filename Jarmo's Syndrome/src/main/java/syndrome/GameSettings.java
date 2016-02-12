@@ -2,6 +2,11 @@ package syndrome;
 
 import java.awt.Dimension;
 
+/**
+ * Represents the user-defined settings and various gamestates
+ * (ie. paused etc.)
+ * @author Axel Wallin
+ */
 public class GameSettings {
     
     private Dimension resolution;
@@ -20,10 +25,17 @@ public class GameSettings {
         this.resolution = new Dimension(width, height);
     }
     
+    /**
+     * Toggles pause state.
+     */
     public void togglePause() {
         this.paused = !paused;
     }
     
+    /**
+     * Returns the current state of pause.
+     * @return paused, whether or not the game is paused.
+     */
     public boolean isPaused() {
         return paused == true;
     }

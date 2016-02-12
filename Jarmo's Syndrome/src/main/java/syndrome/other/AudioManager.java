@@ -5,6 +5,11 @@ import java.util.HashMap;
 import java.util.Map;
 import javafx.scene.media.AudioClip;
 
+/**
+ * Handles all things audio-related.
+ * 
+ * @author Axel Wallin
+ */
 public class AudioManager {
     
     private final Map<String, AudioClip> cache;

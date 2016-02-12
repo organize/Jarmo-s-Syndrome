@@ -8,6 +8,12 @@ import syndrome.logic.entity.NPC;
 import syndrome.logic.entity.Player;
 import syndrome.other.SyndromeFactory;
 
+/**
+ * Represents a timer.
+ * <b>this.handle</b> is called 60 times per second
+ * after a call to start this timer has been issued.
+ * @author Axel Wallin
+ */
 public class SyndromeTimer extends AnimationTimer {
     
     private boolean paused;
@@ -19,6 +25,11 @@ public class SyndromeTimer extends AnimationTimer {
         this.lastUpdate = 0;
     }
 
+    /**
+     * Handles an <b>AnimationTimer</b> tick.
+     * @note this method should never be called manually.
+     * @param now, the current time in millis.
+     */
     @Override
     public void handle(long now) {
         if(!paused) {

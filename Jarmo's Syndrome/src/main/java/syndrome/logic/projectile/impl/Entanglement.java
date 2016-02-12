@@ -12,6 +12,12 @@ import syndrome.logic.map.Location;
 import syndrome.logic.projectile.Projectile;
 import syndrome.other.SyndromeFactory;
 
+/**
+ * A simple projectile implementation that is currently used for testing.
+ * 
+ * @todo {remove test code, finish implementation}
+ * @author Axel Wallin
+ */
 public class Entanglement implements Projectile {
     
     private final Timeline timeline;

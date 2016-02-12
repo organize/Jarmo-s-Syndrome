@@ -2,6 +2,12 @@ package syndrome.logic.map;
 
 import javafx.scene.input.KeyCode;
 
+/**
+ * An enumeration that holds all possible directions and the
+ * associated key combinations for the player's movement.
+ * 
+ * @author Axel Wallin
+ */
 public enum Direction {
     
     NONE(null),
