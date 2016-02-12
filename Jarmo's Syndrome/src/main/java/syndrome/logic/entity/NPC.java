@@ -2,6 +2,12 @@ package syndrome.logic.entity;
 
 import syndrome.logic.map.Location;
 
+/**
+ * A class that represents a non-player character in the game world.
+ * 
+ * @see {@Entity} for documentation.
+ * @author Axel Wallin
+ */
 public class NPC extends Entity {
     
     private double rotation;

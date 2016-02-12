@@ -6,6 +6,12 @@ import java.awt.Point;
 import syndrome.logic.map.Location;
 import syndrome.other.SyndromeFactory;
 
+/**
+ * A class that represents the player character.
+ * 
+ * @see {@Entity} for documentation.
+ * @author Axel Wallin
+ */
 public class Player extends Entity {
     
     private Direction direction;
