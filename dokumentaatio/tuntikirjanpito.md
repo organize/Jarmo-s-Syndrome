@@ -28,6 +28,16 @@
 	Tunnit: 6
 	Kohde: PIT-testien parantelua, testien kirjoittelua, bugien korjailua sekä muuta mukavaa
 	
+<h4>10.02.2016</h4>
+
+	Tunnit: 1.5
+	Kohde: Dokumentaatio, entity-systeemin parantelua.
+	
+<h4>12.02.2016</h4>
+
+	Tunnit: 2.5
+	Kohde: Dokumentaation jatkaminen, pit-raportin luominen, checkstyle ja virheiden korjailu.
+	
 	
 <h4>Kokonaistunnit</h4>
-	19.5
+	23.5
