@@ -34,14 +34,14 @@ public class SyndromeFactory {
     }
 
     public static GUIManager getGUIManager() {
-         if(guiManager == null) {
+        if(guiManager == null) {
             guiManager = new GUIManager();
         }
         return guiManager;
     }
     
     public static World getWorld() {
-         if(world == null) {
+        if(world == null) {
             world = new World();
         }
         return world;

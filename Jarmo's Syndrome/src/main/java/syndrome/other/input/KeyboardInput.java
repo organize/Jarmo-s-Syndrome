@@ -13,12 +13,14 @@ public class KeyboardInput implements EventHandler<KeyEvent> {
     
     private final List<KeyCode> held;
     private final List<KeyCode> valid =
-            new ArrayList<KeyCode>(){{
+        new ArrayList<KeyCode>() {
+            {
                 add(KeyCode.A);
                 add(KeyCode.W);
                 add(KeyCode.D);
                 add(KeyCode.S);
-            }};
+            }
+        };
     
     public KeyboardInput() {
         this.held = new ArrayList<>();

@@ -29,10 +29,10 @@ public class SyndromeTimer extends AnimationTimer {
             
             List<NPC> activeNPCs = world.getNPCs();
             activeNPCs.forEach(npc -> npc.tick());
-            
+
             rect.setX(player.getLocation().getX());
             rect.setY(player.getLocation().getY());
-            
+
             rect.setRotate(player.getRotation());
         }
         this.lastUpdate = now;

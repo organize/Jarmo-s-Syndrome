@@ -5,7 +5,6 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
@@ -51,8 +50,7 @@ public class Entanglement implements Projectile {
 
     private KeyFrame constructKeyFrame() {
         return new KeyFrame(Duration.seconds(0.010), (ActionEvent event) -> {
-            Location destination = SyndromeFactory.
-                    getWorld().getPlayer().getLocation();
+            Location destination = SyndromeFactory.getWorld().getPlayer().getLocation();
             Circle obj = (Circle) object;
             Random random = new Random();
             double delta = random.nextInt(3) + 0.2;
