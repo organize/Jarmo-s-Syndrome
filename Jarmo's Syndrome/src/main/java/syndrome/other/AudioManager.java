@@ -18,6 +18,12 @@ public class AudioManager {
         this.cache = new HashMap<>();
     }
     
+    /**
+     * Precaches an audio file so it can be rapidly accessed in the future.
+     * 
+     * @param identifier, the key for this audio instance.
+     * @param filename, the filename where the audio is located.
+     */
     public void precache(String identifier, String filename) {
         if(filename == null) {
             throw new NullPointerException("filename cannot be null");
@@ -32,6 +38,11 @@ public class AudioManager {
         }
     }
     
+    /**
+     * Plays an audio file if present in the current cache.
+     * 
+     * @param identifier, the key of the wanted audio instance.
+     */
     public void playCached(String identifier) {
         if(!cache.containsKey(identifier)) {
             throw new AssertionError("identifier " + identifier + " not present in audio cache");
@@ -39,6 +50,11 @@ public class AudioManager {
         cache.get(identifier).play();
     }
     
+    /**
+     * Stops an audio file if present in the current cache.
+     * 
+     * @param identifier, the key of the wanted audio instance.
+     */
     public void stopCached(String identifier) {
         if(!cache.containsKey(identifier)) {
             throw new AssertionError("identifier " + identifier + " not present in audio cache");
@@ -46,6 +62,13 @@ public class AudioManager {
         cache.get(identifier).stop();
     }
     
+    /**
+     * Gets an audio file if present in the current cache.
+     * 
+     * @todo {convert into <i>Optional<AudioClip></i>}
+     * @param identifier, the key of the wanted audio instance.
+     * @return an audio clip if present.
+     */
     public AudioClip get(String identifier) {
         if(!cache.containsKey(identifier)) {
             throw new AssertionError("identifier " + identifier + " not present in audio cache");
@@ -53,6 +76,13 @@ public class AudioManager {
         return cache.get(identifier);
     }
     
+    /**
+     * Plays an audio effect.
+     * 
+     * @note this method does not use the cache, rather it will
+     *   simply play a one-shot of the audio file, if it exists.
+     * @param filename, the audio effect filename.
+     */
     public void playEffect(String filename) {
         if(filename == null) {
             throw new NullPointerException("filename cannot be null");

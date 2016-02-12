@@ -4,7 +4,8 @@ import java.awt.Dimension;
 
 /**
  * Represents the user-defined settings and various gamestates
- * (ie. paused etc.)
+ * (ie. whether the game is paused, for example).
+ * 
  * @author Axel Wallin
  */
 public class GameSettings {
@@ -34,6 +35,7 @@ public class GameSettings {
     
     /**
      * Returns the current state of pause.
+     * 
      * @return paused, whether or not the game is paused.
      */
     public boolean isPaused() {
