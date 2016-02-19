@@ -37,6 +37,10 @@ Toistaiseksi epävarmaa mitkä näistä ideoista päätyvät itse peliin.
 
 ![2.0](classDiagram_2.png)
 
+<h2> 3.0 (19.2) </h2>
+
+![3.0](classDiagram_3.png)
+
 #Sekvenssikaavioita
 
 <h2> Käynnistysvaihe eli päävalikon piirtäminen </h2>
