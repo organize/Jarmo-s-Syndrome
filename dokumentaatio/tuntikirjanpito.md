@@ -38,6 +38,15 @@
 	Tunnit: 2.5
 	Kohde: Dokumentaation jatkaminen, pit-raportin luominen, checkstyle ja virheiden korjailu.
 	
+<h4>15.02.2016</h4>
+
+	Tunnit: 4
+	Kohde: Sidescroller-tyylinen toteutus. Tehtävää: koordinaattijärjestelmän ymmärtäminen.
+	
+<h4>18.02.2016</h4>
+	
+	Tunnit: 2
+	Kohde: Pelimekaniikkojen muovailua.
 	
 <h4>Kokonaistunnit</h4>
-	23.5
+	29.5

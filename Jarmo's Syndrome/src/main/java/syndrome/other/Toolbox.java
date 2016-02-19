@@ -1,8 +1,6 @@
 package syndrome.other;
 
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Control;
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
 
@@ -43,6 +41,12 @@ public class Toolbox {
         return angleDegrees;
     }
     
+    /**
+     * Turns a Direction into corresponding coordinate changes.
+     * 
+     * @param direction the direction to transform.
+     * @return an integer array with the sufficient changes.
+     */
     public int[] directionToDelta(Direction direction) {
         int[] delta = new int[2];
         switch(direction) {
