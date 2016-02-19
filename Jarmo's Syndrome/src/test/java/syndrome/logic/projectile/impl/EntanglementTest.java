@@ -8,6 +8,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import static org.junit.Assert.*;
 import org.junit.Test;
+import syndrome.logic.map.Location;
 import syndrome.other.SyndromeFactory;
 
 public class EntanglementTest {
@@ -15,7 +16,7 @@ public class EntanglementTest {
     @Test
     public void testTimelineAttributes() {
         SyndromeFactory.getWorld().setGamePane(new Pane());
-        Entanglement test = new Entanglement();
+        Entanglement test = new Entanglement(new Location(0, 0));
         Timeline timeline = test.getTimeline();
         test.fire();
         assertTrue(timeline.getCycleCount() > 0);
@@ -28,7 +29,7 @@ public class EntanglementTest {
     @Test
     public void testShape() {
         Circle shape = new Circle(15, 15, 5);
-        Entanglement test = new Entanglement();
+        Entanglement test = new Entanglement(new Location(0, 0));
         Shape actual = test.getObject();
         assertTrue(actual instanceof Circle);
         Circle circle = (Circle) actual;

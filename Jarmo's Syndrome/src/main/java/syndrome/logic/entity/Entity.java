@@ -35,6 +35,8 @@ public abstract class Entity {
     
     public abstract EntityType getType();
     
+    public abstract void destroy();
+    
     /**
      * As long as the game is not paused,
      * an instance of <b>SyndromeTimer</b> will call this method

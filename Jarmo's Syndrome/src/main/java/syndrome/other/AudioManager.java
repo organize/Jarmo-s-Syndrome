@@ -10,6 +10,7 @@ import javafx.scene.media.AudioClip;
  * 
  * @author Axel Wallin
  */
+
 public class AudioManager {
     
     private final Map<String, AudioClip> cache;

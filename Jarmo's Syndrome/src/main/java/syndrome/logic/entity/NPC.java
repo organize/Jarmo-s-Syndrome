@@ -11,10 +11,12 @@ import syndrome.logic.map.Location;
 public class NPC extends Entity {
     
     private double rotation;
+    private int health;
 
     public NPC() {
         super();
         this.rotation = 0.0d;
+        this.health = 0;
     }
 
     @Override
@@ -34,7 +36,9 @@ public class NPC extends Entity {
 
     @Override
     public void tick() {
-        
+        if(health <= 0) {
+            destroy();
+        }
     }
 
     @Override
@@ -68,6 +72,11 @@ public class NPC extends Entity {
     @Override
     public int getSize() {
         return 4;
+    }
+
+    @Override
+    public void destroy() {
+
     }
 
 }

@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import syndrome.logic.entity.Entity;
 import syndrome.logic.entity.NPC;
+import syndrome.logic.map.Location;
 import syndrome.logic.projectile.Projectile;
 import syndrome.logic.projectile.impl.Entanglement;
 
@@ -30,7 +31,7 @@ public class WorldTest {
     
     @Test
     public void testProjectiles() {
-        Projectile test = new Entanglement();
+        Projectile test = new Entanglement(new Location(0, 0));
         world.addProjectile(test);
         assertTrue(world.getProjectiles().contains(test));
         assertTrue(world.getProjectiles().size() == 1);

@@ -1,6 +1,7 @@
 package syndrome.logic.map;
 
 import java.awt.geom.Point2D;
+import javafx.scene.input.MouseEvent;
 
 /**
  * Represents a point in the game screen.
@@ -83,6 +84,15 @@ public class Location {
         hash = 89 * hash + (int) (Double.doubleToLongBits(this.x) ^ (Double.doubleToLongBits(this.x) >>> 32));
         hash = 89 * hash + (int) (Double.doubleToLongBits(this.y) ^ (Double.doubleToLongBits(this.y) >>> 32));
         return hash;
+    }
+    
+    /**
+     * Creates a new location instance from a mouse event.
+     * @param event the MouseEvent instance.
+     * @return Location, the corresponding location in game.
+     */
+    public static Location toLocation(MouseEvent event) {
+        return new Location(event.getSceneX() - 320, event.getSceneY() - 240);
     }
 
 }

@@ -1,6 +1,7 @@
 package syndrome.logic.projectile;
 
 import javafx.scene.shape.Shape;
+import syndrome.logic.map.Axis;
 
 /**
  * Abstract representation of a projectile in the game.
@@ -12,6 +13,14 @@ public interface Projectile {
     public void fire();
     
     public void destroy();
+    
+    /**
+     * Translates the current local coordinates to screen coordinates
+     * depending on the given <b>Axis</b>.
+     * 
+     * @param axis the axis to update.
+     */
+    public void updateTranslation(Axis axis);
     
     /**
      * Get the Shape instance associated with this projectile.

@@ -1,6 +1,9 @@
 package syndrome.other;
 
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Control;
+import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
 
 /**
@@ -18,7 +21,7 @@ public class Toolbox {
      * @param node, the instance a stylesheet should be added to.
      * @param stylesheet, the filename of the stylesheet.
      */
-    public void addStylesheet(Control node, String stylesheet) {
+    public void addStylesheet(Parent node, String stylesheet) {
         node.getStylesheets().add(getClass().getResource("/resources/css/" + stylesheet + ".css").toExternalForm());
     }
     
@@ -38,6 +41,41 @@ public class Toolbox {
             angleDegrees += 360;
         }
         return angleDegrees;
+    }
+    
+    public int[] directionToDelta(Direction direction) {
+        int[] delta = new int[2];
+        switch(direction) {
+            case NORTH:
+                delta[1] = -2;
+                break;
+            case SOUTH:
+                delta[1] = 2;
+                break;
+            case EAST:
+                delta[0] = 2;
+                break;
+            case WEST:
+                delta[0] = -2;
+                break;
+            case NORTHEAST:
+                delta[0] = 2;
+                delta[1] = -2;
+                break;
+            case NORTHWEST:
+                delta[0] = -2;
+                delta[1] = -2;
+                break;
+            case SOUTHEAST:
+                delta[0] = 2;
+                delta[1] = 2;
+                break;
+            case SOUTHWEST:
+                delta[0] = -2;
+                delta[1] = 2;
+                break;
+        }
+        return delta;
     }
     
 }

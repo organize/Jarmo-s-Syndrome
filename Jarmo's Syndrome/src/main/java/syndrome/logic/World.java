@@ -80,5 +80,9 @@ public class World {
     public List<Projectile> getProjectiles() {
         return activeProjectiles;
     }
+    
+    public Rectangle getRTest() {
+        return rect;
+    }
 
 }

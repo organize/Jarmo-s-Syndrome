@@ -1,10 +1,9 @@
 package syndrome.logic.entity;
 
 import syndrome.logic.map.Direction;
-import java.awt.MouseInfo;
-import java.awt.Point;
 import syndrome.logic.map.Location;
 import syndrome.other.SyndromeFactory;
+import syndrome.other.Toolbox;
 
 /**
  * A class that represents the player character.
@@ -18,9 +17,10 @@ public class Player extends Entity {
     private double rotation;
     
     private int points;
+    private Location lastMousePosition;
     
     public Player() {
-        super(new Location(300, 300));
+        super(new Location(0, 0));
         this.rotation = 0.0D;
         this.direction = Direction.NONE;
         this.points = 0;
@@ -45,8 +45,8 @@ public class Player extends Entity {
     public void tick() {
         if(!direction.equals(Direction.NONE)) {
             handleMovement();
+            updateRotation(lastMousePosition);
         }
-        updateRotation();
     }
 
     @Override
@@ -95,39 +95,28 @@ public class Player extends Entity {
         this.direction = direction;
     }
     
-    private void updateRotation() {
-        Point point = MouseInfo.getPointerInfo().getLocation();
-        Location mouseLoc = new Location(point.getX(), point.getY());
-        double angleDegrees = SyndromeFactory.getToolbox().calculateRotation(mouseLoc);
+    public void updateRotation(Location towards) {
+        double angleDegrees = SyndromeFactory.getToolbox().calculateRotation(towards);
         setRotation(angleDegrees);
+        this.lastMousePosition = towards;
     }
             
     private void handleMovement() {
-        switch(direction) {
-            case NORTH:
-                setLocation(location.getX(), location.getY() - 2);
-                break;
-            case SOUTH:
-                setLocation(location.getX(), location.getY() + 2);
-                break;
-            case EAST:
-                setLocation(location.getX() + 2, location.getY());
-                break;
-            case WEST:
-                setLocation(location.getX() - 2, location.getY());
-                break;
-            case NORTHEAST:
-                setLocation(location.getX() + 2, location.getY() - 2);
-                break;
-            case NORTHWEST:
-                setLocation(location.getX() - 2, location.getY() - 2);
-                break;
-            case SOUTHEAST:
-                setLocation(location.getX() + 2, location.getY() + 2);
-                break;
-            case SOUTHWEST:
-                setLocation(location.getX() - 2, location.getY() + 2);
-                break;
-        }
+        Toolbox toolbox = SyndromeFactory.getToolbox();
+        int[] delta = toolbox.directionToDelta(direction);
+        setLocation(location.getX() + delta[0], location.getY() + delta[1]);
+    }
+
+    @Override
+    public void destroy() {
+
+    }
+    
+    public Location getLastMousePosition() {
+        return lastMousePosition;
+    }
+
+    public Direction getDirection() {
+        return direction;
     }
 }
