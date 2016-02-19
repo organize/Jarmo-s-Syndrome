@@ -21,20 +21,51 @@ public abstract class Entity {
     /**
      * Creates a new entity to the location supplied.
      * 
-     * @param location, the location where this entity should be spawned.
+     * @param location the location where this entity should be spawned.
      */
     public Entity(Location location) {
         this.location = location;
     }
     
+    /**
+     * Get the location of the entity.
+     * 
+     * @return location the location of this entity.
+     */
     public abstract Location getLocation();
+    
+    /**
+     * Sets the location of the entity.
+     * 
+     * @param x the x coordinate.
+     * @param y the y coordinate.
+     */
     public abstract void setLocation(double x, double y);
     
+    /**
+     * Get the rotation of the entity.
+     * 
+     * @return rotation the current rotation in degrees.
+     */
     public abstract double getRotation();
+    
+    /**
+     * Sets the rotation of the entity.
+     * 
+     * @param degrees the target rotation.
+     */
     public abstract void setRotation(double degrees);
     
+    /**
+     * Get the type of the entity.
+     * 
+     * @return the type of this entity.
+     */
     public abstract EntityType getType();
     
+    /**
+     * Destroys this entity.
+     */
     public abstract void destroy();
     
     /**
@@ -54,12 +85,17 @@ public abstract class Entity {
     
     /**
      * Checks if this entity collides with another entity.
-     * @param other, the entity we want to check.
+     * @param other the entity we want to check.
      * 
      * @return whether or not a collision is occuring.
      */
     public abstract boolean collidesWith(Entity other);
     
+    /**
+     * Get the size of the entity. Default is 8 for players, 4 for NPCs.
+     * 
+     * @return the size.
+     */
     public abstract int getSize();
    
 }

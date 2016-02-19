@@ -38,11 +38,12 @@ public class SyndromeTimerTest {
         } catch(Exception e) {}
         timer.start();
         player.setLocation(location.getX(), location.getY());
+        player.setRotation(315.0);
         timer.handle(0);
         timer.stop();
         
-        Location rectLoc = new Location(timer.getRectangle().getX(),
-            timer.getRectangle().getY());
+        Location rectLoc = new Location(timer.getRectangle().getTranslateX(),
+            timer.getRectangle().getTranslateY());
         assertTrue(rectLoc.equals(player.getLocation()));
         System.out.println(timer.getRectangle().getRotate());
         assertTrue(timer.getRectangle().getRotate() == 315.0d);

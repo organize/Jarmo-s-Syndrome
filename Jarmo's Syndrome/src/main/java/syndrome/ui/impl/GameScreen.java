@@ -1,5 +1,6 @@
 package syndrome.ui.impl;
 
+import java.util.List;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -13,6 +14,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import syndrome.entity.Player;
+import syndrome.logic.map.Axis;
+import syndrome.logic.projectile.Projectile;
 import syndrome.other.input.KeyboardInput;
 import syndrome.other.SyndromeFactory;
 import syndrome.other.input.MouseInput;
@@ -106,5 +110,38 @@ public class GameScreen implements SyndromeGUI {
         group.setTranslateX(270);
         group.setTranslateY(-190);
         return group;
+    }
+
+    public void handleScreenPan(Player player) {
+        List<Projectile> projectiles = SyndromeFactory.getWorld().getProjectiles();
+        Node background = SyndromeFactory.getGUIManager().getBackground();
+        Axis toUpdate = Axis.NONE;
+        double absX = Math.abs(player.getLocation().getX());
+        double absY = Math.abs(player.getLocation().getY());
+        if (absX <= 180 && absY > 140) {
+            toUpdate = Axis.X_AXIS;
+        }
+        if (absY <= 140 && absX > 180) {
+            toUpdate = Axis.Y_AXIS;
+        }
+        if (absX <= 180 && absY <= 140) {
+            toUpdate = Axis.X_AND_Y_AXIS;
+        }
+        switch (toUpdate) {
+            case X_AXIS:
+                background.setTranslateX(-player.getLocation().getX());
+                break;
+            case Y_AXIS:
+                background.setTranslateY(-player.getLocation().getY());
+                break;
+            case X_AND_Y_AXIS:
+                background.setTranslateX(-player.getLocation().getX());
+                background.setTranslateY(-player.getLocation().getY());
+                break;
+        }
+        final Axis lambdaAxis = toUpdate;
+        if (lambdaAxis != Axis.NONE) {
+            projectiles.forEach((Projectile proj) -> proj.updateTranslation(lambdaAxis));
+        }
     }
 }

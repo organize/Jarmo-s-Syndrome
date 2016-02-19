@@ -28,6 +28,10 @@ public class KeyboardInput implements EventHandler<KeyEvent> {
             }
         };
     
+    /**
+     * Creates a new, empty instance of this KeyboardListener
+     * wrapper.
+     */
     public KeyboardInput() {
         this.held = new ArrayList<>();
     }

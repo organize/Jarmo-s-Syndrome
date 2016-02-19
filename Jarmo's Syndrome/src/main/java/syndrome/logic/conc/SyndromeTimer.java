@@ -53,7 +53,7 @@ public class SyndromeTimer extends AnimationTimer {
             rect.setRotate(player.getRotation());
             
             if(player.getDirection() != Direction.NONE) {
-                handleScreenPan(player);
+                SyndromeFactory.getGUIManager().getGameScreen().handleScreenPan(player);
             }
         }
         this.lastUpdate = now;
@@ -71,39 +71,4 @@ public class SyndromeTimer extends AnimationTimer {
         return rect;
     }
     
-    private void handleScreenPan(Player player) {
-        List<Projectile> projectiles = SyndromeFactory.getWorld().getProjectiles();
-        Node background = SyndromeFactory.getGUIManager().getBackground();
-        Axis toUpdate = Axis.NONE;
-        
-        double absX = Math.abs(player.getLocation().getX());
-        double absY = Math.abs(player.getLocation().getY());
-        
-        if(absX <= 180 && absY > 140) {
-            toUpdate = Axis.X_AXIS;
-        }
-        if(absY <= 140 && absX > 180) {
-            toUpdate = Axis.Y_AXIS;
-        }
-        if(absX <= 180 && absY <= 140) {
-            toUpdate = Axis.X_AND_Y_AXIS;
-        }
-        
-        switch(toUpdate) {
-            case X_AXIS:
-                background.setTranslateX(-player.getLocation().getX());
-                break;
-            case Y_AXIS:
-                background.setTranslateY(-player.getLocation().getY());
-                break;
-            case X_AND_Y_AXIS:
-                background.setTranslateX(-player.getLocation().getX());
-                background.setTranslateY(-player.getLocation().getY());
-                break;
-        }
-        final Axis lambdaAxis = toUpdate;
-        if(lambdaAxis != Axis.NONE) {
-            projectiles.forEach(proj -> proj.updateTranslation(lambdaAxis));
-        }
-    }
 }

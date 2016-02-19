@@ -15,6 +15,10 @@ public class AudioManager {
     
     private final Map<String, AudioClip> cache;
     
+    
+    /**
+     * Creates an instance of AudioManager with empty cache.
+     */
     public AudioManager() {
         this.cache = new HashMap<>();
     }
@@ -22,8 +26,8 @@ public class AudioManager {
     /**
      * Precaches an audio file so it can be rapidly accessed in the future.
      * 
-     * @param identifier, the key for this audio instance.
-     * @param filename, the filename where the audio is located.
+     * @param identifier the key for this audio instance.
+     * @param filename the filename where the audio is located.
      */
     public void precache(String identifier, String filename) {
         if(filename == null) {
@@ -42,7 +46,7 @@ public class AudioManager {
     /**
      * Plays an audio file if present in the current cache.
      * 
-     * @param identifier, the key of the wanted audio instance.
+     * @param identifier the key of the wanted audio instance.
      */
     public void playCached(String identifier) {
         if(!cache.containsKey(identifier)) {
@@ -54,7 +58,7 @@ public class AudioManager {
     /**
      * Stops an audio file if present in the current cache.
      * 
-     * @param identifier, the key of the wanted audio instance.
+     * @param identifier the key of the wanted audio instance.
      */
     public void stopCached(String identifier) {
         if(!cache.containsKey(identifier)) {
@@ -67,7 +71,7 @@ public class AudioManager {
      * Gets an audio file if present in the current cache.
      * 
      * @todo {convert into <i>Optional<AudioClip></i>}
-     * @param identifier, the key of the wanted audio instance.
+     * @param identifier the key of the wanted audio instance.
      * @return an audio clip if present.
      */
     public AudioClip get(String identifier) {
@@ -82,7 +86,7 @@ public class AudioManager {
      * 
      * @note this method does not use the cache, rather it will
      *   simply play a one-shot of the audio file, if it exists.
-     * @param filename, the audio effect filename.
+     * @param filename the audio effect filename.
      */
     public void playEffect(String filename) {
         if(filename == null) {

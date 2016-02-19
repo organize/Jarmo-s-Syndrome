@@ -43,5 +43,11 @@ public class LocationTest {
         Location expected = new Location(2.5, 42.5);
         assertEquals("midpoint failure", expected, first.midpoint(second));
     }
+    
+    @Test
+    public void testHashCode() {
+        Location toTest = new Location(10, 10);
+        assertTrue(toTest.hashCode() == -1935091561);
+    }
 
 }

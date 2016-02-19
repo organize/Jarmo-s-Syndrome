@@ -12,10 +12,19 @@ public class Location {
     
     private double x, y;
     
+    /**
+     * Creates a new location with the coordinates [0, 0].
+     */
     public Location() {
         this(0.0D, 0.0D);
     }
     
+    /**
+     * Creates a new location with the supplied coordinates.
+     * 
+     * @param x the x coordinate.
+     * @param y the y coordinate.
+     */
     public Location(double x, double y) {
         this.x = x;
         this.y = y;
@@ -32,8 +41,8 @@ public class Location {
     /**
      * Finds the distance between two Location instances.
      * 
-     * @param location, the location that needs to be checked.
-     * @return distance, the distance between this and <i>location</i>.
+     * @param location the location that needs to be checked.
+     * @return distance the distance between this and <i>location</i>.
      */
     public double distanceTo(Location location) {
         return Point2D.distance(x, y, location.getX(), location.getY());
@@ -43,8 +52,8 @@ public class Location {
      * Creates a new Location instance that is between
      * this and <i>location</i>.
      * 
-     * @param location, the other location.
-     * @return midpoint, the point between this instance and <i>location</i>.
+     * @param location the other location.
+     * @return midpoint the point between this instance and <i>location</i>.
      */
     public Location midpoint(Location location) {
         double middleX = (x + location.getX()) / 2;
@@ -56,8 +65,8 @@ public class Location {
      * Transforms the coordinates of this location to the
      * parameters supplied.
      * 
-     * @param x, the x axis value.
-     * @param y, the y axis value.
+     * @param x the x axis value.
+     * @param y the y axis value.
      */
     public void transform(double x, double y) {
         this.x = x;

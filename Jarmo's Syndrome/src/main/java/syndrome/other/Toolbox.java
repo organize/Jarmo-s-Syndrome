@@ -16,8 +16,8 @@ public class Toolbox {
     /**
      * Attaches a stylesheet file to a <b>Control</b> instance.
      * 
-     * @param node, the instance a stylesheet should be added to.
-     * @param stylesheet, the filename of the stylesheet.
+     * @param node the instance a stylesheet should be added to.
+     * @param stylesheet the filename of the stylesheet.
      */
     public void addStylesheet(Parent node, String stylesheet) {
         node.getStylesheets().add(getClass().getResource("/resources/css/" + stylesheet + ".css").toExternalForm());
@@ -27,7 +27,7 @@ public class Toolbox {
      * Calculates the player's rotation so that it faces
      * <i>where</i>. 
      * 
-     * @param where, the location to which the player should face.
+     * @param where the location to which the player should face.
      * @return the rotation in degrees.
      */
     public double calculateRotation(Location where) {

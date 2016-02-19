@@ -13,6 +13,10 @@ public class GameSettings {
     private Dimension resolution;
     private boolean paused;
     
+    /**
+     * Creates a new instance with the default resolution of
+     * 1024x768 pixels.
+     */
     public GameSettings() {
         this.resolution = new Dimension(1024, 768);
         this.paused = false;

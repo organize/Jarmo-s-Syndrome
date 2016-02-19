@@ -10,8 +10,14 @@ import syndrome.logic.map.Axis;
  */
 public interface Projectile {
     
+    /**
+     * Fires the projectile.
+     */
     public void fire();
     
+    /**
+     * Destroys the projectile.
+     */
     public void destroy();
     
     /**

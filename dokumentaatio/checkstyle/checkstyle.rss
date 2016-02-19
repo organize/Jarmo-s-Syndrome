@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 22,
-             Errors: 3,
+      <title>File: 28,
+             Errors: 5,
              Warnings: 0,
              Infos: 0
       </title>
@@ -46,6 +46,34 @@ under the License.
           <tbody>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#syndrome.entity.impl.Bacteria.java">syndrome/entity/impl/Bacteria.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#syndrome.entity.impl.EndothelialCell.java">syndrome/entity/impl/EndothelialCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#syndrome.GameSettings.java">syndrome/GameSettings.java</a>
                 </td>
                 <td>
@@ -55,7 +83,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
@@ -69,26 +97,12 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#syndrome.logic.map.Direction.java">syndrome/logic/map/Direction.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#syndrome.other.input.MouseInput.java">syndrome/other/input/MouseInput.java</a>
+                  <a href="${project.url}/checkstyle.html#syndrome.entity.impl.Antibody.java">syndrome/entity/impl/Antibody.java</a>
                 </td>
                 <td>
                   0
@@ -102,21 +116,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#syndrome.logic.entity.EntityType.java">syndrome/logic/entity/EntityType.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#syndrome.ui.impl.GameScreen.java">syndrome/ui/impl/GameScreen.java</a>
+                  <a href="${project.url}/checkstyle.html#syndrome.entity.Entity.java">syndrome/entity/Entity.java</a>
                 </td>
                 <td>
                   0
@@ -144,7 +144,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#syndrome.ui.SyndromeGUI.java">syndrome/ui/SyndromeGUI.java</a>
+                  <a href="${project.url}/checkstyle.html#syndrome.entity.Player.java">syndrome/entity/Player.java</a>
                 </td>
                 <td>
                   0
@@ -159,20 +159,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#syndrome.other.input.KeyboardInput.java">syndrome/other/input/KeyboardInput.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#syndrome.logic.entity.Entity.java">syndrome/logic/entity/Entity.java</a>
                 </td>
                 <td>
                   0
@@ -214,7 +200,147 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#syndrome.logic.entity.NPC.java">syndrome/logic/entity/NPC.java</a>
+                  <a href="${project.url}/checkstyle.html#syndrome.entity.impl.StellateCell.java">syndrome/entity/impl/StellateCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#syndrome.Syndrome.java">syndrome/Syndrome.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#syndrome.entity.impl.KupfferCell.java">syndrome/entity/impl/KupfferCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#syndrome.logic.conc.SyndromeTimer.java">syndrome/logic/conc/SyndromeTimer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#syndrome.entity.EntityType.java">syndrome/entity/EntityType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#syndrome.logic.map.Direction.java">syndrome/logic/map/Direction.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#syndrome.other.input.MouseInput.java">syndrome/other/input/MouseInput.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#syndrome.ui.impl.GameScreen.java">syndrome/ui/impl/GameScreen.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#syndrome.ui.SyndromeGUI.java">syndrome/ui/SyndromeGUI.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#syndrome.entity.NPC.java">syndrome/entity/NPC.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#syndrome.logic.map.Axis.java">syndrome/logic/map/Axis.java</a>
                 </td>
                 <td>
                   0
@@ -251,20 +377,6 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#syndrome.Syndrome.java">syndrome/Syndrome.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
                   0
                 </td>
               </tr>
@@ -285,34 +397,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#syndrome.other.Toolbox.java">syndrome/other/Toolbox.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#syndrome.logic.conc.SyndromeTimer.java">syndrome/logic/conc/SyndromeTimer.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#syndrome.logic.entity.Player.java">syndrome/logic/entity/Player.java</a>
                 </td>
                 <td>
                   0

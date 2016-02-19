@@ -19,11 +19,16 @@ public class Player extends Entity {
     private int points;
     private Location lastMousePosition;
     
+    /**
+     * Creates a new player instance at the default location
+     * of [0, 0].
+     */
     public Player() {
         super(new Location(0, 0));
         this.rotation = 0.0D;
         this.direction = Direction.NONE;
         this.points = 0;
+        this.lastMousePosition = new Location(0, 0);
     }
 
     @Override
@@ -95,6 +100,11 @@ public class Player extends Entity {
         this.direction = direction;
     }
     
+    /**
+     * Updates the player rotation based on the supplied location.
+     * 
+     * @param towards the location to face towards.
+     */
     public void updateRotation(Location towards) {
         double angleDegrees = SyndromeFactory.getToolbox().calculateRotation(towards);
         setRotation(angleDegrees);

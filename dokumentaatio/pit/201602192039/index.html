@@ -1,0 +1,176 @@
+<html>
+<head>
+  
+    <style type='text/css'>
+   
+   .tests{ 
+     width : 50%;
+     float : left;
+   }
+   
+   .mutees{
+     float : right;
+     width : 50%;
+   }
+   
+   .unit {
+     padding-top : 20px;
+     clear : both;
+   }
+   
+   .coverage_bar {
+    display : inline-block;
+    height : 1.1em;
+    width: 130px;
+    background: #FAA;
+    margin: 0 5px;
+    vertical-align: middle;
+    border: 1px solid #AAA;
+    position : relative;
+   }
+   
+   .coverage_complete {
+    display : inline-block;
+    height : 100%;
+    background: #DFD;
+    float: left;
+   }
+   
+   .coverage_ledgend {
+        position : absolute;
+        height : 100%;
+        width : 100%;
+        left : 0;
+        top : 0;
+        text-align : center;
+   }
+   
+   .line, .mut {
+        vertical-align : middle;
+   }
+   
+   .coveragePercentage {
+    display: inline-block;
+    width: 3em;
+    text-align: right;
+   }
+  </style>
+  
+</head>
+<body>
+
+<h1>Pit Test Coverage Report</h1>
+
+<h3>Project Summary</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Number of Classes</th>
+            <th>Line Coverage</th>
+            <th>Mutation Coverage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>18</td>
+            <td>46% <div class="coverage_bar"><div class="coverage_complete" style="width:46%"></div><div class="coverage_ledgend">233/510</div></div></td>
+            <td>30% <div class="coverage_bar"><div class="coverage_complete" style="width:30%"></div><div class="coverage_ledgend">79/266</div></div></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>Breakdown by Package</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Number of Classes</th>
+            <th>Line Coverage</th>
+            <th>Mutation Coverage</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td><a href="./syndrome/index.html">syndrome</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">45% </div><div class="coverage_bar"><div class="coverage_complete" style="width:45%"></div><div class="coverage_ledgend">10/22</div></div></td>
+            <td><div class="coveragePercentage">40% </div><div class="coverage_bar"><div class="coverage_complete" style="width:40%"></div><div class="coverage_ledgend">4/10</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./syndrome.entity/index.html">syndrome.entity</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">92% </div><div class="coverage_bar"><div class="coverage_complete" style="width:92%"></div><div class="coverage_ledgend">69/75</div></div></td>
+            <td><div class="coveragePercentage">68% </div><div class="coverage_bar"><div class="coverage_complete" style="width:68%"></div><div class="coverage_ledgend">23/34</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./syndrome.logic/index.html">syndrome.logic</a></td>
+            <td>1</td>
+            <td><div class="coveragePercentage">96% </div><div class="coverage_bar"><div class="coverage_complete" style="width:96%"></div><div class="coverage_ledgend">24/25</div></div></td>
+            <td><div class="coveragePercentage">71% </div><div class="coverage_bar"><div class="coverage_complete" style="width:71%"></div><div class="coverage_ledgend">5/7</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./syndrome.logic.conc/index.html">syndrome.logic.conc</a></td>
+            <td>1</td>
+            <td><div class="coveragePercentage">95% </div><div class="coverage_bar"><div class="coverage_complete" style="width:95%"></div><div class="coverage_ledgend">20/21</div></div></td>
+            <td><div class="coveragePercentage">64% </div><div class="coverage_bar"><div class="coverage_complete" style="width:64%"></div><div class="coverage_ledgend">7/11</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./syndrome.logic.map/index.html">syndrome.logic.map</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">93% </div><div class="coverage_bar"><div class="coverage_complete" style="width:93%"></div><div class="coverage_ledgend">40/43</div></div></td>
+            <td><div class="coveragePercentage">82% </div><div class="coverage_bar"><div class="coverage_complete" style="width:82%"></div><div class="coverage_ledgend">23/28</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./syndrome.logic.projectile.impl/index.html">syndrome.logic.projectile.impl</a></td>
+            <td>1</td>
+            <td><div class="coveragePercentage">86% </div><div class="coverage_bar"><div class="coverage_complete" style="width:86%"></div><div class="coverage_ledgend">31/36</div></div></td>
+            <td><div class="coveragePercentage">47% </div><div class="coverage_bar"><div class="coverage_complete" style="width:47%"></div><div class="coverage_ledgend">8/17</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./syndrome.other/index.html">syndrome.other</a></td>
+            <td>3</td>
+            <td><div class="coveragePercentage">50% </div><div class="coverage_bar"><div class="coverage_complete" style="width:50%"></div><div class="coverage_ledgend">39/78</div></div></td>
+            <td><div class="coveragePercentage">31% </div><div class="coverage_bar"><div class="coverage_complete" style="width:31%"></div><div class="coverage_ledgend">9/29</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./syndrome.other.input/index.html">syndrome.other.input</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/53</div></div></td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/33</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./syndrome.ui/index.html">syndrome.ui</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/27</div></div></td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/13</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./syndrome.ui.impl/index.html">syndrome.ui.impl</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/130</div></div></td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/84</div></div></td>
+        </tr>
+
+     </tbody>
+</table>
+<br/>
+
+
+
+<hr/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.9
+
+</body>
+</html>

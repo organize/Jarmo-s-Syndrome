@@ -46,6 +46,7 @@ public class EntityTest {
     @Test
     public void testCollisionBox() {
         Entity player = new Player();
+        player.setLocation(300, 300);
         /* player position is 300, 300 initially */
         /* so bounds are [300,300][308,300][300,308][308,308] */
         Entity testNpc = new NPC();

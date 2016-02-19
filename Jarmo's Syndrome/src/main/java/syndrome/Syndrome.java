@@ -2,6 +2,7 @@ package syndrome;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import syndrome.logic.map.Location;
 import syndrome.other.SyndromeFactory;
 
 /**
@@ -15,7 +16,7 @@ public class Syndrome extends Application {
      * Method to set-up initial menu and audio effects.
      * Should <i>only</i> be called from the superclass (Application).
      * 
-     * @param primaryStage, an automatically created Stage instance.
+     * @param primaryStage an automatically created Stage instance.
      */
     @Override
     public void start(Stage primaryStage) {
@@ -27,9 +28,10 @@ public class Syndrome extends Application {
      * Program entry-point.
      * Currently, the only accepted parameter is resolution (widthxheight).
      * 
-     * @param args, command-line arguments.
+     * @param args command-line arguments.
      */
     public static void main(String[] args) {
+        System.out.println(new Location(10, 10).hashCode());
         if(args.length != 0) {
             String preferredResolution = args[0];
             int width = Integer.parseInt(preferredResolution.split("x")[0]);
