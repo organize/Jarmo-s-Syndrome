@@ -42,3 +42,7 @@ Toistaiseksi epävarmaa mitkä näistä ideoista päätyvät itse peliin.
 <h2> Käynnistysvaihe eli päävalikon piirtäminen </h2>
 
 ![1.0](startup_sequence.png)
+
+<h2> Yhden pelikierroksen kuvaus </h2>
+
+![1.0](gameloop_sequence.png)
