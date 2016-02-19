@@ -3,7 +3,7 @@ package syndrome.other.input;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import syndrome.logic.entity.Player;
+import syndrome.entity.Player;
 import syndrome.logic.map.Location;
 import syndrome.logic.projectile.Projectile;
 import syndrome.logic.projectile.impl.Entanglement;

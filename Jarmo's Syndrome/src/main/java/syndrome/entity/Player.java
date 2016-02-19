@@ -1,4 +1,4 @@
-package syndrome.logic.entity;
+package syndrome.entity;
 
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;

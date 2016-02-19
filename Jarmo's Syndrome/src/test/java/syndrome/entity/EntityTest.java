@@ -1,5 +1,9 @@
-package syndrome.logic.entity;
+package syndrome.entity;
 
+import syndrome.entity.Player;
+import syndrome.entity.EntityType;
+import syndrome.entity.NPC;
+import syndrome.entity.Entity;
 import static org.junit.Assert.*;
 
 import org.junit.Test;

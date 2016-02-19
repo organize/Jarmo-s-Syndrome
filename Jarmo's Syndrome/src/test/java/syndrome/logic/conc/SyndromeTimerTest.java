@@ -5,7 +5,7 @@ import javafx.scene.shape.Rectangle;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import syndrome.logic.entity.Player;
+import syndrome.entity.Player;
 import syndrome.logic.map.Location;
 import syndrome.other.SyndromeFactory;
 

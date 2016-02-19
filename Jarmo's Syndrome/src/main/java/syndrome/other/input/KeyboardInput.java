@@ -6,7 +6,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import syndrome.logic.map.Direction;
-import syndrome.logic.entity.Player;
+import syndrome.entity.Player;
 import syndrome.other.SyndromeFactory;
 
 /**

@@ -9,7 +9,9 @@ Ideoita:
 * Lääkkeet, jotka estävät pääsyn mm. virukselle elintärkeisiin proteiini-ja-happorakenteisiin.
 * Virukselle ominainen taso, joka pelin myötä progressiivinen. Tuo mukanaan tehokkaampia tapoja levitä.
 * Peli sijoittuu siis ihmisen sisälle, ideana integroida "pelilaudan" kunto ja toiminnat vaikuttaviksi voimiksi.
-* <b>... all for now</b>
+* 19.2: idea vaihtuu hieman.
+* * Ollaankin maksassa, ja vastassa on Kupfferin soluja, epiteelisoluja ja muita mukavuuksia.
+* * Idea on piirtopyödällä, mutta <b>entity.impl</b> paketin dokumentaatioissa on jotain tietoja.
 
 Toistaiseksi epävarmaa mitkä näistä ideoista päätyvät itse peliin.
 

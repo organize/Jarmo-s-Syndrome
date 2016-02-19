@@ -6,8 +6,8 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import syndrome.logic.conc.SyndromeTimer;
-import syndrome.logic.entity.NPC;
-import syndrome.logic.entity.Player;
+import syndrome.entity.NPC;
+import syndrome.entity.Player;
 import syndrome.logic.projectile.Projectile;
 
 /**

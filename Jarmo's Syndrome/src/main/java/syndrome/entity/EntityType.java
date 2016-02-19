@@ -1,4 +1,4 @@
-package syndrome.logic.entity;
+package syndrome.entity;
 
 /**
  * An enumeration to determine the type of an entity.

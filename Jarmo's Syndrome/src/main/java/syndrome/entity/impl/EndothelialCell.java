@@ -1,6 +1,6 @@
-package syndrome.logic.entity.impl;
+package syndrome.entity.impl;
 
-import syndrome.logic.entity.NPC;
+import syndrome.entity.NPC;
 
 /**
  * Represents a sinusoidal endothelial Cell.
