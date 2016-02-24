@@ -1,6 +1,7 @@
 package syndrome.other;
 
 import javafx.scene.Parent;
+import syndrome.entity.NPC;
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
 
@@ -82,4 +83,17 @@ public class Toolbox {
         return delta;
     }
     
+    public double[] angleToVelocity(double angle) {
+        return new double[]{Math.cos(angle), Math.sin(angle)};
+    }
+    
+    public int countActive(Class<?> target) {
+        int count = 0;
+        for(NPC npc : SyndromeFactory.getWorld().getNPCs()) {
+            if(npc.getClass().isAssignableFrom(target)) {
+                count++;
+            }
+        }
+        return count;
+    }
 }

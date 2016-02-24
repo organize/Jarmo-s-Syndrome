@@ -14,6 +14,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import syndrome.entity.NPC;
 import syndrome.entity.Player;
 import syndrome.logic.map.Axis;
 import syndrome.logic.projectile.Projectile;
@@ -114,10 +115,11 @@ public class GameScreen implements SyndromeGUI {
 
     public void handleScreenPan(Player player) {
         List<Projectile> projectiles = SyndromeFactory.getWorld().getProjectiles();
+        List<NPC> activeNPCs = SyndromeFactory.getWorld().getNPCs();
         Node background = SyndromeFactory.getGUIManager().getBackground();
         Axis toUpdate = Axis.NONE;
-        double absX = Math.abs(player.getLocation().getX());
-        double absY = Math.abs(player.getLocation().getY());
+        int absX = (int) Math.abs(player.getLocation().getX());
+        int absY = (int) Math.abs(player.getLocation().getY());
         if (absX <= 180 && absY > 140) {
             toUpdate = Axis.X_AXIS;
         }
@@ -140,8 +142,9 @@ public class GameScreen implements SyndromeGUI {
                 break;
         }
         final Axis lambdaAxis = toUpdate;
-        if (lambdaAxis != Axis.NONE) {
+        if(lambdaAxis != Axis.NONE) {
             projectiles.forEach((Projectile proj) -> proj.updateTranslation(lambdaAxis));
+            activeNPCs.forEach((NPC npc) -> npc.updateTranslation(lambdaAxis));
         }
     }
 }

@@ -24,6 +24,9 @@ public class World {
     private Rectangle rect;
     private Pane gamePane;
     
+    /**
+     * Creates a new World instance and a Player inside it.
+     */
     public World() {
         this.player = new Player();
         this.activeNPCs = new ArrayList<>();
@@ -37,6 +40,7 @@ public class World {
      */
     public void addProjectile(Projectile proj) {
         activeProjectiles.add(proj);
+        gamePane.getChildren().add(proj.getObject());
     }
     
     /**

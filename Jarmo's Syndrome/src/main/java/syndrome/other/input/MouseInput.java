@@ -1,9 +1,12 @@
 package syndrome.other.input;
 
+import java.util.Random;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import syndrome.entity.NPC;
 import syndrome.entity.Player;
+import syndrome.entity.impl.*;
 import syndrome.logic.map.Location;
 import syndrome.logic.projectile.Projectile;
 import syndrome.logic.projectile.impl.Entanglement;
@@ -26,11 +29,15 @@ public class MouseInput implements EventHandler<MouseEvent> {
     }
     
     private void handleMouseClick(MouseEvent event) {
-        Pane gamePane = SyndromeFactory.getWorld().getGamePane();
-        Projectile entanglement = new Entanglement(Location.toLocation(event));
-        gamePane.getChildren().add(entanglement.getObject());
-        entanglement.fire();
-        SyndromeFactory.getWorld().addProjectile(entanglement);
+        Projectile[] multiEnt = {
+            new Entanglement(Location.toLocation(event), 90),
+            new Entanglement(Location.toLocation(event), 100),
+            new Entanglement(Location.toLocation(event), 80),
+        };
+        for(Projectile projectile : multiEnt) {
+            projectile.fire();
+            SyndromeFactory.getWorld().addProjectile(projectile);
+        }
     }
     
     private void handlePlayerRotation(MouseEvent e) {

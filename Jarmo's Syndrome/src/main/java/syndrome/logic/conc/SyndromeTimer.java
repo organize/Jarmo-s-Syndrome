@@ -1,15 +1,13 @@
 package syndrome.logic.conc;
 
+import java.util.ConcurrentModificationException;
 import java.util.List;
 import javafx.animation.AnimationTimer;
-import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
 import syndrome.logic.World;
 import syndrome.entity.NPC;
 import syndrome.entity.Player;
-import syndrome.logic.map.Axis;
 import syndrome.logic.map.Direction;
-import syndrome.logic.projectile.Projectile;
 import syndrome.other.SyndromeFactory;
 
 /**
@@ -21,13 +19,15 @@ import syndrome.other.SyndromeFactory;
  */
 public class SyndromeTimer extends AnimationTimer {
     
+    private long lastUpdate;
     private boolean paused;
     private Rectangle rect;
-    private long lastUpdate;
+    private Spawner spawner;
     
     public SyndromeTimer(Rectangle rect) {
         this.rect = rect;
         this.lastUpdate = 0;
+        this.spawner = new Spawner();
     }
 
     /**
@@ -42,10 +42,12 @@ public class SyndromeTimer extends AnimationTimer {
             World world = SyndromeFactory.getWorld();
             
             Player player = world.getPlayer();
-            player.tick();
+            player.tick(now);
             
             List<NPC> activeNPCs = world.getNPCs();
-            activeNPCs.forEach(npc -> npc.tick());
+            try {
+                activeNPCs.forEach(npc -> npc.tick(now));
+            } catch(ConcurrentModificationException e) {}
             
             rect.setTranslateX(player.getLocation().getX());
             rect.setTranslateY(player.getLocation().getY());
@@ -55,6 +57,7 @@ public class SyndromeTimer extends AnimationTimer {
             if(player.getDirection() != Direction.NONE) {
                 SyndromeFactory.getGUIManager().getGameScreen().handleScreenPan(player);
             }
+            spawner.tick(player, now);
         }
         this.lastUpdate = now;
     }

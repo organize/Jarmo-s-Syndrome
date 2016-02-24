@@ -1,5 +1,8 @@
 package syndrome.entity;
 
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
 import syndrome.other.SyndromeFactory;
@@ -16,8 +19,10 @@ public class Player extends Entity {
     private Direction direction;
     private double rotation;
     
-    private int points;
+    private int points, level;
     private Location lastMousePosition;
+    
+    private Text levelLabel;
     
     /**
      * Creates a new player instance at the default location
@@ -28,6 +33,7 @@ public class Player extends Entity {
         this.rotation = 0.0D;
         this.direction = Direction.NONE;
         this.points = 0;
+        this.level = 1;
         this.lastMousePosition = new Location(0, 0);
     }
 
@@ -47,11 +53,12 @@ public class Player extends Entity {
     }
 
     @Override
-    public void tick() {
+    public void tick(long now) {
         if(!direction.equals(Direction.NONE)) {
             handleMovement();
             updateRotation(lastMousePosition);
         }
+        updateLevelLabel();
     }
 
     @Override
@@ -95,7 +102,11 @@ public class Player extends Entity {
     public int getSize() {
         return 8;
     }
-     
+    
+    public void addPoints(int points) {
+        this.points += points;
+    }
+    
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
@@ -122,11 +133,31 @@ public class Player extends Entity {
 
     }
     
+    public int getLevel() {
+        return level;
+    }
+    
     public Location getLastMousePosition() {
         return lastMousePosition;
     }
 
     public Direction getDirection() {
         return direction;
+    }
+    
+    private void updateLevelLabel() {
+        if(levelLabel == null) {
+            levelLabel = new Text();
+            levelLabel.setFont(Font.font("8BIT WONDER", 14));
+            levelLabel.setFill(Paint.valueOf("white")); 
+            SyndromeFactory.getWorld()
+                .getGamePane().getChildren().add(levelLabel);
+        }
+        if(points >= (level * level) * 100) {
+            level += 1;
+        }
+        levelLabel.setText("" + level);
+        levelLabel.setTranslateX(location.getX());
+        levelLabel.setTranslateY(location.getY());
     }
 }

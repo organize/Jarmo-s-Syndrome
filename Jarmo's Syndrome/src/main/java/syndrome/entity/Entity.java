@@ -72,8 +72,10 @@ public abstract class Entity {
      * As long as the game is not paused,
      * an instance of <b>SyndromeTimer</b> will call this method
      * for every living entity in the world (60 times / second).
+     * 
+     * @param now the current time in millis.
      */
-    public abstract void tick();
+    public abstract void tick(long now);
     
     /**
      * Returns the bounds of this entity represented as
