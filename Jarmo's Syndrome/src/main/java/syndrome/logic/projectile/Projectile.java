@@ -21,6 +21,11 @@ public interface Projectile {
     public void destroy();
     
     /**
+     * Toggles pause state.
+     */
+    public void togglePause(boolean state);
+    
+    /**
      * Translates the current local coordinates to screen coordinates
      * depending on the given <b>Axis</b>.
      * 

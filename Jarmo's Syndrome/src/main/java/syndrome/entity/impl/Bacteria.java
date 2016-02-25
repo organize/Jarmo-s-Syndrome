@@ -74,7 +74,7 @@ public class Bacteria extends NPC {
 
     @Override
     public int getSize() {
-        return 10;
+        return 20;
     }
     
     @Override
@@ -94,7 +94,8 @@ public class Bacteria extends NPC {
         } else {
             super.moveToward(target);
             if(target.getLocation().distanceTo(location) <= 3) {
-                double damage = 0.1 * SyndromeFactory.getWorld().getPlayer().getLevel();
+                double damage = 0.1 * (SyndromeFactory.getWorld()
+                        .getPlayer().getLevel() / 3) + 0.1;
                 if(damage > 3) {
                     damage = 3;
                 }
@@ -104,10 +105,10 @@ public class Bacteria extends NPC {
     }
     
     private void updateSpeed() {
-        double newSpeed = 0.25 * SyndromeFactory.getWorld()
-                        .getPlayer().getLevel();
-        if(newSpeed > 2.0D) {
-            newSpeed = 2.0D;
+        double newSpeed = 0.25 * (SyndromeFactory.getWorld()
+                        .getPlayer().getLevel() / 6) + 0.2;
+        if(newSpeed > 1.5D) {
+            newSpeed = 1.5D;
         }
         super.speed = newSpeed;
     }

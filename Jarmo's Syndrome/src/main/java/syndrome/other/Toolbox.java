@@ -48,8 +48,8 @@ public class Toolbox {
      * @param direction the direction to transform.
      * @return an integer array with the sufficient changes.
      */
-    public int[] directionToDelta(Direction direction) {
-        int[] delta = new int[2];
+    public double[] directionToDelta(Direction direction) {
+        double[] delta = new double[2];
         switch(direction) {
             case NORTH:
                 delta[1] = -2;
@@ -80,6 +80,9 @@ public class Toolbox {
                 delta[1] = 2;
                 break;
         }
+        double speedModifier = SyndromeFactory.getWorld().getPlayer().getSpeed();
+        delta[0] = delta[0] * speedModifier;
+        delta[1] = delta[1] * speedModifier;
         return delta;
     }
     

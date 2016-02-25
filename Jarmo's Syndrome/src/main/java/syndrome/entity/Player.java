@@ -5,8 +5,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
+import syndrome.logic.projectile.Projectile;
+import syndrome.logic.projectile.impl.Halt;
 import syndrome.other.SyndromeFactory;
 import syndrome.other.Toolbox;
+import syndrome.ui.GUIManager;
 
 /**
  * A class that represents the player character.
@@ -15,13 +18,13 @@ import syndrome.other.Toolbox;
  * @author Axel Wallin
  */
 public class Player extends Entity {
+
+    private double rotation, speed;
+    private int points, level;
+    private int[] healthData;
     
     private Direction direction;
-    private double rotation;
-    
-    private int points, level;
     private Location lastMousePosition;
-    
     private Text levelLabel;
     
     /**
@@ -34,7 +37,9 @@ public class Player extends Entity {
         this.direction = Direction.NONE;
         this.points = 0;
         this.level = 1;
+        this.speed = 1;
         this.lastMousePosition = new Location(0, 0);
+        this.healthData = new int[]{100, 100};
     }
 
     @Override
@@ -59,6 +64,7 @@ public class Player extends Entity {
             updateRotation(lastMousePosition);
         }
         updateLevelLabel();
+        updateHealthValues();
     }
 
     @Override
@@ -103,6 +109,11 @@ public class Player extends Entity {
         return 8;
     }
     
+    @Override
+    public void destroy() {
+        SyndromeFactory.getSettings().togglePause();
+    }
+    
     public void addPoints(int points) {
         this.points += points;
     }
@@ -124,17 +135,25 @@ public class Player extends Entity {
             
     private void handleMovement() {
         Toolbox toolbox = SyndromeFactory.getToolbox();
-        int[] delta = toolbox.directionToDelta(direction);
-        setLocation(location.getX() + delta[0], location.getY() + delta[1]);
+        double[] delta = toolbox.directionToDelta(direction);
+        setLocation(location.getX() + delta[0], 
+                location.getY() + delta[1]);
     }
-
-    @Override
-    public void destroy() {
-
+    
+    public void refresh() {
+        speed = 1.0;
+        healthData[0] += (healthData[1] / 8);
+        if(healthData[0] > healthData[1]) {
+            healthData[0] = healthData[1];
+        }
     }
     
     public int getLevel() {
         return level;
+    }
+    
+    public double getSpeed() {
+        return speed;
     }
     
     public Location getLastMousePosition() {
@@ -155,9 +174,41 @@ public class Player extends Entity {
         }
         if(points >= (level * level) * 100) {
             level += 1;
+            if(healthData[1] < 500) {
+                healthData[1] = healthData[1] + (level * 20);
+            }
+            healthData[0] = healthData[1] / 10;
         }
+        checkUnlocks();
         levelLabel.setText("" + level);
         levelLabel.setTranslateX(location.getX());
         levelLabel.setTranslateY(location.getY());
+    }
+
+    public void handleCollision(Projectile proj) {
+        if(proj instanceof Halt) {
+            speed = 0.5;
+        }
+    }
+    
+    private void checkUnlocks() {
+        GUIManager guiManager = SyndromeFactory.getGUIManager();
+        if(level >= 5) {
+            guiManager.setNextUnlock("TODO");
+        }
+        guiManager.setHiscore(points);
+    }
+    
+    private void updateHealthValues() {
+        GUIManager guiManager = SyndromeFactory.getGUIManager();
+        guiManager.updateHealth(healthData);
+    }
+
+    public void inflictDamage(double amount) {
+        healthData[0] -= amount;
+        if(healthData[0] <= 0) {
+            //game over
+            this.destroy();
+        }
     }
 }

@@ -93,7 +93,7 @@ public abstract class NPC extends Entity {
     
     public void updateTranslation(Axis axis) {
         Direction direction = SyndromeFactory.getWorld().getPlayer().getDirection();
-        int[] deltas = SyndromeFactory.getToolbox().directionToDelta(direction);
+        double[] deltas = SyndromeFactory.getToolbox().directionToDelta(direction);
         if(axis == Axis.X_AXIS) {
             location.transform(location.getX() - deltas[0], location.getY());
         }

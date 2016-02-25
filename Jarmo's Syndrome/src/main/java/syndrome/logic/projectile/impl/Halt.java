@@ -1,19 +1,15 @@
 package syndrome.logic.projectile.impl;
 
-import java.util.Arrays;
-import java.util.List;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
-import syndrome.entity.Entity;
-import syndrome.entity.NPC;
 import syndrome.entity.Player;
-import syndrome.entity.impl.EndothelialCell;
 import syndrome.logic.map.Axis;
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
@@ -24,28 +20,27 @@ import syndrome.other.SyndromeFactory;
  * 
  * @author Axel Wallin
  */
-public class HealCell implements Projectile {
+public class Halt implements Projectile {
     
     private final Timeline timeline;
     private final KeyFrame keyFrame;
     private final Shape shape;
-    private final NPC target;
     private final Location source;
     
-    public HealCell(Location source, NPC target) {
+    public Halt(Location source) {
         this.timeline = new Timeline();
-        this.shape = new Circle(2);
-        this.target = target;
+        this.shape = new Rectangle(3, 3);
         this.source = source;
         this.keyFrame = constructKeyFrame();
     }
 
     @Override
     public void fire() {
-        timeline.setCycleCount(1000);
+        timeline.setCycleCount(300);
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
-        shape.setFill(Paint.valueOf("green"));
+        shape.setFill(Paint.valueOf("red"));
+        
     }
 
     @Override
@@ -67,26 +62,18 @@ public class HealCell implements Projectile {
         shape.setTranslateX(source.getX());
         shape.setTranslateY(source.getY());
         return new KeyFrame(Duration.seconds(0.010), (ActionEvent event) -> {
-            /* Check if the target still exists */
-            List<NPC> activeNPCs = SyndromeFactory.getWorld().getNPCs();
-            if(!activeNPCs.contains(target)) {
-                this.destroy();
-            }
-            
+            Player player = SyndromeFactory.getWorld().getPlayer();
             /* Move towards the specified entity */
-            moveTowardsTarget();
+            moveTowardsTarget(player);
             
             /* Check for collision */
             Location location = new Location(shape.getTranslateX(), shape.getTranslateY());
-            activeNPCs.stream()
-                    .filter((npc) -> (location.distanceTo(npc.getLocation()) < npc.getSize()))
-                    .forEach((instance) -> {
-                if(!(instance instanceof EndothelialCell)) {
-                    instance.handleCollision(this);
-                    this.destroy();
-                }
-            });
+            if(player.getLocation().distanceTo(location) < 10) {
+                player.handleCollision(this);
+                this.destroy();
+            }
             
+            shape.setRotate(shape.getRotate() - 2);
             /* Destroy hook in the end */
             timeline.setOnFinished((ActionEvent subHandler) -> {
                 this.destroy();
@@ -115,7 +102,7 @@ public class HealCell implements Projectile {
             
     }
 
-    private void moveTowardsTarget() {
+    private void moveTowardsTarget(Player target) {
         int deltaX = 0, deltaY = 0;
         Location destination = target.getLocation();
         if(destination.getX() < shape.getTranslateX()) {

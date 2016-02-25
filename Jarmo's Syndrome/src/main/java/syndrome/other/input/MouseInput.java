@@ -37,6 +37,9 @@ public class MouseInput implements EventHandler<MouseEvent> {
         for(Projectile projectile : multiEnt) {
             projectile.fire();
             SyndromeFactory.getWorld().addProjectile(projectile);
+            if(SyndromeFactory.getWorld().getPlayer().getLevel() < 5) {
+                break;
+            }
         }
     }
     

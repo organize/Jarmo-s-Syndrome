@@ -20,10 +20,13 @@ public class Spawner {
     private long lastUpdate;
     private boolean waveFinished;
     
+    private Random random;
+    
     public Spawner() {
         this.entityLimit = 5;
         this.waveFinished = false;
         this.lastUpdate = 0;
+        this.random = new Random();
     }
  
     public void tick(Player player, long now) {
@@ -33,13 +36,14 @@ public class Spawner {
             if(actualSize >= entityLimit) {
                 waveFinished = true;
             }
-            if(now - lastUpdate > new Random().nextInt(300000000) + 100000000) {
+            if(now - lastUpdate > random.nextInt(300000000) + 50000000) {
                 spawnNPC();
                 lastUpdate = now;
             }
         } else {
             if(actualSize == 0) {
                 waveFinished = false;
+                player.refresh();
             }
         }
         updateLimit(player.getLevel());
@@ -59,7 +63,9 @@ public class Spawner {
     
     private void checkLuckySpawns(int playerLevel) {
         int bacteriaChance = SyndromeFactory.getToolbox().countActive(Antibody.class);
-        if(new Random().nextInt(bacteriaChance + (10 / playerLevel) + 1) == 1) {
+        int bacteriaCount = SyndromeFactory.getToolbox().countActive(Bacteria.class);
+        if(random.nextInt(bacteriaChance + (20 / playerLevel) + 1) == 1
+                && bacteriaCount < playerLevel) {
             NPC bacteria = new Bacteria(Location.createRandomLocation());
             bacteria.render();
             SyndromeFactory.getWorld().addNPC(bacteria);
@@ -68,7 +74,7 @@ public class Spawner {
     
     private void checkKupfferSpawns(int playerLevel) {
         int kupfferCount = SyndromeFactory.getToolbox().countActive(KupfferCell.class);
-        if(new Random().nextInt(5) == 1 && kupfferCount < 5 + (playerLevel * 2)) {
+        if(random.nextInt(5) == 1 && kupfferCount < 5 + (playerLevel * 2)) {
             NPC kupffer = new KupfferCell(Location.createRandomLocation());
             kupffer.render();
             SyndromeFactory.getWorld().addNPC(kupffer);
@@ -82,8 +88,10 @@ public class Spawner {
     }
 
     private void checkEndoSpawns(int playerLevel) {
-        NPC endo = new EndothelialCell(Location.createRandomLocation());
-        endo.render();
-        SyndromeFactory.getWorld().addNPC(endo);
+        if(random.nextInt(5) == 1) {
+            NPC endo = new EndothelialCell(Location.createRandomLocation());
+            endo.render();
+            SyndromeFactory.getWorld().addNPC(endo);
+        }
     }
 }

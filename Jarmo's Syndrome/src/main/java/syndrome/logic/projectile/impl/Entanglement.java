@@ -34,7 +34,7 @@ public class Entanglement implements Projectile {
     public Entanglement(Location where, int angle) {
         this.timeline = new Timeline();
         this.keyFrame = constructKeyFrame();
-        this.object = new Circle(5);
+        this.object = new Circle(3);
         this.destination = where;
         this.vector = new double[2];
         setPosition(angle);
@@ -42,7 +42,7 @@ public class Entanglement implements Projectile {
 
     @Override
     public void fire() {
-        timeline.setCycleCount(1000);
+        timeline.setCycleCount(250);
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
     }
@@ -67,12 +67,16 @@ public class Entanglement implements Projectile {
             
             Circle obj = (Circle) object;
             double playerLevel = SyndromeFactory.getWorld().getPlayer().getLevel();
-            obj.setTranslateX(obj.getTranslateX() - (vector[0] * playerLevel));
-            obj.setTranslateY(obj.getTranslateY() - (vector[1] * playerLevel));
+            double multiplier = (playerLevel / 3);
+            if(multiplier < 3) {
+                multiplier = 3;
+            }
+            obj.setTranslateX(obj.getTranslateX() - (vector[0] * multiplier));
+            obj.setTranslateY(obj.getTranslateY() - (vector[1] * multiplier));
             Location location = new Location(obj.getTranslateX(), obj.getTranslateY());
             List<NPC> activeNPCs = SyndromeFactory.getWorld().getNPCs();
             activeNPCs.stream()
-                    .filter((npc) -> (location.distanceTo(npc.getLocation()) < npc.getSize()))
+                    .filter((npc) -> (location.distanceTo(npc.getLocation()) < npc.getSize() + 3))
                     .forEach((instance) -> {
                 instance.handleCollision(this);
                 this.destroy();
@@ -99,7 +103,7 @@ public class Entanglement implements Projectile {
     public void updateTranslation(Axis axis) {
         Circle obj = (Circle) object;
         Direction direction = SyndromeFactory.getWorld().getPlayer().getDirection();
-        int[] deltas = SyndromeFactory.getToolbox().directionToDelta(direction);
+        double[] deltas = SyndromeFactory.getToolbox().directionToDelta(direction);
         if(axis == Axis.X_AXIS) {
             obj.setTranslateX(obj.getTranslateX() - deltas[0]);
         }
@@ -111,5 +115,14 @@ public class Entanglement implements Projectile {
             obj.setTranslateY(obj.getTranslateY() - deltas[1]);
         }
             
+    }
+
+    @Override
+    public void togglePause(boolean state) {
+        if(state) {
+            timeline.pause();
+        } else {
+            timeline.play();
+        }
     }
 }

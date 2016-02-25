@@ -1,8 +1,10 @@
 package syndrome.entity.impl;
 
+import com.sun.javafx.scene.traversal.Direction;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
@@ -30,12 +32,18 @@ public class KupfferCell extends NPC {
     private Text label;
     private NPC target;
     
+    private boolean multiplied;
+    private Direction animationDirection;
+    
     public KupfferCell(Location location) {
         super(location);
         super.speed = 0.3;
-        super.health = 300;
+        super.health = 500;
+        
         this.body = new Circle();
         this.label = new Text();
+        this.multiplied = false;
+        this.animationDirection = Direction.DOWN;
     }
     
     @Override
@@ -49,12 +57,12 @@ public class KupfferCell extends NPC {
         label.setTranslateY(location.getY());
         
         attack();
-        
+        animate();
     }
 
     @Override
     public void render() {
-        body.setFill(Paint.valueOf("black"));
+        body.setFill(Paint.valueOf(Color.BLUEVIOLET.toString()));
         body.setRadius(30.0F);
         label.setText("K");
         label.setFont(Font.font("8BIT WONDER", 14));
@@ -76,6 +84,9 @@ public class KupfferCell extends NPC {
     public void handleCollision(Projectile projectile) {
         if(!(projectile instanceof HealCell)) {
             super.health -= 25;
+            if(super.health <= 0) {
+                SyndromeFactory.getWorld().getPlayer().addPoints(100);
+            }
         }
     }
     
@@ -99,6 +110,22 @@ public class KupfferCell extends NPC {
             if(target.getLocation().distanceTo(location) <= 3) {
                 target.destroy();
             }
+        }
+    }
+    
+    private void animate() {
+        double currentRadius = body.getRadius();
+        if(currentRadius >= 30) {
+            animationDirection = Direction.DOWN;
+        }
+        if(currentRadius <= 20) {
+            animationDirection = Direction.UP;
+        }
+        if(animationDirection == Direction.DOWN) {
+            body.setRadius(currentRadius - 0.10);
+        }
+        if(animationDirection == Direction.UP) {
+            body.setRadius(currentRadius + 0.10);
         }
     }
     

@@ -20,7 +20,7 @@ public class World {
     private final Player player;
     private final List<NPC> activeNPCs;
     private final List<Projectile> activeProjectiles;
-    private AnimationTimer timer;
+    private SyndromeTimer timer;
     private Rectangle rect;
     private Pane gamePane;
     
@@ -89,7 +89,7 @@ public class World {
         timer.start();
     }
     
-    public AnimationTimer getTimer() {
+    public SyndromeTimer getTimer() {
         return timer;
     }
       

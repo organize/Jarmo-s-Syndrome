@@ -3,6 +3,8 @@ package syndrome.logic.map;
 import java.awt.geom.Point2D;
 import java.util.Random;
 import javafx.scene.input.MouseEvent;
+import syndrome.entity.Player;
+import syndrome.other.SyndromeFactory;
 
 /**
  * Represents a point in the game screen.
@@ -10,6 +12,7 @@ import javafx.scene.input.MouseEvent;
  * @author Axel Wallin
  */
 public class Location {
+    private static Object location;
     
     private double x, y;
     
@@ -107,6 +110,7 @@ public class Location {
     
     public static Location createRandomLocation() {
         Random random = new Random();
+        Player player = SyndromeFactory.getWorld().getPlayer();
         int randX = random.nextInt(320);
         int randY = random.nextInt(240);
         if(random.nextInt(2) == 1) {
@@ -115,7 +119,17 @@ public class Location {
         if(random.nextInt(2) == 1) {
             randY = -randY;
         }
-        return new Location(randX, randY);
+        Location result = new Location(randX, randY);
+        if(result.distanceTo(player.getLocation()) < 30) {
+            result.transform(randX + random.nextInt(25) + 15, randY + random.nextInt(25) + 15);
+        }
+        if(Math.abs(result.getX()) > 320) {
+            result.transform(randX - random.nextInt(25) + 25, randY);
+        }
+        if(Math.abs(result.getY()) > 240) {
+            result.transform(randX, randY - random.nextInt(25) + 25);
+        }
+        return result;
     }
 
 }

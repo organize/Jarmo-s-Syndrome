@@ -8,6 +8,7 @@ import syndrome.logic.World;
 import syndrome.entity.NPC;
 import syndrome.entity.Player;
 import syndrome.logic.map.Direction;
+import syndrome.logic.projectile.Projectile;
 import syndrome.other.SyndromeFactory;
 
 /**
@@ -64,6 +65,7 @@ public class SyndromeTimer extends AnimationTimer {
     
     public void setPaused(boolean bool) {
         this.paused = bool;
+        pauseAllProjectiles();
     }
     
     public boolean isPaused() {
@@ -72,6 +74,12 @@ public class SyndromeTimer extends AnimationTimer {
 
     public Rectangle getRectangle() {
         return rect;
+    }
+    
+    private void pauseAllProjectiles() {
+        List<Projectile> projectiles = SyndromeFactory
+                .getWorld().getProjectiles();
+        projectiles.forEach((p) -> p.togglePause(paused));
     }
     
 }

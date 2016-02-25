@@ -3,6 +3,7 @@ package syndrome.entity.impl;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
@@ -14,6 +15,7 @@ import syndrome.entity.objective.Objective;
 import syndrome.logic.World;
 import syndrome.logic.map.Location;
 import syndrome.logic.projectile.Projectile;
+import syndrome.logic.projectile.impl.Halt;
 import syndrome.logic.projectile.impl.HealCell;
 import syndrome.other.SyndromeFactory;
 
@@ -31,6 +33,8 @@ public class EndothelialCell extends NPC {
     private Circle body;
     private Text label;
     private long lastUpdate;
+    
+    private Objective action;
     
     public EndothelialCell(Location location) {
         super(location);
@@ -51,7 +55,12 @@ public class EndothelialCell extends NPC {
         label.setTranslateX(location.getX());
         label.setTranslateY(location.getY());
         
-        checkActionStatus();
+        long interval = 100000000 / ((SyndromeFactory.getWorld()
+                .getPlayer().getLevel() / 2) + 1);
+        if(now - lastUpdate > interval) {
+            checkActionStatus(); 
+            lastUpdate = now;
+        }
     }
     
     @Override
@@ -92,26 +101,31 @@ public class EndothelialCell extends NPC {
     public void handleCollision(Projectile projectile) {
         if(!(projectile instanceof HealCell)) {
             super.health -= 20;
+            if(super.health <= 0) {
+                SyndromeFactory.getWorld().getPlayer().addPoints(10);
+            }
         }
     }
 
     private void checkActionStatus() {
         Player player = SyndromeFactory.getWorld().getPlayer();
-        Objective action = getObjective().get(1);
-        if(location.distanceTo(player.getLocation()) > 100) {
+        if(action == null) {
             action = getObjective().get(0);
+            if(location.distanceTo(player.getLocation()) < 150
+                    && new Random().nextInt(3) == 1) {
+                action = getObjective().get(1);
+            }
         }
-        //handleAction(action);
-        reinforceDefense();
+        handleAction(action, player);
     }
     
-    private void handleAction(Objective action) {
+    private void handleAction(Objective action, Player player) {
         switch(action) {
             case REINFORCE:
                 reinforceDefense();
                 break;
             case ATTACK_PLAYER:
-                attackPlayer();
+                attackPlayer(player);
                 break;
         }
     }
@@ -125,8 +139,15 @@ public class EndothelialCell extends NPC {
         }
     }
     
-    private void attackPlayer() {
-        
+    private void attackPlayer(Player player) {
+        Halt projectile = new Halt(super.location);
+        projectile.fire();
+        SyndromeFactory.getWorld().addProjectile(projectile);
+        if(player.getLevel() > 10) {
+            if(player.getSpeed() == 0.25) {
+                action = Objective.REINFORCE;
+            }
+        }
     }
     
     private NPC findTarget() {

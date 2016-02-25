@@ -75,7 +75,7 @@ public class MainMenu implements SyndromeGUI {
         Button audioStatus = new Button();
         Image image = new Image(getClass().getResourceAsStream("/resources/images/audio_muted.png"));
         audioStatus.setGraphic(new ImageView(image));
-        audioStatus.relocate(5, 705);
+        audioStatus.relocate(5, 500);
         audioStatus.setPadding(Insets.EMPTY);
         audioStatus.setStyle("-fx-background-color: transparent;");
         audioStatus.setOnAction((ActionEvent event) -> {

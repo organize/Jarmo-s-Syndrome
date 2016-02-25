@@ -1,6 +1,9 @@
 package syndrome;
 
 import java.awt.Dimension;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.AudioTrack;
+import syndrome.other.SyndromeFactory;
 
 /**
  * Represents the user-defined settings and various gamestates
@@ -35,6 +38,7 @@ public class GameSettings {
      */
     public void togglePause() {
         this.paused = !paused;
+        SyndromeFactory.getWorld().getTimer().setPaused(paused);
     }
     
     /**

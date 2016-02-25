@@ -1,6 +1,8 @@
 package syndrome.ui.impl;
 
 import java.util.List;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -8,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
@@ -47,9 +50,12 @@ public class GameScreen implements SyndromeGUI {
         root.getChildren().add(background);
         root.getChildren().add(r);
         root.getChildren().add(createInfobox());
+        root.getChildren().add(createHiscoreCounter());
+        root.getChildren().add(createHealthBox());
         
         scene.addEventHandler(MouseEvent.ANY, new MouseInput());
         scene.addEventHandler(KeyEvent.ANY, new KeyboardInput());
+        
         stage.setScene(scene);
         stage.setMaxHeight(480);
         stage.setMaxWidth(640);
@@ -69,7 +75,7 @@ public class GameScreen implements SyndromeGUI {
 
     @Override
     public void destroy() {
-       
+       stage.close();
     }
     
     private Node buildBackground() {
@@ -85,31 +91,87 @@ public class GameScreen implements SyndromeGUI {
     private Group createInfobox() {
         Group group = new Group();
         Rectangle infobox = new Rectangle();
-        infobox.setWidth(80);
+        infobox.setWidth(85);
         infobox.setHeight(60);
         infobox.setTranslateX(270);
         infobox.setTranslateY(-180);
         
-        Text mainTitle = new Text("-Weapon-");
-        mainTitle.setFont(Font.font ("8BIT WONDER", 8));
+        Text mainTitle = new Text("NEXT UNLOCK");
+        mainTitle.setFont(Font.font ("8BIT WONDER", 7));
         mainTitle.setFill(Paint.valueOf("white")); 
-        mainTitle.setTranslateX(280);
+        mainTitle.setTranslateX(275);
         mainTitle.setTranslateY(-170);
         
-        Rectangle healthBar = new Rectangle();
-        healthBar.setWidth(70);
-        healthBar.setHeight(10);
-        healthBar.setFill(Paint.valueOf("green"));
+        Text unlockLabel = new Text("triple burst");
+        unlockLabel.setFont(Font.font ("8BIT WONDER", 7));
+        unlockLabel.setFill(Paint.valueOf("red")); 
+        unlockLabel.setTranslateX(275);
+        unlockLabel.setTranslateY(-150);
         
-        healthBar.setTranslateX(275);
-        healthBar.setTranslateY(-140);
+        Text levelAt = new Text("At level 5");
+        levelAt.setFont(Font.font ("8BIT WONDER", 8));
+        levelAt.setFill(Paint.valueOf("white")); 
+        levelAt.setTranslateX(275);
+        levelAt.setTranslateY(-130);
         
-        group.getChildren().add(infobox);
-        group.getChildren().add(mainTitle);
-        group.getChildren().add(healthBar);
+        group.getChildren().addAll(infobox, mainTitle, 
+                unlockLabel, levelAt);
         
         group.setTranslateX(270);
         group.setTranslateY(-190);
+        
+        SyndromeFactory.getGUIManager().setUnlockLabel(unlockLabel);
+        return group;
+    }
+    
+    private Group createHiscoreCounter() {
+        Group group = new Group();
+        Rectangle infobox = new Rectangle();
+        infobox.setWidth(100);
+        infobox.setHeight(15);
+        infobox.setTranslateX(-260);
+        infobox.setTranslateY(-210);
+        
+        Text hiscore = new Text("Hiscore: 0");
+        hiscore.setFont(Font.font ("8BIT WONDER", 7));
+        hiscore.setFill(Paint.valueOf("white")); 
+        hiscore.setTranslateX(-250);
+        hiscore.setTranslateY(-200);
+        
+        group.getChildren().addAll(infobox, hiscore);
+        group.setTranslateX(-260);
+        group.setTranslateY(-210);
+        
+        SyndromeFactory.getGUIManager().setHiscoreLabel(hiscore);
+        return group;
+    }
+    
+    private Group createHealthBox() {
+        Group group = new Group();
+        
+        Rectangle body = new Rectangle();
+        body.setWidth(110);
+        body.setHeight(20);
+        body.setTranslateX(0);
+        body.setTranslateY(210);
+        
+        Text healthLabel = new Text("Health");
+        healthLabel.setFont(Font.font("8BIT WONDER", 8));
+        healthLabel.setFill(Paint.valueOf(Color.GOLD.toString())); 
+        healthLabel.setTranslateX(5);
+        healthLabel.setTranslateY(222);
+        
+        Text healthIndicator = new Text("500/500");
+        healthIndicator.setFont(Font.font("8BIT WONDER", 8));
+        healthIndicator.setFill(Paint.valueOf(Color.GOLD.toString())); 
+        healthIndicator.setTranslateX(55);
+        healthIndicator.setTranslateY(222);
+        
+        group.getChildren().addAll(body, healthLabel, healthIndicator);
+        group.setTranslateX(0);
+        group.setTranslateY(210);
+        
+        SyndromeFactory.getGUIManager().setHealthLabel(healthIndicator);
         return group;
     }
 

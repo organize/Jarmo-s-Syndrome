@@ -1,15 +1,15 @@
 package syndrome.entity.impl;
 
-import com.sun.javafx.scene.traversal.Direction;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import java.util.concurrent.TimeUnit;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import syndrome.entity.NPC;
+import syndrome.entity.Player;
 import syndrome.entity.objective.Objective;
 import syndrome.logic.World;
 import syndrome.logic.map.Location;
@@ -36,10 +36,10 @@ public class Antibody extends NPC {
     public Antibody(Location location) {
         super(location);
         super.speed = 0.5;
+        
         this.body = new Circle();
         this.label = new Text();
         this.health = 50;
-        
     }
     
     @Override
@@ -53,8 +53,12 @@ public class Antibody extends NPC {
         
         label.setTranslateX(location.getX());
         label.setTranslateY(location.getY());
-        
+       
         attack();
+        
+        if(SyndromeFactory.getWorld().getPlayer().getLevel() > 10) {
+            super.speed = 1;
+        }
     }
 
     @Override
@@ -62,7 +66,7 @@ public class Antibody extends NPC {
         body.setFill(Paint.valueOf(Color.LIGHTGREEN.toString()));
         body.setRadius(7.0F);
         label.setText("A");
-        label.setFont(Font.font("8BIT WONDER", 6));
+        label.setFont(Font.font("8BIT WONDER", 7));
         label.setFill(Paint.valueOf("white"));
         SyndromeFactory.getWorld()
                 .getGamePane().getChildren().addAll(body, label);
@@ -72,8 +76,9 @@ public class Antibody extends NPC {
     public void destroy() {
         super.destroy();
         World world = SyndromeFactory.getWorld();
-        world.getGamePane().getChildren().removeAll(body, label);
-        world.getPlayer().addPoints(50);
+        if(world.getGamePane() != null) {
+            world.getGamePane().getChildren().removeAll(body, label);
+        }
     }
     
     @Override
@@ -105,14 +110,22 @@ public class Antibody extends NPC {
     public void handleCollision(Projectile projectile) {
         if(projectile instanceof Entanglement) {
             super.health -= 5 * SyndromeFactory.getWorld().getPlayer().getLevel();
+            if(super.health <= 0) {
+                SyndromeFactory.getWorld().getPlayer().addPoints(50);
+            }
         }
         if(projectile instanceof HealCell && super.health < 100) {
-            super.health += 2.5 * SyndromeFactory.getWorld().getPlayer().getLevel();
+            super.health += 5 * SyndromeFactory.getWorld().getPlayer().getLevel();
         }
     }
     
     private void attack() {
-        super.moveToward(SyndromeFactory.getWorld().getPlayer());
+        Player target = SyndromeFactory.getWorld().getPlayer();
+        super.moveToward(target);
+        if(location.distanceTo(target.getLocation()) < 30) {
+            target.inflictDamage(body.getRadius());
+            this.destroy();
+        }
     }
 
 }
