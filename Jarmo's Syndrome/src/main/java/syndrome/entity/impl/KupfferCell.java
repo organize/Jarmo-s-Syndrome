@@ -13,7 +13,7 @@ import syndrome.entity.NPC;
 import syndrome.entity.objective.Objective;
 import syndrome.logic.World;
 import syndrome.logic.map.Location;
-import syndrome.logic.projectile.Projectile;
+import syndrome.projectile.Projectile;
 import syndrome.logic.projectile.impl.HealCell;
 import syndrome.other.SyndromeFactory;
 
@@ -35,6 +35,11 @@ public class KupfferCell extends NPC {
     private boolean multiplied;
     private Direction animationDirection;
     
+    /**
+     * Creates a new kupffer cell instance to the specified location.
+     * 
+     * @param location the location where to spawn this instance.
+     */
     public KupfferCell(Location location) {
         super(location);
         super.speed = 0.3;

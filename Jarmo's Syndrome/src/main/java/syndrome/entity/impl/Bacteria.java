@@ -12,7 +12,7 @@ import syndrome.entity.NPC;
 import syndrome.entity.objective.Objective;
 import syndrome.logic.World;
 import syndrome.logic.map.Location;
-import syndrome.logic.projectile.Projectile;
+import syndrome.projectile.Projectile;
 import syndrome.other.SyndromeFactory;
 
 /**
@@ -30,6 +30,11 @@ public class Bacteria extends NPC {
     private Text label;
     private NPC target;
     
+    /**
+     * Creates a new bacteria instance to the specified location.
+     * 
+     * @param location the location where to spawn this instance.
+     */
     public Bacteria(Location location) {
         super(location);
         this.body = new Rectangle();

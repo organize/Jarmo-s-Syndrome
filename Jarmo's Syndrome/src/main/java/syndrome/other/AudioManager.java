@@ -4,18 +4,15 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.scene.media.AudioClip;
-import javafx.scene.media.AudioTrack;
 
 /**
  * Handles all things audio-related.
  * 
  * @author Axel Wallin
  */
-
 public class AudioManager {
     
     private final Map<String, AudioClip> cache;
-    
     
     /**
      * Creates an instance of AudioManager with empty cache.

@@ -1,11 +1,8 @@
 package syndrome.entity;
 
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
-import syndrome.logic.projectile.Projectile;
+import syndrome.projectile.Projectile;
 import syndrome.logic.projectile.impl.Halt;
 import syndrome.other.SyndromeFactory;
 import syndrome.other.Toolbox;
@@ -25,11 +22,11 @@ public class Player extends Entity {
     
     private Direction direction;
     private Location lastMousePosition;
-    private Text levelLabel;
     
     /**
      * Creates a new player instance at the default location
-     * of [0, 0].
+     * of [0, 0] and sets the default values of
+     * (rot=0, dir=NONE, points=0, level=1, speed=1).
      */
     public Player() {
         super(new Location(0, 0));
@@ -63,8 +60,10 @@ public class Player extends Entity {
             handleMovement();
             updateRotation(lastMousePosition);
         }
-        updateLevelLabel();
-        updateHealthValues();
+        if(points != 0) {
+            updateLevelLabel();
+            SyndromeFactory.getGUIManager().updateHealth(healthData);
+        }
     }
 
     @Override
@@ -91,20 +90,6 @@ public class Player extends Entity {
     }
     
     @Override
-    public boolean collidesWith(Entity other) {
-        java.awt.Rectangle bounds = new java.awt.Rectangle(
-                (int) other.getBounds()[0].getX(),
-                (int) other.getBounds()[0].getY(),
-                other.getSize(), other.getSize());
-        
-        java.awt.Rectangle ownBounds = new java.awt.Rectangle(
-                (int) this.getBounds()[0].getX(),
-                (int) this.getBounds()[0].getY(),
-                this.getSize(), this.getSize());
-        return ownBounds.contains(bounds);
-    }
-    
-    @Override
     public int getSize() {
         return 8;
     }
@@ -112,14 +97,6 @@ public class Player extends Entity {
     @Override
     public void destroy() {
         SyndromeFactory.getSettings().togglePause();
-    }
-    
-    public void addPoints(int points) {
-        this.points += points;
-    }
-    
-    public void setDirection(Direction direction) {
-        this.direction = direction;
     }
     
     /**
@@ -132,14 +109,12 @@ public class Player extends Entity {
         setRotation(angleDegrees);
         this.lastMousePosition = towards;
     }
-            
-    private void handleMovement() {
-        Toolbox toolbox = SyndromeFactory.getToolbox();
-        double[] delta = toolbox.directionToDelta(direction);
-        setLocation(location.getX() + delta[0], 
-                location.getY() + delta[1]);
-    }
     
+    /**
+     * Refreshes the player's speed and HP value,
+     * which is incremented by an 8th of the current max HP.
+     * This method should only be called from {@SyndromeTimer}.
+     */
     public void refresh() {
         speed = 1.0;
         healthData[0] = healthData[0] + (healthData[1] / 8);
@@ -148,6 +123,39 @@ public class Player extends Entity {
         }
     }
     
+    /**
+     * Handle collision with a projectile.
+     * @param proj the projectile.
+     */
+    public void handleCollision(Projectile proj) {
+        if(proj instanceof Halt) {
+            speed = 0.4;
+        }
+    }
+
+    /**
+     * Inflict damage to the player.
+     * @param amount the amount of damage to inflict.
+     */
+    public void inflictDamage(double amount) {
+        healthData[0] -= amount;
+        if(healthData[0] <= 0) {
+            this.destroy();
+        }
+    }
+    
+    /** 
+     * Increments the player's points by a defined amount.
+     * @param points the amount of points we want to increment.
+     */
+    public void addPoints(int points) {
+        this.points += points;
+    }
+    
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+        
     public int getLevel() {
         return level;
     }
@@ -155,7 +163,7 @@ public class Player extends Entity {
     public double getSpeed() {
         return speed;
     }
-    
+      
     public Location getLastMousePosition() {
         return lastMousePosition;
     }
@@ -163,33 +171,7 @@ public class Player extends Entity {
     public Direction getDirection() {
         return direction;
     }
-    
-    private void updateLevelLabel() {
-        if(levelLabel == null) {
-            levelLabel = new Text();
-            levelLabel.setFont(Font.font("8BIT WONDER", 14));
-            levelLabel.setFill(Paint.valueOf("white")); 
-            SyndromeFactory.getWorld()
-                .getGamePane().getChildren().add(levelLabel);
-        }
-        if(points >= (level * level) * 100) {
-            level += 1;
-            if(healthData[1] < 500) {
-                healthData[1] = healthData[1] + (level * 20);
-            }
-        }
-        checkUnlocks();
-        levelLabel.setText("" + level);
-        levelLabel.setTranslateX(location.getX());
-        levelLabel.setTranslateY(location.getY());
-    }
-
-    public void handleCollision(Projectile proj) {
-        if(proj instanceof Halt) {
-            speed = 0.4;
-        }
-    }
-    
+   
     private void checkUnlocks() {
         GUIManager guiManager = SyndromeFactory.getGUIManager();
         if(level >= 5) {
@@ -197,17 +179,21 @@ public class Player extends Entity {
         }
         guiManager.setHiscore(points);
     }
-    
-    private void updateHealthValues() {
-        GUIManager guiManager = SyndromeFactory.getGUIManager();
-        guiManager.updateHealth(healthData);
-    }
-
-    public void inflictDamage(double amount) {
-        healthData[0] -= amount;
-        if(healthData[0] <= 0) {
-            //game over
-            this.destroy();
+     
+    private void updateLevelLabel() {
+        if(points >= (level * level) * 100) {
+            level += 1;
+            if(healthData[1] < 500) {
+                healthData[1] = healthData[1] + (level * 20);
+            }
         }
+        SyndromeFactory.getGUIManager().updateLevelLabel(this);
+        checkUnlocks();
+    }
+                
+    private void handleMovement() {
+        Toolbox toolbox = SyndromeFactory.getToolbox();
+        double[] delta = toolbox.directionToDelta(direction);
+        setLocation(location.getX() + delta[0], location.getY() + delta[1]);
     }
 }

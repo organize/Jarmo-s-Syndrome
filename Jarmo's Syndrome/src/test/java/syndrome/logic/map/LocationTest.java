@@ -22,6 +22,21 @@ public class LocationTest {
     }
     
     @Test
+    public void testToString() {
+        Location location = new Location(10, 10);
+        String locationString = location.toString();
+        String expected = "[10.0, 10.0]";
+        assertTrue(locationString.equals(expected));
+    }
+    
+    @Test
+    public void testEquals() {
+        Location location = new Location(10, 10);
+        assertFalse(location.equals(new String()));
+        assertTrue(location.equals(new Location(10, 10)));
+    }
+    
+    @Test
     public void testDistances3() {
         Location first = new Location(-100, -9);
         Location second = new Location(-100, 9);

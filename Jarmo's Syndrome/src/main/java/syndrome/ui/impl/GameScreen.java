@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 import syndrome.entity.NPC;
 import syndrome.entity.Player;
 import syndrome.logic.map.Axis;
-import syndrome.logic.projectile.Projectile;
+import syndrome.projectile.Projectile;
 import syndrome.other.input.KeyboardInput;
 import syndrome.other.SyndromeFactory;
 import syndrome.other.input.MouseInput;
@@ -70,7 +70,7 @@ public class GameScreen implements SyndromeGUI {
 
     @Override
     public void hide() {
-        
+        stage.hide();
     }
 
     @Override
@@ -175,6 +175,14 @@ public class GameScreen implements SyndromeGUI {
         return group;
     }
 
+    /**
+     * Calculate and draw the screen panning effect,
+     * relative to the player's current movement direction
+     * and updates the relative translation coordinates of 
+     * every NPC and Projectile instance in the game world.
+     * 
+     * @param player the player of the game.
+     */
     public void handleScreenPan(Player player) {
         List<Projectile> projectiles = SyndromeFactory.getWorld().getProjectiles();
         List<NPC> activeNPCs = SyndromeFactory.getWorld().getNPCs();

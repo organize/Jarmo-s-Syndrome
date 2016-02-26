@@ -9,13 +9,6 @@ import syndrome.logic.map.Location;
 public class GameSettingsTest {
     
     @Test
-    public void testPause() {
-        GameSettings settings = new GameSettings();
-        settings.togglePause();
-        assertTrue(settings.isPaused());
-    }
-    
-    @Test
     public void testDimensions() {
         GameSettings settings = new GameSettings();
         Dimension other = new Dimension(1024, 768);

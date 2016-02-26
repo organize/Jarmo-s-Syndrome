@@ -5,7 +5,6 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
@@ -13,10 +12,12 @@ import syndrome.entity.Player;
 import syndrome.logic.map.Axis;
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
-import syndrome.logic.projectile.Projectile;
+import syndrome.projectile.Projectile;
 import syndrome.other.SyndromeFactory;
 
 /**
+ * A projectile implementation that is fired by enemies,
+ * designed to slow down the player.
  * 
  * @author Axel Wallin
  */
@@ -27,6 +28,11 @@ public class Halt implements Projectile {
     private final Shape shape;
     private final Location source;
     
+    /**
+     * Creates a new halt instance of the specified location.
+     * 
+     * @param source the initial position of this projectile.
+     */
     public Halt(Location source) {
         this.timeline = new Timeline();
         this.shape = new Rectangle(3, 3);
@@ -40,7 +46,6 @@ public class Halt implements Projectile {
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
         shape.setFill(Paint.valueOf("red"));
-        
     }
 
     @Override
@@ -52,10 +57,35 @@ public class Halt implements Projectile {
         }
         SyndromeFactory.getWorld().removeProjectile(this);
     }
+           
+    @Override
+    public void togglePause(boolean state) {
+        if(state) {
+            timeline.pause();
+        } else {
+            timeline.play();
+        }
+    }
     
     @Override
     public Shape getObject() {
         return shape;
+    }
+    
+    @Override
+    public void updateTranslation(Axis axis) {
+        Direction direction = SyndromeFactory.getWorld().getPlayer().getDirection();
+        double[] deltas = SyndromeFactory.getToolbox().directionToDelta(direction);
+        if(axis == Axis.X_AXIS) {
+            shape.setTranslateX(shape.getTranslateX() - deltas[0]);
+        }
+        if(axis == Axis.Y_AXIS) {
+            shape.setTranslateY(shape.getTranslateY() - deltas[1]);
+        }
+        if(axis == Axis.X_AND_Y_AXIS) {
+            shape.setTranslateX(shape.getTranslateX() - deltas[0]);
+            shape.setTranslateY(shape.getTranslateY() - deltas[1]);
+        }     
     }
 
     private KeyFrame constructKeyFrame() {
@@ -85,23 +115,6 @@ public class Halt implements Projectile {
         return timeline;
     }
 
-    @Override
-    public void updateTranslation(Axis axis) {
-        Direction direction = SyndromeFactory.getWorld().getPlayer().getDirection();
-        double[] deltas = SyndromeFactory.getToolbox().directionToDelta(direction);
-        if(axis == Axis.X_AXIS) {
-            shape.setTranslateX(shape.getTranslateX() - deltas[0]);
-        }
-        if(axis == Axis.Y_AXIS) {
-            shape.setTranslateY(shape.getTranslateY() - deltas[1]);
-        }
-        if(axis == Axis.X_AND_Y_AXIS) {
-            shape.setTranslateX(shape.getTranslateX() - deltas[0]);
-            shape.setTranslateY(shape.getTranslateY() - deltas[1]);
-        }
-            
-    }
-
     private void moveTowardsTarget(Player target) {
         int deltaX = 0, deltaY = 0;
         Location destination = target.getLocation();
@@ -119,14 +132,5 @@ public class Halt implements Projectile {
         }
         shape.setTranslateX(shape.getTranslateX() + deltaX);
         shape.setTranslateY(shape.getTranslateY() + deltaY);
-    }
-    
-    @Override
-    public void togglePause(boolean state) {
-        if(state) {
-            timeline.pause();
-        } else {
-            timeline.play();
-        }
     }
 }

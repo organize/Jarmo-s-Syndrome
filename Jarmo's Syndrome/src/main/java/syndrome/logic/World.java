@@ -2,13 +2,12 @@ package syndrome.logic;
 
 import java.util.ArrayList;
 import java.util.List;
-import javafx.animation.AnimationTimer;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import syndrome.logic.conc.SyndromeTimer;
 import syndrome.entity.NPC;
 import syndrome.entity.Player;
-import syndrome.logic.projectile.Projectile;
+import syndrome.projectile.Projectile;
 
 /**
  * Represents the game world.
@@ -34,13 +33,17 @@ public class World {
     }
     
     /**
-     * Adds a new projectile to the game world.
+     * Adds a new projectile to the game world
+     * and the main game screen.
      * 
      * @param proj the projectile to add.
+     * @param addToPane whether or not this projectile is also drawn immediately.
      */
-    public void addProjectile(Projectile proj) {
+    public void addProjectile(Projectile proj, boolean addToPane) {
         activeProjectiles.add(proj);
-        gamePane.getChildren().add(proj.getObject());
+        if(addToPane) {
+            gamePane.getChildren().add(proj.getObject());
+        }
     }
     
     /**
@@ -68,14 +71,6 @@ public class World {
      */
     public void removeNPC(NPC npc) {
         activeNPCs.remove(npc);
-    }
-    
-    public void setGamePane(Pane pane) {
-        this.gamePane = pane;
-    }
-    
-    public Pane getGamePane() {
-        return gamePane;
     }
     
     /**
@@ -108,5 +103,12 @@ public class World {
     public Rectangle getRTest() {
         return rect;
     }
-
+   
+    public void setGamePane(Pane pane) {
+        this.gamePane = pane;
+    }
+    
+    public Pane getGamePane() {
+        return gamePane;
+    }
 }

@@ -7,8 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 import syndrome.entity.Entity;
 import syndrome.entity.NPC;
+import syndrome.entity.impl.Antibody;
 import syndrome.logic.map.Location;
-import syndrome.logic.projectile.Projectile;
+import syndrome.projectile.Projectile;
 import syndrome.logic.projectile.impl.Entanglement;
 
 public class WorldTest {
@@ -31,8 +32,8 @@ public class WorldTest {
     
     @Test
     public void testProjectiles() {
-        Projectile test = new Entanglement(new Location(0, 0));
-        world.addProjectile(test);
+        Projectile test = new Entanglement(new Location(0, 0), 90);
+        world.addProjectile(test, false);
         assertTrue(world.getProjectiles().contains(test));
         assertTrue(world.getProjectiles().size() == 1);
         world.removeProjectile(test);
@@ -42,7 +43,7 @@ public class WorldTest {
     
     @Test
     public void testNPCs() {
-        NPC test = new NPC();
+        NPC test = new Antibody(new Location(0, 0));
         world.addNPC(test);
         assertTrue(world.getNPCs().contains(test));
         assertTrue(world.getNPCs().size() == 1);

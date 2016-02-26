@@ -1,10 +1,7 @@
 package syndrome.other;
 
-import java.util.List;
 import syndrome.GameSettings;
-import syndrome.entity.NPC;
 import syndrome.logic.World;
-import syndrome.logic.projectile.Projectile;
 import syndrome.ui.GUIManager;
 
 /**
@@ -56,9 +53,4 @@ public class SyndromeFactory {
         }
         return world;
     }
-    
-    public static void reset() {
-        
-    }
-    
 }

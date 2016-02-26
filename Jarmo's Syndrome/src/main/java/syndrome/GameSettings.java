@@ -1,8 +1,6 @@
 package syndrome;
 
 import java.awt.Dimension;
-import javafx.scene.media.AudioClip;
-import javafx.scene.media.AudioTrack;
 import syndrome.other.SyndromeFactory;
 
 /**
@@ -29,12 +27,18 @@ public class GameSettings {
         return resolution;
     }
     
+    /**
+     * Sets resolution with the specified dimensions.
+     * @param width the width in pixels.
+     * @param height the height in pixels.
+     */
     public void setResolution(int width, int height) {
         this.resolution = new Dimension(width, height);
     }
     
     /**
-     * Toggles pause state.
+     * Toggles pause state across the whole game, including
+     * the timer.
      */
     public void togglePause() {
         this.paused = !paused;

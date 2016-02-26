@@ -1,10 +1,8 @@
 package syndrome.entity.objective;
 
-import syndrome.entity.NPC;
-import syndrome.entity.Player;
-
 /**
- *
+ * Represents an objective assignable to a NPC.
+ * 
  * @author Axel Wallin
  */
 public enum Objective {

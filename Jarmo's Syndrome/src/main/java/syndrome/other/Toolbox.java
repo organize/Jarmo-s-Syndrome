@@ -1,7 +1,6 @@
 package syndrome.other;
 
 import javafx.scene.Parent;
-import syndrome.entity.NPC;
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
 
@@ -9,7 +8,6 @@ import syndrome.logic.map.Location;
  * Contains various useful all-around methods, such as
  * math.
  * 
- * @todo {might remove this class}
  * @author Axel Wallin
  */
 public class Toolbox {
@@ -88,17 +86,26 @@ public class Toolbox {
         return delta;
     }
     
+    /**
+     * Converts an angle to x and y velocity.
+     * @param angle the angle, in radians
+     * @return a double-array containing the velocities.
+     */
     public double[] angleToVelocity(double angle) {
         return new double[]{Math.cos(angle), Math.sin(angle)};
     }
     
+    /**
+     * Counts active NPCs in the world.
+     * @param target the NPCs to count.
+     * @return the amount of active NPCs assignable from the target.
+     */
     public int countActive(Class<?> target) {
         int count = 0;
-        for(NPC npc : SyndromeFactory.getWorld().getNPCs()) {
-            if(npc.getClass().isAssignableFrom(target)) {
-                count++;
-            }
-        }
-        return count;
+        return SyndromeFactory.getWorld().getNPCs()
+                .stream()
+                .filter((npc) -> (npc.getClass().isAssignableFrom(target)))
+                .map((instance) -> 1)
+                .reduce(count, Integer::sum);
     }
 }

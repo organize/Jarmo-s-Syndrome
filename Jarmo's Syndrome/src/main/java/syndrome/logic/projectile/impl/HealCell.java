@@ -1,6 +1,5 @@
 package syndrome.logic.projectile.impl;
 
-import java.util.Arrays;
 import java.util.List;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -10,17 +9,17 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
-import syndrome.entity.Entity;
 import syndrome.entity.NPC;
-import syndrome.entity.Player;
 import syndrome.entity.impl.EndothelialCell;
 import syndrome.logic.map.Axis;
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
-import syndrome.logic.projectile.Projectile;
+import syndrome.projectile.Projectile;
 import syndrome.other.SyndromeFactory;
 
 /**
+ * A projectile implementation that is fired by enemies,
+ * designed to heal antibodies.
  * 
  * @author Axel Wallin
  */
@@ -32,6 +31,13 @@ public class HealCell implements Projectile {
     private final NPC target;
     private final Location source;
     
+    /**
+     * Creates a new instance to the specified location,
+     * with the specified target NPC.
+     * 
+     * @param source the initial position of this projectile.
+     * @param target the destination of this projectile.
+     */
     public HealCell(Location source, NPC target) {
         this.timeline = new Timeline();
         this.shape = new Circle(2);
@@ -57,10 +63,35 @@ public class HealCell implements Projectile {
         }
         SyndromeFactory.getWorld().removeProjectile(this);
     }
+        
+    @Override
+    public void togglePause(boolean state) {
+        if(state) {
+            timeline.pause();
+        } else {
+            timeline.play();
+        }
+    }
     
     @Override
     public Shape getObject() {
         return shape;
+    }
+    
+    @Override
+    public void updateTranslation(Axis axis) {
+        Direction direction = SyndromeFactory.getWorld().getPlayer().getDirection();
+        double[] deltas = SyndromeFactory.getToolbox().directionToDelta(direction);
+        if(axis == Axis.X_AXIS) {
+            shape.setTranslateX(shape.getTranslateX() - deltas[0]);
+        }
+        if(axis == Axis.Y_AXIS) {
+            shape.setTranslateY(shape.getTranslateY() - deltas[1]);
+        }
+        if(axis == Axis.X_AND_Y_AXIS) {
+            shape.setTranslateX(shape.getTranslateX() - deltas[0]);
+            shape.setTranslateY(shape.getTranslateY() - deltas[1]);
+        }     
     }
 
     private KeyFrame constructKeyFrame() {
@@ -88,7 +119,7 @@ public class HealCell implements Projectile {
             });
             
             /* Destroy hook in the end */
-            timeline.setOnFinished((ActionEvent subHandler) -> {
+            timeline.setOnFinished((ActionEvent) -> {
                 this.destroy();
             });
         });
@@ -96,23 +127,6 @@ public class HealCell implements Projectile {
 
     public Timeline getTimeline() {
         return timeline;
-    }
-
-    @Override
-    public void updateTranslation(Axis axis) {
-        Direction direction = SyndromeFactory.getWorld().getPlayer().getDirection();
-        double[] deltas = SyndromeFactory.getToolbox().directionToDelta(direction);
-        if(axis == Axis.X_AXIS) {
-            shape.setTranslateX(shape.getTranslateX() - deltas[0]);
-        }
-        if(axis == Axis.Y_AXIS) {
-            shape.setTranslateY(shape.getTranslateY() - deltas[1]);
-        }
-        if(axis == Axis.X_AND_Y_AXIS) {
-            shape.setTranslateX(shape.getTranslateX() - deltas[0]);
-            shape.setTranslateY(shape.getTranslateY() - deltas[1]);
-        }
-            
     }
 
     private void moveTowardsTarget() {
@@ -132,14 +146,5 @@ public class HealCell implements Projectile {
         }
         shape.setTranslateX(shape.getTranslateX() + deltaX);
         shape.setTranslateY(shape.getTranslateY() + deltaY);
-    }
-    
-    @Override
-    public void togglePause(boolean state) {
-        if(state) {
-            timeline.pause();
-        } else {
-            timeline.play();
-        }
     }
 }

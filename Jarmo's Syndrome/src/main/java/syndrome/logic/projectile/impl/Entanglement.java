@@ -1,6 +1,5 @@
 package syndrome.logic.projectile.impl;
 
-import java.util.Arrays;
 import java.util.List;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -14,11 +13,11 @@ import syndrome.entity.Player;
 import syndrome.logic.map.Axis;
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
-import syndrome.logic.projectile.Projectile;
+import syndrome.projectile.Projectile;
 import syndrome.other.SyndromeFactory;
 
 /**
- * A simple projectile implementation that is currently used for testing.
+ * A projectile implementation that is the player's main attack.
  * 
  * @todo {remove test code, finish implementation}
  * @author Axel Wallin
@@ -31,6 +30,13 @@ public class Entanglement implements Projectile {
     private final Location destination;
     private double[] vector;
     
+    /**
+     * Creates a new instance to the specified location,
+     * headed towards the specified angle.
+     * ¨
+     * @param where the source location of this projectile.
+     * @param angle the angle that will be converted to velocity.
+     */
     public Entanglement(Location where, int angle) {
         this.timeline = new Timeline();
         this.keyFrame = constructKeyFrame();
@@ -87,18 +93,6 @@ public class Entanglement implements Projectile {
         });
     }
 
-    public Timeline getTimeline() {
-        return timeline;
-    }
-    
-    private void setPosition(double angle) {
-        Circle obj = (Circle) object;
-        Player player = SyndromeFactory.getWorld().getPlayer();
-        obj.setTranslateX(player.getLocation().getX());
-        obj.setTranslateY(player.getLocation().getY());
-        vector = SyndromeFactory.getToolbox().angleToVelocity((player.getRotation() + angle) * (Math.PI / 180));
-    }
-
     @Override
     public void updateTranslation(Axis axis) {
         Circle obj = (Circle) object;
@@ -124,5 +118,17 @@ public class Entanglement implements Projectile {
         } else {
             timeline.play();
         }
+    }
+    
+    public Timeline getTimeline() {
+        return timeline;
+    }
+    
+    private void setPosition(double angle) {
+        Circle obj = (Circle) object;
+        Player player = SyndromeFactory.getWorld().getPlayer();
+        obj.setTranslateX(player.getLocation().getX());
+        obj.setTranslateY(player.getLocation().getY());
+        vector = SyndromeFactory.getToolbox().angleToVelocity((player.getRotation() + angle) * (Math.PI / 180));
     }
 }

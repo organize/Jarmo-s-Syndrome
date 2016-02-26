@@ -7,8 +7,13 @@ import syndrome.entity.Entity;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import syndrome.entity.impl.Antibody;
+import syndrome.entity.impl.KupfferCell;
+import syndrome.entity.impl.StellateCell;
+import syndrome.logic.map.Axis;
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
+import syndrome.other.SyndromeFactory;
 
 public class EntityTest {
     
@@ -16,14 +21,14 @@ public class EntityTest {
     public void testTypes() {
         Player player = new Player();
         assertTrue(player.getType().equals(EntityType.PLAYER));
-        NPC npc = new NPC();
+        Entity npc = new Antibody(new Location(0, 0));
         assertTrue(npc.getType().equals(EntityType.NPC));
     }
     
     @Test
     public void testSetPosition() {
         Entity player = new Player();
-        Entity npc = new NPC();
+        Entity npc = new KupfferCell(new Location(0, 0));
         player.setLocation(20, -10);
         npc.setLocation(20.0, -10.01);
         Location location = new Location(20, -10.01);
@@ -37,32 +42,14 @@ public class EntityTest {
        player.setRotation(30);
        assertTrue(player.getRotation() == 30);
        
-       NPC npc = new NPC();
+       NPC npc = new KupfferCell(new Location(0, 0));
        npc.setRotation(10.0019);
        assertTrue(npc.getRotation() == 10.0019);
        assertFalse(npc.getRotation() == 10);
     }
     
     @Test
-    public void testCollisionBox() {
-        Entity player = new Player();
-        player.setLocation(300, 300);
-        /* player position is 300, 300 initially */
-        /* so bounds are [300,300][308,300][300,308][308,308] */
-        Entity testNpc = new NPC();
-        testNpc.setLocation(302, 302);
-        assertTrue(player.collidesWith(testNpc));
-        testNpc.setLocation(299, 299);
-        assertFalse(player.collidesWith(testNpc));
-        testNpc.setLocation(300, 300);
-        assertTrue(player.collidesWith(testNpc));
-        testNpc.setLocation(304, 304);
-        assertTrue(player.collidesWith(testNpc));
-        assertFalse(testNpc.collidesWith(player));
-    }
-    
-    @Test
-    public void testBounds() {
+    public void testPlayerBounds() {
         Player player = new Player();
         Location playerLoc = player.getLocation();
         Location[] actual = player.getBounds();
@@ -83,15 +70,53 @@ public class EntityTest {
     }
     
     @Test
-    public void testMove() {
-        Player player = new Player();
-        final Location initial = player.getLocation();
-        player.tick();
-        assertTrue(initial.equals(player.getLocation()));
+    public void testDeath() {
+        NPC test = new Antibody(new Location(0, 0));
+        SyndromeFactory.getWorld().addNPC(test);
+        test.inflictDamage(30000000);
+        test.tick(0);
+        assertFalse(SyndromeFactory.getWorld().getNPCs().contains(test));
+    }
+    
+    @Test
+    public void testNPCBounds() {
+        NPC npc = new KupfferCell(new Location(0, 0));
+        Location npcLoc = npc.getLocation();
+        Location[] actual = npc.getBounds();
+        assertTrue(actual.length == 4);
+        assertTrue(actual[0].equals(npcLoc));
         
-        Location expected = new Location(initial.getX(), initial.getY() - 2);
-        player.setDirection(Direction.NORTH);
-        player.tick();
-        assertTrue(expected.equals(player.getLocation()));
+        Location right = new Location(npcLoc.getX() + 4,
+            npcLoc.getY());
+        assertTrue(actual[1].equals(right));
+        
+        Location lowerLeft = new Location(npcLoc.getX(), 
+                npcLoc.getY() + 4);
+        assertTrue(actual[2].equals(lowerLeft));
+        
+        Location lowerRight = new Location(npcLoc.getX() + 4, 	
+                npcLoc.getY() + 4);
+        assertTrue(actual[3].equals(lowerRight));
+    }
+    
+    @Test
+    public void testNPCSize() {
+        NPC npc = new StellateCell(new Location(0, 0));
+        assertTrue(npc.getSize() == 4);
+    }
+    
+    @Test
+    public void testTranslation() {
+        Location pre = new Location(0, 0);
+        NPC npc = new StellateCell(pre);
+        npc.updateTranslation(Axis.X_AXIS);
+        assertTrue(npc.getLocation().equals(pre));
+    }
+    
+    @Test
+    public void testInflictDamage() {
+        NPC npc = new StellateCell(new Location(0, 0));
+        npc.inflictDamage(30);
+        assertTrue(npc.health == -30);
     }
 }

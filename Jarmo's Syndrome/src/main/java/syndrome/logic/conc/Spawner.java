@@ -11,7 +11,8 @@ import syndrome.logic.map.Location;
 import syndrome.other.SyndromeFactory;
 
 /**
- *
+ * A class to handle the spawning of NPCs.
+ * 
  * @author Axel Wallin
  */
 public class Spawner {
@@ -22,6 +23,10 @@ public class Spawner {
     
     private Random random;
     
+    /**
+     * Creates a new spawner instance with a default 
+     * concurrent entity limit of 5.
+     */
     public Spawner() {
         this.entityLimit = 5;
         this.waveFinished = false;
@@ -29,6 +34,15 @@ public class Spawner {
         this.random = new Random();
     }
  
+    /**
+     * Handles the main logic related to this class.
+     * This method will spawn NPCs if the world contains
+     * no NPCs, apart from bacteria as they assist the player.
+     * This method is called from the main loop.
+     * 
+     * @param player the player of the game.
+     * @param now the current time in nanos.
+     */
     public void tick(Player player, long now) {
         int actualSize = SyndromeFactory.getWorld().getNPCs().size()
                 - SyndromeFactory.getToolbox().countActive(Bacteria.class);
@@ -49,7 +63,7 @@ public class Spawner {
         updateLimit(player.getLevel());
     }
     
-    public void updateLimit(int playerLevel) {
+    private void updateLimit(int playerLevel) {
         this.entityLimit = (10 * playerLevel) / 5;
     }
     

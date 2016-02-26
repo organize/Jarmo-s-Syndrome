@@ -85,13 +85,6 @@ public abstract class Entity {
      */
     public abstract Location[] getBounds();
     
-    /**
-     * Checks if this entity collides with another entity.
-     * @param other the entity we want to check.
-     * 
-     * @return whether or not a collision is occuring.
-     */
-    public abstract boolean collidesWith(Entity other);
     
     /**
      * Get the size of the entity. Default is 8 for players, 4 for NPCs.

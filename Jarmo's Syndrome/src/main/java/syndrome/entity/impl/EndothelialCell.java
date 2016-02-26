@@ -14,7 +14,7 @@ import syndrome.entity.Player;
 import syndrome.entity.objective.Objective;
 import syndrome.logic.World;
 import syndrome.logic.map.Location;
-import syndrome.logic.projectile.Projectile;
+import syndrome.projectile.Projectile;
 import syndrome.logic.projectile.impl.Halt;
 import syndrome.logic.projectile.impl.HealCell;
 import syndrome.other.SyndromeFactory;
@@ -36,10 +36,16 @@ public class EndothelialCell extends NPC {
     
     private Objective action;
     
+    /**
+     * Creates a new endothelial cell instance to the specified location.
+     * 
+     * @param location the location where to spawn this instance.
+     */
     public EndothelialCell(Location location) {
         super(location);
         super.speed = 0;
         super.health = 100;
+        
         this.lastUpdate = 0;
         this.body = new Circle();
         this.label = new Text();
@@ -135,14 +141,14 @@ public class EndothelialCell extends NPC {
         if(target != null) {
             HealCell projectile = new HealCell(super.location, target);
             projectile.fire();
-            SyndromeFactory.getWorld().addProjectile(projectile);
+            SyndromeFactory.getWorld().addProjectile(projectile, true);
         }
     }
     
     private void attackPlayer(Player player) {
         Halt projectile = new Halt(super.location);
         projectile.fire();
-        SyndromeFactory.getWorld().addProjectile(projectile);
+        SyndromeFactory.getWorld().addProjectile(projectile, true);
         if(player.getLevel() > 10) {
             if(player.getSpeed() == 0.25) {
                 action = Objective.REINFORCE;

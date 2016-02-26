@@ -5,7 +5,7 @@ import syndrome.entity.objective.Objective;
 import syndrome.logic.map.Axis;
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
-import syndrome.logic.projectile.Projectile;
+import syndrome.projectile.Projectile;
 import syndrome.other.SyndromeFactory;
 
 /**
@@ -18,6 +18,11 @@ public abstract class NPC extends Entity {
     
     protected double rotation, speed, health;
 
+    /**
+     * Creates a new NPC with the default values
+     * (rot=0, speed=0, health=0) to the specified location.
+     * @param location the location where to spawn this NPC.
+     */
     public NPC(Location location) {
         super(location);
         this.rotation = 0.0d;
@@ -69,11 +74,6 @@ public abstract class NPC extends Entity {
                 location.getY() + 4);
         return bounds;
     }
-
-    @Override
-    public boolean collidesWith(Entity other) {
-        return false;
-    }
     
     @Override
     public int getSize() {
@@ -85,12 +85,31 @@ public abstract class NPC extends Entity {
         SyndromeFactory.getWorld().removeNPC(this);
     }
     
+    /**
+     * Renders the NPC, ie. builds it's components, if any.
+     */
     public abstract void render();
     
+    /**
+     * Get the objectives assigned to this NPC.
+     * 
+     * @return a list of objectives. 
+     */
     public abstract List<Objective> getObjective();
     
+    /**
+     * Handles collision with a projectile.
+     * 
+     * @param projectile the projectile that is colliding.
+     */
     public abstract void handleCollision(Projectile projectile);
     
+    /**
+     * Updates the translation coordinates relative to the player's
+     * position.
+     * 
+     * @param axis the axis to update.
+     */
     public void updateTranslation(Axis axis) {
         Direction direction = SyndromeFactory.getWorld().getPlayer().getDirection();
         double[] deltas = SyndromeFactory.getToolbox().directionToDelta(direction);
@@ -124,6 +143,10 @@ public abstract class NPC extends Entity {
                 location.getY() + (deltaY * speed));
     }
     
+    /**
+     * Inflicts damage to this NPC.
+     * @param damage the amount of damage to inflict.
+     */
     public void inflictDamage(double damage) {
         this.health -= damage;
     }

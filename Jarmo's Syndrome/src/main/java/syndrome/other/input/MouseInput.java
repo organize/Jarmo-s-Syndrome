@@ -1,14 +1,10 @@
 package syndrome.other.input;
 
-import java.util.Random;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-import syndrome.entity.NPC;
 import syndrome.entity.Player;
-import syndrome.entity.impl.*;
 import syndrome.logic.map.Location;
-import syndrome.logic.projectile.Projectile;
+import syndrome.projectile.Projectile;
 import syndrome.logic.projectile.impl.Entanglement;
 import syndrome.other.SyndromeFactory;
 
@@ -20,6 +16,11 @@ import syndrome.other.SyndromeFactory;
  */
 public class MouseInput implements EventHandler<MouseEvent> {
 
+    /**
+     * Handles all incoming mouse input.
+     * 
+     * @param event the mouse event.
+     */
     @Override
     public void handle(MouseEvent event) {
         if(event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
@@ -36,7 +37,7 @@ public class MouseInput implements EventHandler<MouseEvent> {
         };
         for(Projectile projectile : multiEnt) {
             projectile.fire();
-            SyndromeFactory.getWorld().addProjectile(projectile);
+            SyndromeFactory.getWorld().addProjectile(projectile, true);
             if(SyndromeFactory.getWorld().getPlayer().getLevel() < 5) {
                 break;
             }
@@ -47,5 +48,4 @@ public class MouseInput implements EventHandler<MouseEvent> {
         Player player = SyndromeFactory.getWorld().getPlayer();
         player.updateRotation(Location.toLocation(e));
     }
-
 }

@@ -8,7 +8,7 @@ import syndrome.logic.World;
 import syndrome.entity.NPC;
 import syndrome.entity.Player;
 import syndrome.logic.map.Direction;
-import syndrome.logic.projectile.Projectile;
+import syndrome.projectile.Projectile;
 import syndrome.other.SyndromeFactory;
 
 /**
@@ -25,6 +25,10 @@ public class SyndromeTimer extends AnimationTimer {
     private Rectangle rect;
     private Spawner spawner;
     
+    /**
+     * Creates a new timer instance.
+     * @param rect the player model.
+     */
     public SyndromeTimer(Rectangle rect) {
         this.rect = rect;
         this.lastUpdate = 0;
@@ -63,6 +67,10 @@ public class SyndromeTimer extends AnimationTimer {
         this.lastUpdate = now;
     }
     
+    /**
+     * Pauses the game loop and halts all projectiles.
+     * @param bool the pause state.
+     */
     public void setPaused(boolean bool) {
         this.paused = bool;
         pauseAllProjectiles();

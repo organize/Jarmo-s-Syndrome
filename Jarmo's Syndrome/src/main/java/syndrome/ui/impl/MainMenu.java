@@ -43,7 +43,7 @@ public class MainMenu implements SyndromeGUI {
     @Override
     public void build(Stage stage) {
         MenuButton newGame = new MenuButton(" New Game ", "white");
-        newGame.setOnAction((ActionEvent event) -> {
+        newGame.setOnAction((ActionEvent) -> {
             SyndromeFactory.getGUIManager().hideMainMenu();
             SyndromeFactory.getGUIManager().drawGameScreen();
         });
@@ -51,7 +51,7 @@ public class MainMenu implements SyndromeGUI {
         
         MenuButton quit = new MenuButton("      EXIT      ", "white");
         quit.relocate(230, 230);
-        quit.setOnAction((ActionEvent event) -> {
+        quit.setOnAction((ActionEvent) -> {
             System.exit(0);
         });
         
@@ -92,5 +92,4 @@ public class MainMenu implements SyndromeGUI {
         });
         return audioStatus;
     }
-
 }

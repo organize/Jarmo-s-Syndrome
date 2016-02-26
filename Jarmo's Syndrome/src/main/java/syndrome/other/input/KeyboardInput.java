@@ -36,6 +36,11 @@ public class KeyboardInput implements EventHandler<KeyEvent> {
         this.held = new ArrayList<>();
     }
 
+    /**
+     * Handles all incoming keyboard input.
+     * 
+     * @param event the key event.
+     */
     @Override
     public void handle(KeyEvent event) {
         if(event.getEventType().equals(KeyEvent.KEY_RELEASED)) {

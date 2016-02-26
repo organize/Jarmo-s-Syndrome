@@ -51,20 +51,20 @@
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>      @Override
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> build(Stage stage) {
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>          <a href="../../../syndrome/ui/MenuButton.html">MenuButton</a> newGame = <strong class="jxr_keyword">new</strong> <a href="../../../syndrome/ui/MenuButton.html">MenuButton</a>(<span class="jxr_string">" New Game "</span>, <span class="jxr_string">"white"</span>);
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>          newGame.setOnAction((ActionEvent event) -&gt; {
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>          newGame.setOnAction((ActionEvent) -&gt; {
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>              SyndromeFactory.getGUIManager().hideMainMenu();
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>              SyndromeFactory.getGUIManager().drawGameScreen();
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>          });
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>          newGame.relocate(400, 225);
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          newGame.relocate(230, 170);
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>          
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>          <a href="../../../syndrome/ui/MenuButton.html">MenuButton</a> quit = <strong class="jxr_keyword">new</strong> <a href="../../../syndrome/ui/MenuButton.html">MenuButton</a>(<span class="jxr_string">"      EXIT      "</span>, <span class="jxr_string">"white"</span>);
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>          quit.relocate(400, 280);
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>          quit.setOnAction((ActionEvent event) -&gt; {
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          quit.relocate(230, 230);
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>          quit.setOnAction((ActionEvent) -&gt; {
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>              System.exit(0);
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>          });
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>          
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>          Text mainTitle = <strong class="jxr_keyword">new</strong> Text(200, 150, <span class="jxr_string">"Jarmo's Syndrome"</span>);
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>          mainTitle.setFont(Font.font (<span class="jxr_string">"8BIT WONDER"</span>, 40));
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>          Text mainTitle = <strong class="jxr_keyword">new</strong> Text(90, 120, <span class="jxr_string">"Jarmo's Syndrome"</span>);
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>          mainTitle.setFont(Font.font (<span class="jxr_string">"8BIT WONDER"</span>, 30));
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>          mainTitle.setFill(Paint.valueOf(<span class="jxr_string">"white"</span>)); 
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>          mainTitle.setStyle(<span class="jxr_string">"-fx-effect: dropshadow(gaussian, red, 7, 0.0, 2, 2);"</span>);
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>          
@@ -83,7 +83,7 @@
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>          Button audioStatus = <strong class="jxr_keyword">new</strong> Button();
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>          Image image = <strong class="jxr_keyword">new</strong> Image(getClass().getResourceAsStream(<span class="jxr_string">"/resources/images/audio_muted.png"</span>));
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>          audioStatus.setGraphic(<strong class="jxr_keyword">new</strong> ImageView(image));
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>          audioStatus.relocate(5, 705);
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>          audioStatus.relocate(5, 500);
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>          audioStatus.setPadding(Insets.EMPTY);
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>          audioStatus.setStyle(<span class="jxr_string">"-fx-background-color: transparent;"</span>);
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>          audioStatus.setOnAction((ActionEvent event) -&gt; {
@@ -100,8 +100,7 @@
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>          });
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>          <strong class="jxr_keyword">return</strong> audioStatus;
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>      }
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>  
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>  }
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2016. All rights reserved.</div>

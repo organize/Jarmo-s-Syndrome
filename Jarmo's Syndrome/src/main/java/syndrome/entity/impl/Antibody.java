@@ -2,18 +2,15 @@ package syndrome.entity.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
+import javafx.scene.paint.*;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
+import javafx.scene.text.*;
 import syndrome.entity.NPC;
 import syndrome.entity.Player;
 import syndrome.entity.objective.Objective;
 import syndrome.logic.World;
 import syndrome.logic.map.Location;
-import syndrome.logic.projectile.Projectile;
+import syndrome.projectile.Projectile;
 import syndrome.logic.projectile.impl.Entanglement;
 import syndrome.logic.projectile.impl.HealCell;
 import syndrome.other.SyndromeFactory;
@@ -33,6 +30,11 @@ public class Antibody extends NPC {
     private Circle body;
     private Text label;
     
+    /**
+     * Creates a new antibody instance to the specified location.
+     * 
+     * @param location the location where to spawn this instance.
+     */
     public Antibody(Location location) {
         super(location);
         super.speed = 0.5;

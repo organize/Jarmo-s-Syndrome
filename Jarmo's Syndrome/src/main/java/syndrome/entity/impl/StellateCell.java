@@ -5,7 +5,7 @@ import java.util.List;
 import syndrome.entity.NPC;
 import syndrome.entity.objective.Objective;
 import syndrome.logic.map.Location;
-import syndrome.logic.projectile.Projectile;
+import syndrome.projectile.Projectile;
 
 /**
  * Represents a stellate cell.
@@ -15,11 +15,17 @@ import syndrome.logic.projectile.Projectile;
  * Jarmo's immune system through vitamin A defiency, so
  * antibodies become hard to produce.
  * 
+ * {@todo}
  * @author Axel Wallin
  */
 
 public class StellateCell extends NPC {
 
+    /**
+     * Creates a new stellate cell instance to the specified location.
+     * 
+     * @param location the location where to spawn this instance.
+     */
     public StellateCell(Location location) {
         super(location);
     }

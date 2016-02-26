@@ -17,44 +17,50 @@ public class EntanglementTest {
     
     @Test
     public void testTimelineAttributes() {
-        SyndromeFactory.getWorld().setGamePane(new Pane());
-        Entanglement test = new Entanglement(new Location(0, 0));
+        Pane pane = new Pane();
+        SyndromeFactory.getWorld().setGamePane(pane);
+        Entanglement test = new Entanglement(new Location(0, 0), 90);
         Timeline timeline = test.getTimeline();
         test.fire();
-        assertTrue(timeline.getCycleCount() > 0);
+        assertTrue(timeline.getCycleCount() == 250);
         assertFalse(timeline.getKeyFrames().isEmpty());
         assertTrue(timeline.getStatus().equals(Status.RUNNING));
         test.destroy();
         assertTrue(timeline.getStatus().equals(Status.STOPPED));
+        assertFalse(SyndromeFactory.getWorld().getProjectiles().contains(test));
+        assertFalse(pane.getChildren().contains(test.getObject()));
+    }
+    
+    @Test
+    public void testPause() {
+        Entanglement test = new Entanglement(new Location(0, 0), 90);
+        test.togglePause(true);
+        assertEquals(test.getTimeline().getStatus(), Status.STOPPED);
     }
     
     @Test
     public void testShape() {
-        Circle shape = new Circle(15, 15, 5);
-        Entanglement test = new Entanglement(new Location(0, 0));
+        Entanglement test = new Entanglement(new Location(0, 0), 90);
         Shape actual = test.getObject();
         assertTrue(actual instanceof Circle);
-        Circle circle = (Circle) actual;
-        assertTrue(circle.getTranslateX() == shape.getTranslateX());
-        assertTrue(circle.getTranslateY() == shape.getTranslateY());
     }
     
     @Test
     public void testInitial() {
         Location location = new Location(10, 10);
-        Entanglement entanglement = new Entanglement(location);
-        assertTrue(location.getX() == entanglement.getObject().getTranslateX());
-        assertTrue(location.getY() == entanglement.getObject().getTranslateY());
+        Entanglement entanglement = new Entanglement(location, 90);
+        assertTrue(130 == entanglement.getObject().getTranslateX());
+        assertTrue(105 == entanglement.getObject().getTranslateY());
     }
     
     @Test
     public void testCoordinateTransform() {
         Location location = new Location(10, 10);
-        Entanglement entanglement = new Entanglement(location);
+        Entanglement entanglement = new Entanglement(location, 90);
         SyndromeFactory.getWorld().getPlayer().setDirection(Direction.NORTH);
         entanglement.updateTranslation(Axis.X_AXIS);
         System.out.println(entanglement.getObject().getTranslateX());
-        assertTrue(location.getX() + 2 == entanglement.getObject().getTranslateX() + 2);
+        assertTrue(location.getX() + 120 == entanglement.getObject().getTranslateX());
     }
 
 }

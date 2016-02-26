@@ -12,7 +12,6 @@ import syndrome.other.SyndromeFactory;
  * @author Axel Wallin
  */
 public class Location {
-    private static Object location;
     
     private double x, y;
     
@@ -108,6 +107,12 @@ public class Location {
         return new Location(event.getSceneX() - 320, event.getSceneY() - 240);
     }
     
+    /**
+     * Creates a new location, randomly.
+     * The new location cannot be near the player or out of bounds.
+     * 
+     * @return Location, a new location instance generated randomly.
+     */
     public static Location createRandomLocation() {
         Random random = new Random();
         Player player = SyndromeFactory.getWorld().getPlayer();

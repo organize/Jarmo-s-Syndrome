@@ -31,7 +31,6 @@ public class Syndrome extends Application {
      * @param args command-line arguments.
      */
     public static void main(String[] args) {
-        System.out.println(new Location(10, 10).hashCode());
         if(args.length != 0) {
             String preferredResolution = args[0];
             int width = Integer.parseInt(preferredResolution.split("x")[0]);
