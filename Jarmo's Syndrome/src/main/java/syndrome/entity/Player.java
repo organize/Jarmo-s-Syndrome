@@ -142,7 +142,7 @@ public class Player extends Entity {
     
     public void refresh() {
         speed = 1.0;
-        healthData[0] += (healthData[1] / 8);
+        healthData[0] = healthData[0] + (healthData[1] / 8);
         if(healthData[0] > healthData[1]) {
             healthData[0] = healthData[1];
         }
@@ -177,7 +177,6 @@ public class Player extends Entity {
             if(healthData[1] < 500) {
                 healthData[1] = healthData[1] + (level * 20);
             }
-            healthData[0] = healthData[1] / 10;
         }
         checkUnlocks();
         levelLabel.setText("" + level);
@@ -187,14 +186,14 @@ public class Player extends Entity {
 
     public void handleCollision(Projectile proj) {
         if(proj instanceof Halt) {
-            speed = 0.5;
+            speed = 0.4;
         }
     }
     
     private void checkUnlocks() {
         GUIManager guiManager = SyndromeFactory.getGUIManager();
         if(level >= 5) {
-            guiManager.setNextUnlock("TODO");
+            guiManager.setNextUnlock(" -todo-");
         }
         guiManager.setHiscore(points);
     }

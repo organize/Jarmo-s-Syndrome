@@ -68,6 +68,9 @@ public class KeyboardInput implements EventHandler<KeyEvent> {
         if(code.isLetterKey() && valid.contains(code)) {
             handleMovement(event.getCode());
         }
+        if(code.equals(KeyCode.P)) {
+            SyndromeFactory.getWorld().getPlayer().setLocation(0, 0);
+        }
     }
     
     private void handleMovement(KeyCode pressed) {

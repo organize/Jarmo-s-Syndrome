@@ -81,8 +81,10 @@ public class Toolbox {
                 break;
         }
         double speedModifier = SyndromeFactory.getWorld().getPlayer().getSpeed();
-        delta[0] = delta[0] * speedModifier;
-        delta[1] = delta[1] * speedModifier;
+        if(speedModifier != 1) {
+            delta[0] = delta[0] * speedModifier;
+            delta[1] = delta[1] * speedModifier;
+        }
         return delta;
     }
     
