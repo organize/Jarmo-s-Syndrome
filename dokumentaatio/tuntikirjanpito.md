@@ -47,6 +47,23 @@
 	
 	Tunnit: 2
 	Kohde: Pelimekaniikkojen muovailua.
+
+<h4>22.02.2016</h4>
 	
-<h4>Kokonaistunnit</h4>
-	29.5
+	Tunnit: 5
+	Kohde: Korjasin ärsyttävän bugin translaatioiden kanssa ja toteutin pelimekaniikkoja.
+	
+<h4>23.02.2016</h4>
+	
+	Tunnit: 3
+	Kohde: Testejä, dokumentaatiota ja pelimekaniikkaa.
+	
+<h4>25.02.2016</h4>
+	
+	Tunnit: 2.5
+	Kohde: Viimeistelyjä demotilaisuutta varten.
+	
+<h4>26.02.2016</h4>
+	
+	Tunnit: n
+	Kohde: DL 6 työstämistä.
