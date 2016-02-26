@@ -29,4 +29,4 @@
  * Kun kaikki solut (bakteereja lukuunottamatta) ovat tuhottu, alkaa uusi kierros. Kierroksen aikana syntyy pelaajan tasoon nähden määrä
  erityyppisiä soluja.
  
- * Peliä ei voi voittaa, se on arcade-tyylinen. Yritä saada korkeat pisteet ja pidä hauskaa!
+* Peliä ei voi voittaa, se on arcade-tyylinen. Yritä saada korkeat pisteet ja pidä hauskaa!
