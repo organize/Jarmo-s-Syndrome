@@ -11,7 +11,7 @@
 * Paniikkinappula: `P`. Jos jotenkin velhomaisesti saat pelaajan katoamaan, palauttaa tämä nappi rakkaan neliömme origoon.
 <h4>Pelimekaniikat</h4>
 * Vasemmalla ylhäällä näät pisteesi. K tarkoittaa tuhansia, M miljoonia.
-* Pelaajan päällä näkyvä numero on pelaajan taso. Taso nousee soluja tuhotessa, eri soluista saa eri määrän pisteita. Eniten K-soluista.
+* Pelaajan päällä näkyvä numero on pelaajan taso. Taso nousee soluja tuhotessa, eri soluista saa eri määrän pisteitä. Eniten K-soluista.
 * Alhaalla on elämäpisteesi. Formaatti on `[nykyiset elämäpisteet/maksimielämäpisteet]`. Jokaisen kierroksen loputtua saat
 1/8 maksimielämäpisteistäsi takaisin. Aloitat sadalla, maksimi on viisisataa.
 
