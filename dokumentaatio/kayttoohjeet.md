@@ -19,13 +19,13 @@
 1/8 maksimielämäpisteistäsi takaisin. Aloitat sadalla, maksimi on viisisataa.
 
 * Soluja ja niiden tehtäviä:
- * Vihreä A-solu: Näiden solujen tehtävä on satuttaa pelaajaa. Niiden koko kertoo, kuinka paljon niillä on elämäpisteitä jäljellä.
+ * Vihreä A-solu (`ANTIBODY`): Näiden solujen tehtävä on satuttaa pelaajaa. Niiden koko kertoo, kuinka paljon niillä on elämäpisteitä jäljellä.
  Jos A-solu onnistuu osumaan pelaajaan, menettää pelaaja A-solun elämäpisteiden määrän elämäpisteitään. A-solut kehittyvät nopeammaksi
  pelaajan tason noustessa.
  * Bakteeri: Vihreitä, neliön muotoisia pyöriviä härnääjiä. Ne auttavat pelaajaa, eli et voi vahingoittaa niitä. Bakteerit kehittyvät
  erittäin vahvoiksi pelaajan tason kohotessa. Bakteerit syövät A-ja E-soluja. Niitä syntyy pelaajan tasoon ja K-solujen määrään nähden.
- * Purppura K-solu: K-solut ovat kestäviä. Niiden tarkoitus on syödä bakteereja. Ne liikkuvat erittäin hitaasti, mutta eivät vahingoita pelaajaa.
- * Beigen värinen E-solu: E-solut voivat joko hidastaa pelaajaa tai auttaa A-soluja. E-solut lähettävät vihreitä elämäpisteitä A-soluille,
+ * Purppura K-solu (`KUPFFER CELL`): K-solut ovat kestäviä. Niiden tarkoitus on syödä bakteereja. Ne liikkuvat erittäin hitaasti, mutta eivät yleensä vahingoita pelaajaa. Jos pelialustalla on bakteereja, on K-solun prioriteetti syödä bakteerit. Joskus ne kääntyvät pelaajaa kohti, ja tekevät massiivista vahinkoa. 
+ * Beigen värinen E-solu (`SINUSODIAL ENDOTHELIAL CELL`): E-solut voivat joko hidastaa pelaajaa tai auttaa A-soluja. E-solut lähettävät vihreitä elämäpisteitä A-soluille,
  joten niiden tuhoaminen alustavasti on suositeltavaa. Niiden tarjoamat hidastus-ja-pelastuspalvelut nopeutuvat mitä korkeampi pelaajan taso on.
  Jos pelaaja saavuttaa tason 10, kehittyvät E-solut tekemään molempia: eli hidastamaan ja pelastamaan.
  
