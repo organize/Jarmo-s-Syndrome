@@ -1,4 +1,4 @@
-package syndrome.logic.projectile.impl;
+package syndrome.projectile.impl;
 
 import java.util.List;
 import javafx.animation.KeyFrame;

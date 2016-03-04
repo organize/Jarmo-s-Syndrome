@@ -5,7 +5,7 @@ import javafx.scene.input.MouseEvent;
 import syndrome.entity.Player;
 import syndrome.logic.map.Location;
 import syndrome.projectile.Projectile;
-import syndrome.logic.projectile.impl.Entanglement;
+import syndrome.projectile.impl.Entanglement;
 import syndrome.other.SyndromeFactory;
 
 /**

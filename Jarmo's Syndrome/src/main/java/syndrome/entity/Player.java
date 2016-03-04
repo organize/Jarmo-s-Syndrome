@@ -3,7 +3,7 @@ package syndrome.entity;
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
 import syndrome.projectile.Projectile;
-import syndrome.logic.projectile.impl.Halt;
+import syndrome.projectile.impl.Halt;
 import syndrome.other.SyndromeFactory;
 import syndrome.other.Toolbox;
 import syndrome.ui.GUIManager;

@@ -1,14 +1,16 @@
-package syndrome.logic.projectile.impl;
+package syndrome.projectile.impl;
 
+import java.util.List;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
-import syndrome.entity.Player;
+import syndrome.entity.NPC;
+import syndrome.entity.impl.EndothelialCell;
 import syndrome.logic.map.Axis;
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
@@ -17,11 +19,11 @@ import syndrome.other.SyndromeFactory;
 
 /**
  * A projectile implementation that is fired by enemies,
- * designed to slow down the player.
+ * designed to heal antibodies.
  * 
  * @author Axel Wallin
  */
-public class Halt implements Projectile {
+public class HealCell implements Projectile {
     
     /**
      * The timeline instance of this projectile.
@@ -39,28 +41,37 @@ public class Halt implements Projectile {
     private final Shape shape;
     
     /**
+     * The target of this projectile, represented as an entity,
+     * destination is always the npc's location.
+     */
+    private final NPC target;
+    
+    /**
      * The initial position of this projectile.
      */
     private final Location source;
     
     /**
-     * Creates a new halt instance of the specified location.
+     * Creates a new instance to the specified location,
+     * with the specified target NPC.
      * 
      * @param source the initial position of this projectile.
+     * @param target the destination of this projectile.
      */
-    public Halt(Location source) {
+    public HealCell(Location source, NPC target) {
         this.timeline = new Timeline();
-        this.shape = new Rectangle(3, 3);
+        this.shape = new Circle(2);
+        this.target = target;
         this.source = source;
         this.keyFrame = constructKeyFrame();
     }
 
     @Override
     public void fire() {
-        timeline.setCycleCount(300);
+        timeline.setCycleCount(1000);
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
-        shape.setFill(Paint.valueOf("red"));
+        shape.setFill(Paint.valueOf("green"));
     }
 
     @Override
@@ -72,7 +83,7 @@ public class Halt implements Projectile {
         }
         SyndromeFactory.getWorld().removeProjectile(this);
     }
-           
+        
     @Override
     public void togglePause(boolean state) {
         if(state) {
@@ -107,20 +118,28 @@ public class Halt implements Projectile {
         shape.setTranslateX(source.getX());
         shape.setTranslateY(source.getY());
         return new KeyFrame(Duration.seconds(0.010), (ActionEvent event) -> {
-            Player player = SyndromeFactory.getWorld().getPlayer();
-            /* Move towards the specified entity */
-            moveTowardsTarget(player);
-            
-            /* Check for collision */
-            Location location = new Location(shape.getTranslateX(), shape.getTranslateY());
-            if(player.getLocation().distanceTo(location) < 10) {
-                player.handleCollision(this);
+            /* Check if the target still exists */
+            List<NPC> activeNPCs = SyndromeFactory.getWorld().getNPCs();
+            if(!activeNPCs.contains(target)) {
                 this.destroy();
             }
             
-            shape.setRotate(shape.getRotate() - 2);
+            /* Move towards the specified entity */
+            moveTowardsTarget();
+            
+            /* Check for collision */
+            Location location = new Location(shape.getTranslateX(), shape.getTranslateY());
+            activeNPCs.stream()
+                    .filter((npc) -> (location.distanceTo(npc.getLocation()) < npc.getSize()))
+                    .forEach((instance) -> {
+                if(!(instance instanceof EndothelialCell)) {
+                    instance.handleCollision(this);
+                    this.destroy();
+                }
+            });
+            
             /* Destroy hook in the end */
-            timeline.setOnFinished((ActionEvent subHandler) -> {
+            timeline.setOnFinished((ActionEvent) -> {
                 this.destroy();
             });
         });
@@ -130,7 +149,7 @@ public class Halt implements Projectile {
         return timeline;
     }
 
-    private void moveTowardsTarget(Player target) {
+    private void moveTowardsTarget() {
         int deltaX = 0, deltaY = 0;
         Location destination = target.getLocation();
         if(destination.getX() < shape.getTranslateX()) {

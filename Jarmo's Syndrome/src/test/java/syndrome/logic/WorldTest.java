@@ -10,7 +10,7 @@ import syndrome.entity.NPC;
 import syndrome.entity.impl.Antibody;
 import syndrome.logic.map.Location;
 import syndrome.projectile.Projectile;
-import syndrome.logic.projectile.impl.Entanglement;
+import syndrome.projectile.impl.Entanglement;
 
 public class WorldTest {
     

@@ -1,5 +1,6 @@
 package syndrome.logic.projectile.impl;
 
+import syndrome.projectile.impl.Entanglement;
 import javafx.animation.Animation;
 import javafx.animation.Animation.Status;
 import javafx.animation.Timeline;

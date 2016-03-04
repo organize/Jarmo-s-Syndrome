@@ -14,8 +14,8 @@ import syndrome.entity.objective.Objective;
 import syndrome.logic.World;
 import syndrome.logic.map.Location;
 import syndrome.projectile.Projectile;
-import syndrome.logic.projectile.impl.Halt;
-import syndrome.logic.projectile.impl.HealCell;
+import syndrome.projectile.impl.Halt;
+import syndrome.projectile.impl.HealCell;
 import syndrome.other.SyndromeFactory;
 import syndrome.annotation.ObjectiveInfo;
 
