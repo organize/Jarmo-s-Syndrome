@@ -8,7 +8,7 @@ Puolustus vaikenee taso tasolta, mutta myös itse virus kasvaa ja muuttuu.
 <b>nb! Jos et saa projektia auki, tarvitset resources-kansion biniin.</b>
 
 [Aiheen kuvaus](dokumentaatio/aiheen-kuvaus.md)
-
 [Tunnit](dokumentaatio/tuntikirjanpito.md)
+[Käyttöohjeet](dokumentaatio/kayttoohje.md)
 
 
