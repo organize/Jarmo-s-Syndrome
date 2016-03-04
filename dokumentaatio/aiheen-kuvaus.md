@@ -25,17 +25,27 @@ Ideoita:
 
 #Määrittelyvaiheen luokkakaavio
 
-<h2> 1.0 (22.1.) </h2> 
+<h2> 1.0 (22.01.) </h2> 
 
 ![1.0](classDiagram.png)
 
-<h2> 2.0 (5.2.) </h2>
+<h2> 2.0 (5.02.) </h2>
 
 ![2.0](classDiagram_2.png)
 
-<h2> 3.0 (19.2) </h2>
+<h2> 3.0 (19.02.) </h2>
 
 ![3.0](classDiagram_3.png)
+
+<h2> 4.0 (04.03.) </h2>
+Legend:
+ * `GREEN`: Core classes
+ * `GREY`: UI system
+ * `PURPLE`: Projectile system
+ * `ORANGE`: Entity system
+ * `CYAN`: Other classes
+![3.0](classDiagram_4.png)
+
 
 #Sekvenssikaavioita
 
