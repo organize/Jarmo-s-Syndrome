@@ -2,9 +2,7 @@ package syndrome;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import syndrome.logic.map.Location;
 import syndrome.other.SyndromeFactory;
-import syndrome.ui.impl.CrashInterface;
 
 /**
  * The main class and program entry-point.

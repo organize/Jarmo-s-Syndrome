@@ -20,13 +20,24 @@ import syndrome.other.SyndromeFactory;
  */
 public class SyndromeTimer extends AnimationTimer {
     
+    /**
+     * The last update time in millis.
+     */
     private long lastUpdate;
-    private boolean paused;
-    private Spawner spawner;
     
     /**
-     * Creates a new timer instance.
-     * @param rect the player model.
+     * Whether or not the game is paused.
+     */
+    private boolean paused;
+    
+    /**
+     * The Spawner instance of this class.
+     */
+    private final Spawner spawner;
+    
+    /**
+     * Creates a new timer instance, and a
+     * Spawner instance inside it.
      */
     public SyndromeTimer() {
         this.lastUpdate = 0;

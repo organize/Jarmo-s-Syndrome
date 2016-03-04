@@ -24,24 +24,36 @@ import syndrome.other.SyndromeFactory;
  */
 public class Entanglement implements Projectile {
     
+    /**
+     * The timeline instance of this projectile.
+     */
     private final Timeline timeline;
+    
+    /**
+     * The keyframe instance of this projectile.
+     */
     private final KeyFrame keyFrame;
-    private final Shape object;
-    private final Location destination;
+    
+    /**
+     * The shape (item to animate) of this projectile.
+     */
+    private final Shape shape;
+    
+    /**
+     * The direction vector of this projectile.
+     */
     private double[] vector;
     
     /**
      * Creates a new instance to the specified location,
      * headed towards the specified angle.
-     * ¨
-     * @param where the source location of this projectile.
+     * 
      * @param angle the angle that will be converted to velocity.
      */
-    public Entanglement(Location where, int angle) {
+    public Entanglement(int angle) {
         this.timeline = new Timeline();
         this.keyFrame = constructKeyFrame();
-        this.object = new Circle(3);
-        this.destination = where;
+        this.shape = new Circle(3);
         this.vector = new double[2];
         setPosition(angle);
     }
@@ -58,20 +70,20 @@ public class Entanglement implements Projectile {
         timeline.stop();
         Pane pane = SyndromeFactory.getWorld().getGamePane();
         if(!pane.getChildren().isEmpty()) {
-            pane.getChildren().remove(object);
+            pane.getChildren().remove(shape);
         }
         SyndromeFactory.getWorld().removeProjectile(this);
     }
     
     @Override
     public Shape getObject() {
-        return object;
+        return shape;
     }
 
     private KeyFrame constructKeyFrame() {
         return new KeyFrame(Duration.seconds(0.010), (ActionEvent event) -> {
             
-            Circle obj = (Circle) object;
+            Circle obj = (Circle) shape;
             double playerLevel = SyndromeFactory.getWorld().getPlayer().getLevel();
             double multiplier = (playerLevel / 3);
             if(multiplier < 3) {
@@ -87,7 +99,7 @@ public class Entanglement implements Projectile {
                 instance.handleCollision(this);
                 this.destroy();
             });
-            timeline.setOnFinished((ActionEvent subHandler) -> {
+            timeline.setOnFinished((subHandler) -> {
                 this.destroy();
             });
         });
@@ -95,7 +107,7 @@ public class Entanglement implements Projectile {
 
     @Override
     public void updateTranslation(Axis axis) {
-        Circle obj = (Circle) object;
+        Circle obj = (Circle) shape;
         Direction direction = SyndromeFactory.getWorld().getPlayer().getDirection();
         double[] deltas = SyndromeFactory.getToolbox().directionToDelta(direction);
         if(axis == Axis.X_AXIS) {
@@ -125,7 +137,7 @@ public class Entanglement implements Projectile {
     }
     
     private void setPosition(double angle) {
-        Circle obj = (Circle) object;
+        Circle obj = (Circle) shape;
         Player player = SyndromeFactory.getWorld().getPlayer();
         obj.setTranslateX(player.getLocation().getX());
         obj.setTranslateY(player.getLocation().getY());

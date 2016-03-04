@@ -19,7 +19,7 @@ public class EntanglementTest {
     public void testTimelineAttributes() {
         Pane pane = new Pane();
         SyndromeFactory.getWorld().setGamePane(pane);
-        Entanglement test = new Entanglement(new Location(0, 0), 90);
+        Entanglement test = new Entanglement(90);
         Timeline timeline = test.getTimeline();
         test.fire();
         assertTrue(timeline.getCycleCount() == 250);
@@ -33,14 +33,14 @@ public class EntanglementTest {
     
     @Test
     public void testPause() {
-        Entanglement test = new Entanglement(new Location(0, 0), 90);
+        Entanglement test = new Entanglement(90);
         test.togglePause(true);
         assertEquals(test.getTimeline().getStatus(), Status.STOPPED);
     }
     
     @Test
     public void testShape() {
-        Entanglement test = new Entanglement(new Location(0, 0), 90);
+        Entanglement test = new Entanglement(90);
         Shape actual = test.getObject();
         assertTrue(actual instanceof Circle);
     }
@@ -48,7 +48,7 @@ public class EntanglementTest {
     @Test
     public void testInitial() {
         Location location = new Location(10, 10);
-        Entanglement entanglement = new Entanglement(location, 90);
+        Entanglement entanglement = new Entanglement(90);
         assertTrue(130 == entanglement.getObject().getTranslateX());
         assertTrue(105 == entanglement.getObject().getTranslateY());
     }
@@ -56,7 +56,7 @@ public class EntanglementTest {
     @Test
     public void testCoordinateTransform() {
         Location location = new Location(10, 10);
-        Entanglement entanglement = new Entanglement(location, 90);
+        Entanglement entanglement = new Entanglement(90);
         SyndromeFactory.getWorld().getPlayer().setDirection(Direction.NORTH);
         entanglement.updateTranslation(Axis.X_AXIS);
         System.out.println(entanglement.getObject().getTranslateX());

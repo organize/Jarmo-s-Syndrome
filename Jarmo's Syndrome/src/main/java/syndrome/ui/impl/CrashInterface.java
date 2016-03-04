@@ -2,14 +2,7 @@ package syndrome.ui.impl;
 
 import java.io.File;
 import java.io.PrintWriter;
-import java.io.Writer;
-import java.time.Instant;
-import java.util.Calendar;
-import java.util.Date;
-import javafx.stage.Stage;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import syndrome.ui.SyndromeGUI;
 
 /**
  * Crash interface for when the application has a 

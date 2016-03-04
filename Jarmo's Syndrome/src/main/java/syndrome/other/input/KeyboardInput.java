@@ -17,7 +17,14 @@ import syndrome.other.SyndromeFactory;
  */
 public class KeyboardInput implements EventHandler<KeyEvent> {
     
+    /**
+     * A list of the currently held keys.
+     */
     private final List<KeyCode> held;
+    
+    /**
+     * A list of valid movement keys.
+     */
     private final List<KeyCode> valid =
         new ArrayList<KeyCode>() {
             {

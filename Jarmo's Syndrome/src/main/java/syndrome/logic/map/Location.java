@@ -13,6 +13,9 @@ import syndrome.other.SyndromeFactory;
  */
 public class Location {
     
+    /**
+     * The x and y coordinate of this location.
+     */
     private double x, y;
     
     /**

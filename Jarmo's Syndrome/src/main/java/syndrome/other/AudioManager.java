@@ -13,6 +13,9 @@ import syndrome.ui.impl.CrashInterface;
  */
 public class AudioManager {
     
+    /**
+     * The audio cache where audio clips are stored.
+     */
     private final Map<String, AudioClip> cache;
     
     /**

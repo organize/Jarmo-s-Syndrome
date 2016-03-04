@@ -27,7 +27,14 @@ import syndrome.annotation.ObjectiveInfo;
 @ObjectiveInfo(objectives = {Objective.ATTACK_PLAYER, Objective.LYSIS})
 public class Antibody extends NPC {
 
+    /**
+     * The body element of this NPC.
+     */
     private final Circle body;
+    
+    /**
+     * The label on top of the body of this NPC.
+     */
     private final Text label;
     
     /**

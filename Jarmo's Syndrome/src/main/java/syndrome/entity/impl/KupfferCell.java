@@ -29,9 +29,24 @@ import syndrome.annotation.ObjectiveInfo;
 @ObjectiveInfo(objectives = {Objective.ATTACK_BACTERIA, Objective.ATTACK_PLAYER})
 public class KupfferCell extends NPC {
     
+    /**
+     * The body element of this NPC.
+     */
     private final Circle body;
+       
+    /**
+     * The label on top of the body of this NPC.
+     */
     private final Text label;
+    
+    /**
+     * The target (enemy/friend) of this NPC.
+     */
     private Entity target;
+    
+    /**
+     * The direction of the animation of this NPC (UP/DOWN).
+     */
     private Direction animationDirection;
     
     /**

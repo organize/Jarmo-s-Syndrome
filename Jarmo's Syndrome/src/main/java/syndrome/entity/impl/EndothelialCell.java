@@ -30,10 +30,24 @@ import syndrome.annotation.ObjectiveInfo;
 @ObjectiveInfo(objectives = {Objective.REINFORCE, Objective.ATTACK_PLAYER})
 public class EndothelialCell extends NPC {
 
+    /**
+     * The body of this NPC.
+     */
     private final Circle body;
+      
+    /**
+     * The label on top of the body of this NPC.
+     */
     private final Text label;
+    
+    /**
+     * The time when update was last called on this NPC (in ms).
+     */
     private long lastUpdate;
     
+    /**
+     * The designated objective of this NPC.
+     */
     private Objective action;
     
     /**

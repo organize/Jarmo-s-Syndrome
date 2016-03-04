@@ -33,9 +33,9 @@ public class MouseInput implements EventHandler<MouseEvent> {
     
     private void handleMouseClick(MouseEvent event) {
         Projectile[] multiEnt = {
-            new Entanglement(Location.toLocation(event), 90),
-            new Entanglement(Location.toLocation(event), 100),
-            new Entanglement(Location.toLocation(event), 80),
+            new Entanglement(90),
+            new Entanglement(100),
+            new Entanglement(80),
         };
         for(Projectile projectile : multiEnt) {
             projectile.fire();

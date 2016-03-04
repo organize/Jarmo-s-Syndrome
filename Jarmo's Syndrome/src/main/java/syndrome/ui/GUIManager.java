@@ -5,7 +5,6 @@ import javafx.scene.Node;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import syndrome.Syndrome;
 import syndrome.entity.Player;
@@ -14,6 +13,11 @@ import syndrome.other.SyndromeFactory;
 import syndrome.ui.impl.GameScreen;
 import syndrome.ui.impl.MainMenu;
 
+/**
+ * The GUI manager class, handles various GUI related tasks.
+ * 
+ * @author Axel Wallin
+ */
 public class GUIManager {
     
     private final SyndromeGUI mainMenu;

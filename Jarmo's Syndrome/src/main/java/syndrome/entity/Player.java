@@ -16,11 +16,30 @@ import syndrome.ui.GUIManager;
  */
 public class Player extends Entity {
 
+    /**
+     * The rotation (in deg) and speed of the Player.
+     */
     private double rotation, speed;
+    
+    /**
+     * The level and points of the Player.
+     */
     private int points, level;
+    
+    /**
+     * The health information of the Player
+     *  (healthData[0] contains current, healthData[1] contains max).
+     */
     private final int[] healthData;
     
+    /**
+     * The direction of the trajectory of the Player.
+     */
     private Direction direction;
+    
+    /**
+     * The last known position of the mouse.
+     */
     private Location lastMousePosition;
     
     /**

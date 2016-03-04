@@ -33,7 +33,7 @@ public class WorldTest {
     
     @Test
     public void testProjectiles() {
-        Projectile test = new Entanglement(new Location(0, 0), 90);
+        Projectile test = new Entanglement(90);
         world.addProjectile(test, false);
         assertTrue(world.getProjectiles().contains(test));
         assertTrue(world.getProjectiles().size() == 1);

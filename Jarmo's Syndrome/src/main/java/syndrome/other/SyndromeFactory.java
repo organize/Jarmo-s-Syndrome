@@ -13,10 +13,29 @@ import syndrome.ui.GUIManager;
  */
 public class SyndromeFactory {
     
+    /**
+     * The main Toolbox instance.
+     */
     private static Toolbox toolbox;
+    
+    /**
+     * The main AudioManager instance.
+     */
     private static AudioManager audioManager;
+    
+    /**
+     * The main GUIManager instance.
+     */
     private static GameSettings settings;
+    
+    /**
+     * The main GUIManager instance.
+     */
     private static GUIManager guiManager;
+    
+    /**
+     * The main World instance.
+     */
     private static World world;
     
     public static Toolbox getToolbox() {
@@ -54,6 +73,10 @@ public class SyndromeFactory {
         return world;
     }
     
+    /**
+     * Resets all instances the class currently holds,
+     * should only be called if the game has ended.
+     */
     public static void resetAll() {
         world = null;
         guiManager = null;

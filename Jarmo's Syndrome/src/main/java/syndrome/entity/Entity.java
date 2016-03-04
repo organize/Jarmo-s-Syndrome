@@ -9,6 +9,9 @@ import syndrome.logic.map.Location;
  */
 public abstract class Entity {
     
+    /**
+     * The location of this Entity.
+     */
     protected Location location;
     
     /**

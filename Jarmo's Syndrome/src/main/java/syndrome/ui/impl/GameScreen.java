@@ -24,6 +24,11 @@ import syndrome.other.SyndromeFactory;
 import syndrome.other.input.MouseInput;
 import syndrome.ui.SyndromeGUI;
 
+/**
+ * Represents the actual game screen.
+ * 
+ * @author Axel Wallin
+ */
 public class GameScreen implements SyndromeGUI {
     
     private Stage stage;

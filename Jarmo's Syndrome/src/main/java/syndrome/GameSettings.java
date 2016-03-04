@@ -12,7 +12,14 @@ import syndrome.ui.impl.GameOver;
  */
 public class GameSettings {
     
+    /**
+     * The game resolution.
+     */
     private Dimension resolution;
+    
+    /**
+     * Whether or not the game is paused.
+     */
     private boolean paused;
     
     /**

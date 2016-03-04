@@ -12,15 +12,39 @@ import syndrome.projectile.Projectile;
 /**
  * Represents the game world.
  * Holds information about entities, projectiles, timers etc.
+ * 
  * @author Axel Wallin
  */
 public class World {
     
+    /**
+     * The player instance.
+     */
     private final Player player;
+    
+    /**
+     * List of active NPCs in the game world.
+     */
     private final List<NPC> activeNPCs;
+    
+    /**
+     * List of active projectiles in the game world.
+     */
     private final List<Projectile> activeProjectiles;
+    
+    /**
+     * The timer instance, which handles the updating of everything.
+     */
     private SyndromeTimer timer;
+    
+    /**
+     * The player model instance.
+     */
     private Rectangle playerModel;
+    
+    /**
+     * The main game pane, used to draw elements on top of it.
+     */
     private Pane gamePane;
     
     /**

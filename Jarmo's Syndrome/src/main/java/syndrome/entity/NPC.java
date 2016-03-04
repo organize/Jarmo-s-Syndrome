@@ -1,7 +1,5 @@
 package syndrome.entity;
 
-import java.util.List;
-import syndrome.entity.objective.Objective;
 import syndrome.logic.map.Axis;
 import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
@@ -16,6 +14,9 @@ import syndrome.other.SyndromeFactory;
  */
 public abstract class NPC extends Entity {
     
+    /**
+     * The rotation (deg), speed and health of this NPC.
+     */
     protected double rotation, speed, health;
 
     /**

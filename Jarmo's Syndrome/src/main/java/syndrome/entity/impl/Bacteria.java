@@ -1,6 +1,5 @@
 package syndrome.entity.impl;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javafx.scene.paint.Color;
@@ -26,9 +25,20 @@ import syndrome.annotation.ObjectiveInfo;
  */
 @ObjectiveInfo(objectives = {Objective.ATTACK_DEFENSE})
 public class Bacteria extends NPC {
+        
+    /**
+     * The body of this NPC.
+     */
+    private final Rectangle body;
+     
+    /**
+     * The label on top of the body of this NPC.
+     */
+    private final Text label;
     
-    private Rectangle body;
-    private Text label;
+    /**
+     * The target (enemy) of this NPC.
+     */
     private NPC target;
     
     /**

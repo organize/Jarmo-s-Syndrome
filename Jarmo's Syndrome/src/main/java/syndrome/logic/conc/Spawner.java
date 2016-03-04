@@ -17,10 +17,24 @@ import syndrome.other.SyndromeFactory;
  */
 public class Spawner {
     
+    /**
+     * The maximum amount of NPCs that can be spawned in a wave.
+     */
     private int entityLimit;
+    
+    /**
+     * The last update time in ms.
+     */
     private long lastUpdate;
+    
+    /**
+     * Whether or not the current wave is finished (ie. world empty).
+     */
     private boolean waveFinished;
     
+    /**
+     * Random instance.
+     */
     private final Random random;
     
     /**

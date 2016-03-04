@@ -25,10 +25,30 @@ import syndrome.other.SyndromeFactory;
  */
 public class HealCell implements Projectile {
     
+    /**
+     * The timeline instance of this projectile.
+     */
     private final Timeline timeline;
+    
+    /**
+     * The keyframe instance of this projectile.
+     */
     private final KeyFrame keyFrame;
+    
+    /**
+     * The object (item to animate) of this projectile.
+     */
     private final Shape shape;
+    
+    /**
+     * The target of this projectile, represented as an entity,
+     * destination is always the npc's location.
+     */
     private final NPC target;
+    
+    /**
+     * The initial position of this projectile.
+     */
     private final Location source;
     
     /**
