@@ -22,15 +22,13 @@ public class SyndromeTimer extends AnimationTimer {
     
     private long lastUpdate;
     private boolean paused;
-    private Rectangle rect;
     private Spawner spawner;
     
     /**
      * Creates a new timer instance.
      * @param rect the player model.
      */
-    public SyndromeTimer(Rectangle rect) {
-        this.rect = rect;
+    public SyndromeTimer() {
         this.lastUpdate = 0;
         this.spawner = new Spawner();
     }
@@ -54,10 +52,12 @@ public class SyndromeTimer extends AnimationTimer {
                 activeNPCs.forEach(npc -> npc.tick(now));
             } catch(ConcurrentModificationException e) {}
             
-            rect.setTranslateX(player.getLocation().getX());
-            rect.setTranslateY(player.getLocation().getY());
+            Rectangle playerModel = world.getPlayerModel();
             
-            rect.setRotate(player.getRotation());
+            playerModel.setTranslateX(player.getLocation().getX());
+            playerModel.setTranslateY(player.getLocation().getY());
+            
+            playerModel.setRotate(player.getRotation());
             
             if(player.getDirection() != Direction.NONE) {
                 SyndromeFactory.getGUIManager().getGameScreen().handleScreenPan(player);
@@ -78,10 +78,6 @@ public class SyndromeTimer extends AnimationTimer {
     
     public boolean isPaused() {
         return paused;
-    }
-
-    public Rectangle getRectangle() {
-        return rect;
     }
     
     private void pauseAllProjectiles() {

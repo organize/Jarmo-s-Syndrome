@@ -20,8 +20,6 @@ public @interface ObjectiveInfo {
 
     /**
      * The objectives allocated for a NPC.
-     * 
-     * @return the objectives as an array.
      */
     Objective[] objectives() default {Objective.NONE};
 }

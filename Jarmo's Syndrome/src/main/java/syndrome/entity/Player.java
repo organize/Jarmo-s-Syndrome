@@ -18,7 +18,7 @@ public class Player extends Entity {
 
     private double rotation, speed;
     private int points, level;
-    private int[] healthData;
+    private final int[] healthData;
     
     private Direction direction;
     private Location lastMousePosition;
@@ -80,12 +80,9 @@ public class Player extends Entity {
     public Location[] getBounds() {
         Location[] bounds = new Location[4];
         bounds[0] = location;
-        bounds[1] = new Location(location.getX() + 8, 
-                location.getY());
-        bounds[2] = new Location(location.getX(), 
-                location.getY() + 8);
-        bounds[3] = new Location(location.getX() + 8, 
-                location.getY() + 8);
+        bounds[1] = new Location(location.getX() + 8, location.getY());
+        bounds[2] = new Location(location.getX(), location.getY() + 8);
+        bounds[3] = new Location(location.getX() + 8, location.getY() + 8);
         return bounds;
     }
     
@@ -197,8 +194,7 @@ public class Player extends Entity {
                 
     private void handleMovement() {
         Toolbox toolbox = SyndromeFactory.getToolbox();
-        double[] delta = location.ensureWithinBounds(
-                toolbox.directionToDelta(direction));
+        double[] delta = location.ensureWithinBounds(toolbox.directionToDelta(direction));
         setLocation(location.getX() + delta[0], location.getY() + delta[1]);
     }
 }

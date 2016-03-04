@@ -46,6 +46,8 @@ public class CrashInterface {
                 writer.println(throwable);
                 writer.println(throwable.getMessage());
             }
-        } catch(Exception e) { e.printStackTrace();}
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 }

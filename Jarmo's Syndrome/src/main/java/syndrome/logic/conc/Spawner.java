@@ -21,7 +21,7 @@ public class Spawner {
     private long lastUpdate;
     private boolean waveFinished;
     
-    private Random random;
+    private final Random random;
     
     /**
      * Creates a new spawner instance with a default 
@@ -71,7 +71,7 @@ public class Spawner {
         int playerLevel = SyndromeFactory.getWorld().getPlayer().getLevel();
         checkLuckySpawns(playerLevel);
         checkKupfferSpawns(playerLevel);
-        checkAntibodySpawns(playerLevel);
+        checkAntibodySpawns();
         checkEndoSpawns(playerLevel);
     }
     
@@ -95,14 +95,14 @@ public class Spawner {
         }
     }
     
-    private void checkAntibodySpawns(int playerLevel) {
+    private void checkAntibodySpawns() {
         NPC antibody = new Antibody(Location.createRandomLocation());
         antibody.render();
         SyndromeFactory.getWorld().addNPC(antibody);
     }
 
     private void checkEndoSpawns(int playerLevel) {
-        if(random.nextInt(5) == 1) {
+        if(random.nextInt(entityLimit) >= playerLevel) {
             NPC endo = new EndothelialCell(Location.createRandomLocation());
             endo.render();
             SyndromeFactory.getWorld().addNPC(endo);

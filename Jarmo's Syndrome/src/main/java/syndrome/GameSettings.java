@@ -55,6 +55,10 @@ public class GameSettings {
         return paused == true;
     }
     
+    /**
+     * Pauses the current game and displays the
+     * game over-interface.
+     */
     public void dispatchGameOver() {
         togglePause();
         GameOver gameOverInterface = new GameOver();

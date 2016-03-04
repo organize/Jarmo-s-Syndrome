@@ -84,7 +84,7 @@ public class World {
         if(playerModel == null) {
             throw new IllegalStateException("player model is null");
         }
-        this.timer = new SyndromeTimer(playerModel);
+        this.timer = new SyndromeTimer();
         timer.start();
     }
     

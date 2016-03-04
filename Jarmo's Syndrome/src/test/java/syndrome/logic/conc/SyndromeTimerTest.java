@@ -15,7 +15,8 @@ public class SyndromeTimerTest {
     
     @Before
     public void setUp() {
-        this.timer = new SyndromeTimer(new Rectangle(30, 30));
+        this.timer = new SyndromeTimer();
+        SyndromeFactory.getWorld().setPlayerModel(new Rectangle(30, 30));
     }
     
     @Test
@@ -42,11 +43,12 @@ public class SyndromeTimerTest {
         timer.handle(0);
         timer.stop();
         
-        Location rectLoc = new Location(timer.getRectangle().getTranslateX(),
-            timer.getRectangle().getTranslateY());
+        Rectangle model = SyndromeFactory.getWorld().getPlayerModel();
+        Location rectLoc = new Location(model.getTranslateX(),
+            model.getTranslateY());
         assertTrue(rectLoc.equals(player.getLocation()));
-        System.out.println(timer.getRectangle().getRotate());
-        assertTrue(timer.getRectangle().getRotate() == 315.0d);
+        System.out.println(model.getRotate());
+        assertTrue(model.getRotate() == 315.0d);
         assertFalse(player.getLocation().equals(initial));
         timer.setPaused(true);
         timer.start();
