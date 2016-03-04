@@ -1,30 +1,26 @@
 #Aihe
 
-Jarmon syndroomassa pelaaja on virus ja objektiivi on levitä (tai levittää, en tiedä vielä) mahdollisimman paljon.
-Valkosolut ovat pahin vihollisesi. Solujen suojakerrokset vaihtelevat, joten pelaajan tulee tehdä päätöksia reaaliajassa ja muokata virustaan tartuttaakseen kaikki! Itse mekaniikat ovat toistaiseksi auki, mutta peli on ehdottomasti progressiivinen, hahmo siis kehittyy (ei tarinallisesti) ja tasot vaikeutuvat. Pelaajalla on mahdollisuus löytää hyödyllisiä 'tavaroita' pelatessaan ja käyttää niitä helpottamaan elämäänsä vaikeissa tasoissa.
+Jarmon syndroomassa pelaaja on virus ja objektiivi on tuhota maksan immuunipuolustusta. Solut ovat jossain määrin biologisesti tarkkoja.
+Vasta-aineet ovat pahin vihollisesi. Hahmo kehittyy (ei tarinallisesti) ja tasot vaikeutuvat. Pelaajalla on mahdollisuus kehittää virustaan tasojen myötä (mm. triple-burst @ lvl 5).
 
 Ideoita:
-* Solun valtaaminen, ns. puolenvaihto
-* Mutaatiot, virusten nopea tapa muuttua
-* Lääkkeet, jotka estävät pääsyn mm. virukselle elintärkeisiin proteiini-ja-happorakenteisiin.
+* Solun tuhoaminen.
+* Mutaatiot, virusten nopea tapa muuttua.
 * Virukselle ominainen taso, joka pelin myötä progressiivinen. Tuo mukanaan tehokkaampia tapoja levitä.
-* Peli sijoittuu siis ihmisen sisälle, ideana integroida "pelilaudan" kunto ja toiminnat vaikuttaviksi voimiksi.
+* Peli sijoittuu siis ihmisen sisälle ideana integroida "pelilaudan" kunto ja toiminnat vaikuttaviksi voimiksi.
 * 19.2: idea vaihtuu hieman.
 * * Ollaankin maksassa, ja vastassa on Kupfferin soluja, epiteelisoluja ja muita mukavuuksia.
 * * Idea on piirtopyödällä, mutta <b>entity.impl</b> paketin dokumentaatioissa on jotain tietoja.
-
-Toistaiseksi epävarmaa mitkä näistä ideoista päätyvät itse peliin.
 
 #Käyttäjät
 
 <b>Pelaaja</b>
   * Ohjaa virusta
-  * Valitsee pelin vaikeustason
-  * Valitsee, miten mutatoi virustaan pelin kehittyessä
-   * Mutaatioketjuja useampia, pelaajan valinta määrittää, miten peli etenee
+  * Valitsee aloittaa pelin
+  * Valitsee, mitä soluja tuhoaa missäkin järjestyksessä
+   * Järjestys vaikuttaa aina seuraavaan tasoon.
   * Vaikuttaa pelaamisellaan tulevaisuuteensa
    * esim. tuhoamalla T-soluja tasossa n johtaa vähempään määrään T-soluja tasossa n+1.
-  * Käyttää pelipisteitään satunnaismutaatioiden ja muiden harvinaisten tapahtumien todennäköisyyksien korottamiseen.
   * Määrittää peliasetukset
 
 #Määrittelyvaiheen luokkakaavio
