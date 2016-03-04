@@ -1,6 +1,12 @@
-Pitist‰ hieman:
+Pitist√§ hieman:
 
-* impl-alakansioissa sijaitsevat luokat ovat funktionaalisesti identtisi‰, 
-	joten yhden t‰ll‰isen luokan testaus kattaa myˆs muiden impl-luokkien toiminnallisuuden.
-* Joissain luokissa satunnaisuus est‰‰ testauksen. En saanut selv‰‰, miten Random-luokkaa
-	k‰ytt‰v‰t metodit tulisi testata. N‰it‰ luokkia esim. Spawner ja Location.
+* impl-alakansioissa sijaitsevat luokat ovat funktionaalisesti identtisi√§, 
+	joten yhden t√§ll√§isen luokan testaus kattaa my√∂s muiden impl-luokkien toiminnallisuuden.
+* Joissain luokissa satunnaisuus est√§√§ testauksen. En saanut selv√§√§, miten Random-luokkaa
+	k√§ytt√§v√§t metodit tulisi testata. N√§it√§ luokkia esim. Spawner ja Location.
+
+04.03: Yll√§tyksekseni, PIT antaa kasan erroreita. Nykyinen PIT on kuitenkin ajantasainen.
+![error](http://puu.sh/nuDvh/46492e553e.png)
+![error2](http://puu.sh/nuDyU/9983843b85.png)
+![error3](http://puu.sh/nuDAm/f37c1d0c89.png)
+![error4](http://puu.sh/nuDBL/b26dbdf215.png)
