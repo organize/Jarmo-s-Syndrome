@@ -65,5 +65,20 @@
 	
 <h4>26.02.2016</h4>
 	
-	Tunnit: n
+	Tunnit: 5
 	Kohde: DL 6 työstämistä.
+
+<h4>28.02.2016</h4>
+
+ 	Tunnit: 2
+ 	Kohde: Game over-ruudun toteutus, pelin uudelleenkäynnistäminen ja kaatumisilmoitus (crashdump).
+ 
+<h4>30.02.2016</h4>
+ 
+ 	Tunnit: 3
+ 	Kohde: Manuaalista testuausta, `ObjectiveInfo`-annotaatio ja optimointia.
+ 	
+<h4>04.03.2016</h4>
+
+ 	Tunnit: n
+ 	Kohde: Viimeisiä viilailuja, päivittelyä ja korjailua.
