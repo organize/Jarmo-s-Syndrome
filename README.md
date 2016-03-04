@@ -9,6 +9,7 @@ Puolustus vaikenee taso tasolta, mutta myös itse virus kasvaa ja muuttuu.
 
 [Aiheen kuvaus](dokumentaatio/aiheen-kuvaus.md) — 
 [Tunnit](dokumentaatio/tuntikirjanpito.md) — 
-[Käyttöohjeet](dokumentaatio/kayttoohje.md)
+[Käyttöohjeet](dokumentaatio/kayttoohje.md) — 
+[Testausdokumentaatio](dokumentaatio/testausdokumentaatio.md)
 
 
