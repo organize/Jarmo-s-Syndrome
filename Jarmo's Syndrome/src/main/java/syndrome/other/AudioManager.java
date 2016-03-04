@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.scene.media.AudioClip;
+import syndrome.ui.impl.CrashInterface;
 
 /**
  * Handles all things audio-related.
@@ -37,7 +38,8 @@ public class AudioManager {
             clip.setVolume(0.10);
             cache.put(identifier, clip);
         } catch(NullPointerException exception) {
-            throw new AssertionError("file " + filename + ".mp3 not found");
+            new CrashInterface()
+                    .show(new AssertionError("file " + filename + ".mp3 not found"));
         }
     }
     
@@ -48,7 +50,8 @@ public class AudioManager {
      */
     public void playCached(String identifier) {
         if(!cache.containsKey(identifier)) {
-            throw new AssertionError("identifier " + identifier + " not present in audio cache");
+            new CrashInterface()
+                    .show(new AssertionError("identifier " + identifier + " not present in audio cache"));
         }
         cache.get(identifier).play();
     }
@@ -60,7 +63,8 @@ public class AudioManager {
      */
     public void stopCached(String identifier) {
         if(!cache.containsKey(identifier)) {
-            throw new AssertionError("identifier " + identifier + " not present in audio cache");
+            new CrashInterface()
+                    .show(new AssertionError("identifier " + identifier + " not present in audio cache"));
         }
         cache.get(identifier).stop();
     }
@@ -68,13 +72,13 @@ public class AudioManager {
     /**
      * Gets an audio file if present in the current cache.
      * 
-     * @todo {convert into <i>Optional<AudioClip></i>}
      * @param identifier the key of the wanted audio instance.
      * @return an audio clip if present.
      */
     public AudioClip get(String identifier) {
         if(!cache.containsKey(identifier)) {
-            throw new AssertionError("identifier " + identifier + " not present in audio cache");
+            new CrashInterface().show(new 
+                IllegalArgumentException("identifier " + identifier + " not present in audio cache"));
         }
         return cache.get(identifier);
     }
@@ -93,7 +97,8 @@ public class AudioManager {
         try {
             new AudioClip(getClass().getResource("/resources/audio/fx/" + filename + ".mp3").toExternalForm()).play();
         } catch(NullPointerException e) {
-            throw new AssertionError("file " + filename + ".mp3 not found");
+            new CrashInterface()
+                    .show(new AssertionError("file " + filename + ".mp3 not found"));
         }
     }
     

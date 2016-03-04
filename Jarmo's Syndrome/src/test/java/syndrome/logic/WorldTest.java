@@ -26,7 +26,8 @@ public class WorldTest {
         assertTrue(world.getPlayer() != null);
         assertTrue(world.getNPCs() != null);
         assertTrue(world.getProjectiles() != null);
-        world.setRTest(new Rectangle(30, 30));
+        world.setPlayerModel(new Rectangle(30, 30));
+        world.startTimer();
         assertTrue(world.getTimer() != null);
     }
     

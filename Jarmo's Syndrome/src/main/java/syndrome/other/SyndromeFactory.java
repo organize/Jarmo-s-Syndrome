@@ -53,4 +53,12 @@ public class SyndromeFactory {
         }
         return world;
     }
+    
+    public static void resetAll() {
+        world = null;
+        guiManager = null;
+        settings = null;
+        audioManager = null;
+        toolbox = null;
+    }
 }

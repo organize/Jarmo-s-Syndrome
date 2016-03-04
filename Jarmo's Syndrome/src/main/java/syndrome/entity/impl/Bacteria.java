@@ -14,6 +14,7 @@ import syndrome.logic.World;
 import syndrome.logic.map.Location;
 import syndrome.projectile.Projectile;
 import syndrome.other.SyndromeFactory;
+import syndrome.annotation.ObjectiveInfo;
 
 /**
  * Represents a singular bacteria.
@@ -23,7 +24,7 @@ import syndrome.other.SyndromeFactory;
  * 
  * @author Axel Wallin
  */
-
+@ObjectiveInfo(objectives = {Objective.ATTACK_DEFENSE})
 public class Bacteria extends NPC {
     
     private Rectangle body;
@@ -66,15 +67,6 @@ public class Bacteria extends NPC {
         label.setFill(Paint.valueOf("white"));
         SyndromeFactory.getWorld()
                 .getGamePane().getChildren().addAll(body, label);
-    }
-
-    @Override
-    public List<Objective> getObjective() {
-        return new ArrayList<Objective>() {
-            {
-                add(Objective.ATTACK_DEFENSE);
-            }
-        };
     }
 
     @Override

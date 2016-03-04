@@ -11,7 +11,7 @@ public class GameSettingsTest {
     @Test
     public void testDimensions() {
         GameSettings settings = new GameSettings();
-        Dimension other = new Dimension(1024, 768);
+        Dimension other = new Dimension(640, 480);
         assertTrue(settings.getResolution().equals(other));
         other.setSize(30, 30);
         assertFalse(settings.getResolution().equals(other));

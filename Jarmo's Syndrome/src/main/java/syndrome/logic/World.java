@@ -20,7 +20,7 @@ public class World {
     private final List<NPC> activeNPCs;
     private final List<Projectile> activeProjectiles;
     private SyndromeTimer timer;
-    private Rectangle rect;
+    private Rectangle playerModel;
     private Pane gamePane;
     
     /**
@@ -72,15 +72,19 @@ public class World {
     public void removeNPC(NPC npc) {
         activeNPCs.remove(npc);
     }
+
+    public void setPlayerModel(Rectangle model) {
+        this.playerModel = model;
+    }
     
     /**
-     * Sets out current rectangle test to <b>rect</b> and
-     * starts the main timer.
-     * @param rect the rectangle to be drawn.
+     * Creates and starts the main game loop.
      */
-    public void setRTest(Rectangle rect) {
-        this.rect = rect;
-        this.timer = new SyndromeTimer(rect);
+    public void startTimer() {
+        if(playerModel == null) {
+            throw new IllegalStateException("player model is null");
+        }
+        this.timer = new SyndromeTimer(playerModel);
         timer.start();
     }
     
@@ -100,8 +104,8 @@ public class World {
         return activeProjectiles;
     }
     
-    public Rectangle getRTest() {
-        return rect;
+    public Rectangle getPlayerModel() {
+        return playerModel;
     }
    
     public void setGamePane(Pane pane) {

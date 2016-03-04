@@ -91,13 +91,6 @@ public abstract class NPC extends Entity {
     public abstract void render();
     
     /**
-     * Get the objectives assigned to this NPC.
-     * 
-     * @return a list of objectives. 
-     */
-    public abstract List<Objective> getObjective();
-    
-    /**
      * Handles collision with a projectile.
      * 
      * @param projectile the projectile that is colliding.

@@ -2,6 +2,7 @@ package syndrome;
 
 import java.awt.Dimension;
 import syndrome.other.SyndromeFactory;
+import syndrome.ui.impl.GameOver;
 
 /**
  * Represents the user-defined settings and various gamestates
@@ -19,7 +20,7 @@ public class GameSettings {
      * 1024x768 pixels.
      */
     public GameSettings() {
-        this.resolution = new Dimension(1024, 768);
+        this.resolution = new Dimension(640, 480);
         this.paused = false;
     }
     
@@ -54,4 +55,10 @@ public class GameSettings {
         return paused == true;
     }
     
+    public void dispatchGameOver() {
+        togglePause();
+        GameOver gameOverInterface = new GameOver();
+        gameOverInterface.build(null);
+        gameOverInterface.show();
+    }
 }

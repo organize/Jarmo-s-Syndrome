@@ -21,7 +21,8 @@ public class MenuButton extends Button {
         super.setText(text);
         super.setTextFill(Paint.valueOf(color));
         super.setFont(Font.font("8BIT WONDER", 15));
-        super.setMaxSize(500, 500);
+        super.setMaxSize(170, 44);
+        super.setMinSize(170, 44);
         super.getStylesheets().add(getClass().getResource("/resources/css/general_button.css").toExternalForm());
     }
     

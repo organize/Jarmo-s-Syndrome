@@ -1,17 +1,12 @@
 package syndrome.entity;
 
-import syndrome.entity.Player;
-import syndrome.entity.EntityType;
-import syndrome.entity.NPC;
-import syndrome.entity.Entity;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 import syndrome.entity.impl.Antibody;
+import syndrome.entity.impl.EndothelialCell;
 import syndrome.entity.impl.KupfferCell;
-import syndrome.entity.impl.StellateCell;
 import syndrome.logic.map.Axis;
-import syndrome.logic.map.Direction;
 import syndrome.logic.map.Location;
 import syndrome.other.SyndromeFactory;
 
@@ -101,22 +96,23 @@ public class EntityTest {
     
     @Test
     public void testNPCSize() {
-        NPC npc = new StellateCell(new Location(0, 0));
-        assertTrue(npc.getSize() == 4);
+        NPC npc = new EndothelialCell(new Location(0, 0));
+        /* test that the NPC actually overrides default size */
+        assertTrue(npc.getSize() != 4);
     }
     
     @Test
     public void testTranslation() {
         Location pre = new Location(0, 0);
-        NPC npc = new StellateCell(pre);
+        NPC npc = new EndothelialCell(pre);
         npc.updateTranslation(Axis.X_AXIS);
         assertTrue(npc.getLocation().equals(pre));
     }
     
     @Test
     public void testInflictDamage() {
-        NPC npc = new StellateCell(new Location(0, 0));
+        NPC npc = new EndothelialCell(new Location(0, 0));
         npc.inflictDamage(30);
-        assertTrue(npc.health == -30);
+        assertTrue(npc.health == 70);
     }
 }

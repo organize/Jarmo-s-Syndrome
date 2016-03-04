@@ -1,10 +1,13 @@
 package syndrome.ui;
 
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import syndrome.Syndrome;
 import syndrome.entity.Player;
 import syndrome.logic.map.Location;
 import syndrome.other.SyndromeFactory;
@@ -34,7 +37,6 @@ public class GUIManager {
         
         this.stage = root;
         this.hiscoreLabel = null;
-        
     }
     
     /**
@@ -123,6 +125,11 @@ public class GUIManager {
         return "" + hiscore;
     }
     
+    /**
+     * Updates the level label with new health values.
+     * 
+     * @param player the player.
+     */
     public void updateLevelLabel(Player player) {
         Location location = player.getLocation();
         if(levelLabel == null) {
@@ -135,5 +142,16 @@ public class GUIManager {
         levelLabel.setText("" + player.getLevel());
         levelLabel.setTranslateX(location.getX());
         levelLabel.setTranslateY(location.getY());
+    }
+    
+    /**
+     * Destroys the current game instance and returns
+     * to the main menu.
+     */
+    public void returnToMenu() {
+        gameScreen.destroy();
+        SyndromeFactory.resetAll();
+        Syndrome syndrome = new Syndrome();
+        syndrome.start(null);
     }
 }

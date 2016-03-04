@@ -76,6 +76,25 @@ public class Location {
         this.y = y;
     }
     
+    /**
+     * Checks whether or not the destination location 
+     * after applying delta changes is within bounds or not,
+     * and reverses the direction of the velocity if out of bounds.
+     * 
+     * @param delta the velocity as coordinate changes.
+     * @return a double array which is either identical to the parameter
+     *      or the opposite of the parameter.
+     */
+    public double[] ensureWithinBounds(double[] delta) {
+        if(x + delta[0] > 300 || x + delta[0] < -300) {
+            delta[0] = -delta[0];
+        }
+        if(y + delta[1] > 220 || y + delta[1] < -220) {
+            delta[1] = -delta[1];
+        }
+        return delta;
+    }
+    
     @Override
     public String toString() {
         return "[" + x + ", " + y + "]";

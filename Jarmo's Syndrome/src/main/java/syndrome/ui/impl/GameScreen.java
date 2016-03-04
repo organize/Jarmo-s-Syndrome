@@ -1,8 +1,6 @@
 package syndrome.ui.impl;
 
 import java.util.List;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -34,26 +32,19 @@ public class GameScreen implements SyndromeGUI {
     public void build(Stage stage) {
         StackPane root = new StackPane();
         Node background = buildBackground();
-        Scene scene = new Scene(root, 1024, 768);
+        Scene scene = new Scene(root, 640, 480);
         
-        /* temporary code */
-        Rectangle r = new Rectangle();
-        r.setTranslateX(0);
-        r.setTranslateY(0);
-        r.setWidth(50);
-        r.setHeight(50);
+        Rectangle playerModel = createPlayerModel();
         
-        SyndromeFactory.getWorld().setRTest(r);
+        SyndromeFactory.getWorld().setPlayerModel(playerModel);
         SyndromeFactory.getWorld().setGamePane(root);
         SyndromeFactory.getGUIManager().setBackground(background);
         
-        root.getChildren().add(background);
-        root.getChildren().add(r);
-        root.getChildren().add(createInfobox());
-        root.getChildren().add(createHiscoreCounter());
-        root.getChildren().add(createHealthBox());
+        root.getChildren().addAll(background, playerModel,
+            createInfobox(), createHiscoreCounter(),
+            createHealthBox());
         
-        scene.addEventHandler(MouseEvent.ANY, new MouseInput());
+        scene.addEventFilter(MouseEvent.ANY, new MouseInput());
         scene.addEventHandler(KeyEvent.ANY, new KeyboardInput());
         
         stage.setScene(scene);
@@ -161,7 +152,7 @@ public class GameScreen implements SyndromeGUI {
         healthLabel.setTranslateX(5);
         healthLabel.setTranslateY(222);
         
-        Text healthIndicator = new Text("500/500");
+        Text healthIndicator = new Text("100/100");
         healthIndicator.setFont(Font.font("8BIT WONDER", 8));
         healthIndicator.setFill(Paint.valueOf(Color.GOLD.toString())); 
         healthIndicator.setTranslateX(55);
@@ -187,16 +178,24 @@ public class GameScreen implements SyndromeGUI {
         List<Projectile> projectiles = SyndromeFactory.getWorld().getProjectiles();
         List<NPC> activeNPCs = SyndromeFactory.getWorld().getNPCs();
         Node background = SyndromeFactory.getGUIManager().getBackground();
+        final Axis lambdaAxis = handleBackgroundTranslation(background, player);
+        if(lambdaAxis != Axis.NONE) {
+            projectiles.forEach((Projectile proj) -> proj.updateTranslation(lambdaAxis));
+            activeNPCs.forEach((NPC npc) -> npc.updateTranslation(lambdaAxis));
+        }
+    }
+    
+    private Axis handleBackgroundTranslation(Node background, Player player) {
         Axis toUpdate = Axis.NONE;
         int absX = (int) Math.abs(player.getLocation().getX());
         int absY = (int) Math.abs(player.getLocation().getY());
-        if (absX <= 180 && absY > 140) {
+        if(absX <= 180 && absY > 140) {
             toUpdate = Axis.X_AXIS;
         }
-        if (absY <= 140 && absX > 180) {
+        if(absY <= 140 && absX > 180) {
             toUpdate = Axis.Y_AXIS;
         }
-        if (absX <= 180 && absY <= 140) {
+        if(absX <= 180 && absY <= 140) {
             toUpdate = Axis.X_AND_Y_AXIS;
         }
         switch (toUpdate) {
@@ -211,10 +210,10 @@ public class GameScreen implements SyndromeGUI {
                 background.setTranslateY(-player.getLocation().getY());
                 break;
         }
-        final Axis lambdaAxis = toUpdate;
-        if(lambdaAxis != Axis.NONE) {
-            projectiles.forEach((Projectile proj) -> proj.updateTranslation(lambdaAxis));
-            activeNPCs.forEach((NPC npc) -> npc.updateTranslation(lambdaAxis));
-        }
+        return toUpdate;
+    }
+    
+    private Rectangle createPlayerModel() {
+        return new Rectangle(0, 0, 50, 50);
     }
 }

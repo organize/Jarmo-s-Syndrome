@@ -1,7 +1,5 @@
 package syndrome.entity.impl;
 
-import java.util.ArrayList;
-import java.util.List;
 import javafx.scene.paint.*;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.*;
@@ -14,6 +12,7 @@ import syndrome.projectile.Projectile;
 import syndrome.logic.projectile.impl.Entanglement;
 import syndrome.logic.projectile.impl.HealCell;
 import syndrome.other.SyndromeFactory;
+import syndrome.annotation.ObjectiveInfo;
 
 /**
  * Represents an antibody.
@@ -25,10 +24,11 @@ import syndrome.other.SyndromeFactory;
  * @author Axel Wallin
  */
 
+@ObjectiveInfo(objectives = {Objective.ATTACK_PLAYER, Objective.LYSIS})
 public class Antibody extends NPC {
 
-    private Circle body;
-    private Text label;
+    private final Circle body;
+    private final Text label;
     
     /**
      * Creates a new antibody instance to the specified location.
@@ -91,16 +91,6 @@ public class Antibody extends NPC {
         bounds[2] = new Location(location.getX(), location.getY() + body.getRadius());
         bounds[3] = new Location(location.getX() + body.getRadius(), location.getY() + body.getRadius());
         return bounds;
-    }
-    
-    @Override
-    public List<Objective> getObjective() {
-        return new ArrayList<Objective>() {
-            {
-                add(Objective.ATTACK_PLAYER);
-                add(Objective.LYSIS);
-            }
-        };
     }
     
     @Override

@@ -7,6 +7,7 @@ package syndrome.entity.objective;
  */
 public enum Objective {
     
+    NONE,
     LYSIS,
     ATTACK_PLAYER,
     ATTACK_BACTERIA,

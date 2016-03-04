@@ -96,7 +96,7 @@ public class Player extends Entity {
     
     @Override
     public void destroy() {
-        SyndromeFactory.getSettings().togglePause();
+        SyndromeFactory.getSettings().dispatchGameOver();
     }
     
     /**
@@ -163,6 +163,10 @@ public class Player extends Entity {
     public double getSpeed() {
         return speed;
     }
+    
+    public int getPoints() {
+        return points;
+    }
       
     public Location getLastMousePosition() {
         return lastMousePosition;
@@ -193,7 +197,8 @@ public class Player extends Entity {
                 
     private void handleMovement() {
         Toolbox toolbox = SyndromeFactory.getToolbox();
-        double[] delta = toolbox.directionToDelta(direction);
+        double[] delta = location.ensureWithinBounds(
+                toolbox.directionToDelta(direction));
         setLocation(location.getX() + delta[0], location.getY() + delta[1]);
     }
 }

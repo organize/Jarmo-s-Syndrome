@@ -1,7 +1,6 @@
 package syndrome.entity.impl;
 
 import com.sun.javafx.scene.traversal.Direction;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javafx.scene.paint.Color;
@@ -9,6 +8,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import syndrome.entity.Entity;
 import syndrome.entity.NPC;
 import syndrome.entity.objective.Objective;
 import syndrome.logic.World;
@@ -16,6 +16,7 @@ import syndrome.logic.map.Location;
 import syndrome.projectile.Projectile;
 import syndrome.logic.projectile.impl.HealCell;
 import syndrome.other.SyndromeFactory;
+import syndrome.annotation.ObjectiveInfo;
 
 /**
  * Represents a Kupffer cell.
@@ -25,14 +26,12 @@ import syndrome.other.SyndromeFactory;
  * 
  * @author Axel Wallin
  */
-
+@ObjectiveInfo(objectives = {Objective.ATTACK_BACTERIA, Objective.ATTACK_PLAYER})
 public class KupfferCell extends NPC {
     
-    private Circle body;
-    private Text label;
-    private NPC target;
-    
-    private boolean multiplied;
+    private final Circle body;
+    private final Text label;
+    private Entity target;
     private Direction animationDirection;
     
     /**
@@ -47,7 +46,6 @@ public class KupfferCell extends NPC {
         
         this.body = new Circle();
         this.label = new Text();
-        this.multiplied = false;
         this.animationDirection = Direction.DOWN;
     }
     
@@ -77,15 +75,6 @@ public class KupfferCell extends NPC {
     }
 
     @Override
-    public List<Objective> getObjective() {
-        return new ArrayList<Objective>() {
-            {
-                add(Objective.ATTACK_BACTERIA);
-            }
-        };
-    }
-
-    @Override
     public void handleCollision(Projectile projectile) {
         if(!(projectile instanceof HealCell)) {
             super.health -= 25;
@@ -108,13 +97,16 @@ public class KupfferCell extends NPC {
     }
     
     private void attack() {
-        if(target == null || !SyndromeFactory.getWorld().getNPCs().contains(target)) {
+        List<NPC> worldNPCs = SyndromeFactory.getWorld().getNPCs();
+        if(target == null) {
             target = findTarget();
-        } else {
-            super.moveToward(target);
-            if(target.getLocation().distanceTo(location) <= 3) {
-                target.destroy();
-            }
+        }
+        if(target instanceof NPC && !worldNPCs.contains((NPC) target)) {
+            target = findTarget();
+        }
+        super.moveToward(target);
+        if(target.getLocation().distanceTo(location) <= 3) {
+            target.destroy();
         }
     }
     
@@ -134,7 +126,7 @@ public class KupfferCell extends NPC {
         }
     }
     
-    private NPC findTarget() {
+    private Entity findTarget() {
         List<NPC> activeNPCs = SyndromeFactory.getWorld().getNPCs();
         Collections.shuffle(activeNPCs);
         for(NPC npc : activeNPCs) {
@@ -142,7 +134,7 @@ public class KupfferCell extends NPC {
                 return npc;
             }
         }
-        return null;
+        return SyndromeFactory.getWorld().getPlayer();
     }
 
 }

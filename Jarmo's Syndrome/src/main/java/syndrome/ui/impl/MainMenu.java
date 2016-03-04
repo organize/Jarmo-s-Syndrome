@@ -1,7 +1,6 @@
 package syndrome.ui.impl;
 
 import java.awt.Dimension;
-import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -43,15 +42,16 @@ public class MainMenu implements SyndromeGUI {
     @Override
     public void build(Stage stage) {
         MenuButton newGame = new MenuButton(" New Game ", "white");
-        newGame.setOnAction((ActionEvent) -> {
+        newGame.setOnAction((e) -> {
             SyndromeFactory.getGUIManager().hideMainMenu();
             SyndromeFactory.getGUIManager().drawGameScreen();
+            SyndromeFactory.getWorld().startTimer();
         });
         newGame.relocate(230, 170);
         
         MenuButton quit = new MenuButton("      EXIT      ", "white");
         quit.relocate(230, 230);
-        quit.setOnAction((ActionEvent) -> {
+        quit.setOnAction((e) -> {
             System.exit(0);
         });
         
@@ -60,15 +60,13 @@ public class MainMenu implements SyndromeGUI {
         mainTitle.setFill(Paint.valueOf("white")); 
         mainTitle.setStyle("-fx-effect: dropshadow(gaussian, red, 7, 0.0, 2, 2);");
         
-        Pane paneRoot = new Pane();
-        paneRoot.setStyle("-fx-background-color: #000000;");
-        paneRoot.getChildren().add(newGame);
-        paneRoot.getChildren().add(quit);
-        paneRoot.getChildren().add(mainTitle);
-        paneRoot.getChildren().add(createAudioControls());
+        Pane groupRoot = new Pane();
+        groupRoot.setStyle("-fx-background-color: #000000;");
+        groupRoot.getChildren()
+            .addAll(newGame, quit,mainTitle, createAudioControls());
         
         this.stage = stage;
-        this.root = paneRoot;
+        this.root = groupRoot;
     }
     
     private Button createAudioControls() {
@@ -78,7 +76,7 @@ public class MainMenu implements SyndromeGUI {
         audioStatus.relocate(5, 500);
         audioStatus.setPadding(Insets.EMPTY);
         audioStatus.setStyle("-fx-background-color: transparent;");
-        audioStatus.setOnAction((ActionEvent event) -> {
+        audioStatus.setOnAction((e) -> {
             AudioClip clip = SyndromeFactory.getAudioManager().get("title");
             if(clip.isPlaying()) {
                 clip.stop();

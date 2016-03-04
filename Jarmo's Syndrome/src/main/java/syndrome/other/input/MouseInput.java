@@ -23,10 +23,12 @@ public class MouseInput implements EventHandler<MouseEvent> {
      */
     @Override
     public void handle(MouseEvent event) {
-        if(event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
-            handleMouseClick(event);
+        if(!SyndromeFactory.getSettings().isPaused()) {
+            if(event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+                handleMouseClick(event);
+            }
+            handlePlayerRotation(event);
         }
-        handlePlayerRotation(event);
     }
     
     private void handleMouseClick(MouseEvent event) {

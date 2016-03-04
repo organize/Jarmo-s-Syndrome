@@ -1,6 +1,5 @@
 package syndrome.entity.impl;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -18,6 +17,7 @@ import syndrome.projectile.Projectile;
 import syndrome.logic.projectile.impl.Halt;
 import syndrome.logic.projectile.impl.HealCell;
 import syndrome.other.SyndromeFactory;
+import syndrome.annotation.ObjectiveInfo;
 
 /**
  * Represents a sinusoidal endothelial Cell.
@@ -27,11 +27,11 @@ import syndrome.other.SyndromeFactory;
  * 
  * @author Axel Wallin
  */
-
+@ObjectiveInfo(objectives = {Objective.REINFORCE, Objective.ATTACK_PLAYER})
 public class EndothelialCell extends NPC {
 
-    private Circle body;
-    private Text label;
+    private final Circle body;
+    private final Text label;
     private long lastUpdate;
     
     private Objective action;
@@ -93,16 +93,6 @@ public class EndothelialCell extends NPC {
         return (int) body.getRadius();
     }
 
-    @Override 
-    public List<Objective> getObjective() {
-        return new ArrayList<Objective>() {
-            {
-                add(Objective.REINFORCE);
-                add(Objective.ATTACK_PLAYER);
-            }
-        };
-    }
-
     @Override
     public void handleCollision(Projectile projectile) {
         if(!(projectile instanceof HealCell)) {
@@ -116,10 +106,12 @@ public class EndothelialCell extends NPC {
     private void checkActionStatus() {
         Player player = SyndromeFactory.getWorld().getPlayer();
         if(action == null) {
-            action = getObjective().get(0);
+            action = getClass().getAnnotation(ObjectiveInfo.class)
+                    .objectives()[0];
             if(location.distanceTo(player.getLocation()) < 150
                     && new Random().nextInt(3) == 1) {
-                action = getObjective().get(1);
+                action = getClass().getAnnotation(ObjectiveInfo.class)
+                    .objectives()[1];
             }
         }
         handleAction(action, player);
