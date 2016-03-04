@@ -1,3 +1,6 @@
+<h4>Alustavasti</h4>
+* <h6>Reposta löytyy fontti `install_me.TTF` -  <b>asenna tämä ensin</b>!</h6>
+
 <h4>Käyttöohje</h4>
 * Olet viirus, eli toistaiseksi musta neliö keskellä ruutua.
 * Peli on arcade-tyylinen, eli jatkumuoa ei ole. Peli vaikeutuu progressiivisesti.
