@@ -6,7 +6,8 @@ Pitistä hieman:
 	käyttävät metodit tulisi testata. Näitä luokkia esim. Spawner ja Location.
 
 04.03: 
-`Please copy and paste the information and the complete stacktrace below when reporting an issue
+
+* `Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : Java HotSpot(TM) 64-Bit Server VM
 Vendor : Oracle Corporation
 Version : 25.60-b23
